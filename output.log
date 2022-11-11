@@ -1,0 +1,76 @@
+Set 0
+1 0 0 0
+0 0 3 X 
+0 0 2 X 
+0 0 1 X 
+
+current_instr = 0 0000000000 0000 00
+Cache miss: miss_count =  1
+current_instr = 0 0000000000 0000 01
+Cache hit: hit_count =  1
+current_instr = 0 0000000000 0000 10
+Cache hit: hit_count =  2
+current_instr = 0 0000000000 0000 11
+Cache hit: hit_count =  3
+
+current_instr = 0 0000000000 0100 00
+Cache miss: miss_count =  2
+current_instr = 00000000000100000
+Cache miss: miss_count =  3
+current_instr = 00000000000110000
+Cache miss: miss_count =  4
+current_instr = 00000000000010000
+Cache hit: hit_count =  4
+
+current_instr = 10000000000000000
+Cache hit: hit_count =  5
+current_instr = 00000000001000000
+Cache miss: miss_count =  5
+current_instr = 00000000000000000
+Cache hit: hit_count =  6
+current_instr = 00000000000000000
+Cache hit: hit_count =  7
+current_instr = 00000000000000000
+Cache hit: hit_count =  8
+current_instr = 00000000000000000
+Cache hit: hit_count =  9
+current_instr = 00000000000000000
+Cache hit: hit_count = 10
+current_instr = 00000000000000000
+Cache hit: hit_count = 11
+current_instr = 00000000000000000
+Cache hit: hit_count = 12
+current_instr = 00000000000000000
+Cache hit: hit_count = 13
+current_instr = 00000000000000000
+Cache hit: hit_count = 14
+current_instr = 00000000000000000
+Cache hit: hit_count = 15
+current_instr = 00000000000000000
+Cache hit: hit_count = 16
+current_instr = 00000000000000000
+Cache hit: hit_count = 17
+current_instr = 00000000000000000
+Cache hit: hit_count = 18
+current_instr = 00000000000000000
+Cache hit: hit_count = 19
+current_instr = 00000000000000000
+Cache hit: hit_count = 20
+current_instr = 00000000000000000
+Cache hit: hit_count = 21
+current_instr = 00000000000000000
+Cache hit: hit_count = 22
+current_instr = 00000000000000000
+Cache hit: hit_count = 23
+current_instr = 00000000000000000
+Cache hit: hit_count = 24
+current_instr = 00000000000000000
+Cache hit: hit_count = 25
+current_instr = 00000000000000000
+Cache hit: hit_count = 26
+current_instr = 00000000000000000
+Cache hit: hit_count = 27
+
+
+current_instr = 00000000000000000
+Cache hit: hit_count = 28
