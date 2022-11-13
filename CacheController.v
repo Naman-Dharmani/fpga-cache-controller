@@ -9,7 +9,7 @@ module CacheController(
 	parameter n_blk_bits = 4;
 	parameter n_set_bits = 12;
 	parameter n_tag_bits = (n_pa_bits - n_set_bits - n_blk_bits);
-	parameter n_lines = 2 ** (n_set_bits + 2)	// 4 wsa hence added 2
+	parameter n_lines = 2 ** (n_set_bits + 2);	// 4 wsa hence added 2
 
 	reg [13:0] prog_count = 0;	// 14 for 9999 instructions
 	reg [n_pa_bits:0] instructions [0:99]; // 1 write/read_bar bit and 16 addresss bits
