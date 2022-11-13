@@ -1,9 +1,12 @@
+`timescale 1ns / 1ps
+
 module CacheController(
-		input clk, reset,
-		output reg [13:0] hit_count,
-		output reg [13:0] miss_count
+	input clk, reset, halt,
+	input [n_pa_bits:0] instruction,
+	output reg fetch,
+	output reg [13:0] hit_count,
+	output reg [13:0] miss_count
 	);
-	
 	
 	parameter n_pa_bits = 32;
 	parameter n_blk_bits = 4;
@@ -11,8 +14,8 @@ module CacheController(
 	parameter n_tag_bits = (n_pa_bits - n_set_bits - n_blk_bits);
 	parameter n_lines = 2 ** (n_set_bits + 2);	// 4 wsa hence added 2
 
-	reg [13:0] prog_count = 0;	// 14 for 9999 instructions
-	reg [n_pa_bits:0] instructions [0:99]; // 1 write/read_bar bit and 16 addresss bits
+	// prog_count = 0;	// 14 for 9999 instructions
+	// reg [n_pa_bits:0] instructions [0:99]; // 1 write/read_bar bit and 16 addresss bits
 
 	// Current instruction address properties
 	// [Tag (n_tag_bits), Set (n_set_bits), Blk offset (n_blk_bits)]
@@ -37,10 +40,12 @@ module CacheController(
 	integer i;
 	initial begin
 		// Reading memory instructions from trace file
-		$readmemb("/home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-GroupID-8/Cache-Controller-GroupID-8.srcs/sources_1/imports/Cache-Controller-GroupID-8/instructions.mem", instructions);
+		// $readmemb("/home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-GroupID-8/output.trace", instructions);
 
 		// instantiate tag_dir age in the order 3, 2, 1, 0 for each set 
 		// instantiate tag_dir valid & dirty bit = 0 for all lines
+		prog_count = 0;
+		
 		for (i = 0; i < n_lines; i = i + 1) begin
 			tag_dir[i][n_age_index+1:n_age_index] = 3 - (i % 4);
 			tag_dir[i][n_valid_index:n_dirty_index] = 2'b00;
@@ -54,7 +59,8 @@ module CacheController(
 		case(state)
 			0: begin
 				// Read instruction and proceed to next state
-				current_instr = instructions[prog_count];
+				// current_instr = instructions[prog_count];
+				current_instr = instruction;
 				$display("current_instr = %b", current_instr);
 
 				// Instatiating various bits
@@ -63,7 +69,6 @@ module CacheController(
 				set_bits = current_instr[n_set_bits+n_blk_bits-1:n_blk_bits];
 				blk_offset = current_instr[n_blk_bits-1:0];
 				
-				prog_count = prog_count + 1;
 				next_state = 1;
 			end
 
@@ -95,6 +100,9 @@ module CacheController(
 				else begin
 					next_state = 3;
 				end
+
+				// Instructing prog_count to increment for fetching from next address
+				fetch = 1;
 			end
 
 			2: begin
@@ -122,12 +130,16 @@ module CacheController(
 				tag_dir[{set_bits, set_offset}][n_age_index+1:n_age_index] = 0;
 
 				// Instruction MSB -> 1 (Write) & 0 -> (Read)
-				if (rw_req)
+				if (rw_req) begin
 					// Write
 					next_state = 5;
-				else
+				end
+				else begin
 					// Read
 					next_state = 4;
+				end
+
+				fetch = 0;
 			end
 
 			3: begin
@@ -204,8 +216,12 @@ module CacheController(
 		if (!reset)
 			// Reset
 			state = 0;
+			hit_count = 0;
+			miss_count = 0;
 		else
-			state = next_state;
+			if (!halt) begin
+				state = next_state;	
+			end
 	end
 
 endmodule
