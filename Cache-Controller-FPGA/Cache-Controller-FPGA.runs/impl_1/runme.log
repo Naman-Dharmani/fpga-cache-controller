@@ -17,19 +17,20 @@ Design is defaulting to srcset: sources_1
 Design is defaulting to constrset: constrs_1
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-454] Reading design checkpoint '/home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.gen/sources_1/bd/bram/ip/bram_blk_mem_gen_0_0/bram_blk_mem_gen_0_0.dcp' for cell 'bramWrapper/bram_i/blk_mem_gen_0'
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2607.777 ; gain = 0.000 ; free physical = 6637 ; free virtual = 40593
-INFO: [Netlist 29-17] Analyzing 20 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2607.773 ; gain = 0.000 ; free physical = 5758 ; free virtual = 36951
+INFO: [Netlist 29-17] Analyzing 1212 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'TopModule' is not ideal for floorplanning, since the cellview 'CacheController' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
 INFO: [Project 1-479] Netlist was created with Vivado 2022.1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 Parsing XDC File [/home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.srcs/constrs_1/new/constraints.xdc]
 Finished Parsing XDC File [/home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.srcs/constrs_1/new/constraints.xdc]
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2663.805 ; gain = 0.000 ; free physical = 6528 ; free virtual = 40483
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2663.801 ; gain = 0.000 ; free physical = 5635 ; free virtual = 36829
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-11 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+11 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
 link_design completed successfully
 Command: opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
@@ -41,55 +42,57 @@ INFO: [DRC 23-27] Running DRC with 8 threads
 INFO: [Project 1-461] DRC finished with 0 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 
-Time (s): cpu = 00:00:00.69 ; elapsed = 00:00:00.43 . Memory (MB): peak = 2727.836 ; gain = 64.031 ; free physical = 6514 ; free virtual = 40470
+Time (s): cpu = 00:00:00.79 ; elapsed = 00:00:00.49 . Memory (MB): peak = 2727.832 ; gain = 64.031 ; free physical = 5622 ; free virtual = 36816
 
 Starting Cache Timing Information Task
 INFO: [Timing 38-35] Done setting XDC timing constraints.
-Ending Cache Timing Information Task | Checksum: 11395df51
+Ending Cache Timing Information Task | Checksum: 16b6ba739
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2727.836 ; gain = 0.000 ; free physical = 6076 ; free virtual = 40031
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2743.707 ; gain = 15.875 ; free physical = 5103 ; free virtual = 36320
 
 Starting Logic Optimization Task
 
 Phase 1 Retarget
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 3 load pin(s).
 In IDDR TRANSFORM
 INFO: [Opt 31-49] Retargeted 0 cell(s).
-Phase 1 Retarget | Checksum: 11395df51
+Phase 1 Retarget | Checksum: 19d509b5e
 
-Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2944.977 ; gain = 0.000 ; free physical = 5839 ; free virtual = 39795
-INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 0 cells
+Time (s): cpu = 00:00:00.21 ; elapsed = 00:00:00.12 . Memory (MB): peak = 2998.754 ; gain = 0.000 ; free physical = 4945 ; free virtual = 36163
+INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 3 cells
 
 Phase 2 Constant propagation
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Phase 2 Constant propagation | Checksum: 1236d5652
+Phase 2 Constant propagation | Checksum: 19d509b5e
 
-Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2944.977 ; gain = 0.000 ; free physical = 5839 ; free virtual = 39795
-INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 31 cells
+Time (s): cpu = 00:00:00.25 ; elapsed = 00:00:00.15 . Memory (MB): peak = 2998.754 ; gain = 0.000 ; free physical = 4945 ; free virtual = 36163
+INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
 
 Phase 3 Sweep
-Phase 3 Sweep | Checksum: b713fc0d
+Phase 3 Sweep | Checksum: 196c8eedc
 
-Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2944.977 ; gain = 0.000 ; free physical = 5839 ; free virtual = 39795
-INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 12 cells
+Time (s): cpu = 00:00:00.3 ; elapsed = 00:00:00.21 . Memory (MB): peak = 2998.754 ; gain = 0.000 ; free physical = 4944 ; free virtual = 36162
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 0 cells
 
 Phase 4 BUFG optimization
-Phase 4 BUFG optimization | Checksum: b713fc0d
+INFO: [Opt 31-194] Inserted BUFG clockDivider/clk_BUFG_inst to drive 41 load(s) on clock net clockDivider/clk_BUFG
+INFO: [Opt 31-193] Inserted 1 BUFG(s) on clock nets
+Phase 4 BUFG optimization | Checksum: 1e774e31c
 
-Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2976.992 ; gain = 32.016 ; free physical = 5839 ; free virtual = 39795
-INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+Time (s): cpu = 00:00:00.4 ; elapsed = 00:00:00.25 . Memory (MB): peak = 3030.770 ; gain = 32.016 ; free physical = 4944 ; free virtual = 36162
+INFO: [Opt 31-662] Phase BUFG optimization created 1 cells of which 1 are BUFGs and removed 0 cells.
 
 Phase 5 Shift Register Optimization
 INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
-Phase 5 Shift Register Optimization | Checksum: b713fc0d
+Phase 5 Shift Register Optimization | Checksum: 1e774e31c
 
-Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2976.992 ; gain = 32.016 ; free physical = 5839 ; free virtual = 39795
+Time (s): cpu = 00:00:00.41 ; elapsed = 00:00:00.26 . Memory (MB): peak = 3030.770 ; gain = 32.016 ; free physical = 4944 ; free virtual = 36162
 INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
 
 Phase 6 Post Processing Netlist
-Phase 6 Post Processing Netlist | Checksum: b713fc0d
+Phase 6 Post Processing Netlist | Checksum: 1e774e31c
 
-Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2976.992 ; gain = 32.016 ; free physical = 5839 ; free virtual = 39795
+Time (s): cpu = 00:00:00.42 ; elapsed = 00:00:00.27 . Memory (MB): peak = 3030.770 ; gain = 32.016 ; free physical = 4944 ; free virtual = 36162
 INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
 Opt_design Change Summary
 =========================
@@ -98,10 +101,10 @@ Opt_design Change Summary
 -------------------------------------------------------------------------------------------------------------------------
 |  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
 -------------------------------------------------------------------------------------------------------------------------
-|  Retarget                     |               0  |               0  |                                              0  |
-|  Constant propagation         |               0  |              31  |                                              0  |
-|  Sweep                        |               0  |              12  |                                              0  |
-|  BUFG optimization            |               0  |               0  |                                              0  |
+|  Retarget                     |               0  |               3  |                                              0  |
+|  Constant propagation         |               0  |               0  |                                              0  |
+|  Sweep                        |               0  |               0  |                                              0  |
+|  BUFG optimization            |               1  |               0  |                                              0  |
 |  Shift Register Optimization  |               0  |               0  |                                              0  |
 |  Post Processing Netlist      |               0  |               0  |                                              0  |
 -------------------------------------------------------------------------------------------------------------------------
@@ -110,55 +113,53 @@ Opt_design Change Summary
 
 Starting Connectivity Check Task
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2976.992 ; gain = 0.000 ; free physical = 5839 ; free virtual = 39795
-Ending Logic Optimization Task | Checksum: b5f8dec3
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3030.770 ; gain = 0.000 ; free physical = 4944 ; free virtual = 36162
+Ending Logic Optimization Task | Checksum: 1d947a386
 
-Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2976.992 ; gain = 32.016 ; free physical = 5839 ; free virtual = 39795
+Time (s): cpu = 00:00:00.49 ; elapsed = 00:00:00.3 . Memory (MB): peak = 3030.770 ; gain = 32.016 ; free physical = 4944 ; free virtual = 36162
 
 Starting Power Optimization Task
 INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
-INFO: [Pwropt 34-9] Applying IDT optimizations ...
-INFO: [Pwropt 34-10] Applying ODC optimizations ...
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 WARNING: [Power 33-232] No user defined clocks were found in the design! Power estimation will be inaccurate until this is corrected.
 Resolution: Please specify clocks using create_clock/create_generated_clock for sequential elements. For pure combinatorial circuits, please specify a virtual clock, otherwise the vectorless estimation might be inaccurate
 Running Vector-less Activity Propagation...
 
 Finished Running Vector-less Activity Propagation
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
 
 
 Starting PowerOpt Patch Enables Task
-INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 4 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 8 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
 INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
-Number of BRAM Ports augmented: 0 newly gated: 4 Total Ports: 8
-Number of Flops added for Enable Generation: 1
+Number of BRAM Ports augmented: 0 newly gated: 0 Total Ports: 16
+Ending PowerOpt Patch Enables Task | Checksum: 1d947a386
 
-Ending PowerOpt Patch Enables Task | Checksum: 1185bfa10
+Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3304.559 ; gain = 0.000 ; free physical = 4906 ; free virtual = 36126
+Ending Power Optimization Task | Checksum: 1d947a386
 
-Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5823 ; free virtual = 39781
-Ending Power Optimization Task | Checksum: 1185bfa10
-
-Time (s): cpu = 00:00:00.54 ; elapsed = 00:00:00.35 . Memory (MB): peak = 3242.914 ; gain = 265.922 ; free physical = 5830 ; free virtual = 39787
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 3304.559 ; gain = 273.789 ; free physical = 4913 ; free virtual = 36133
 
 Starting Final Cleanup Task
-Ending Final Cleanup Task | Checksum: 1185bfa10
+Ending Final Cleanup Task | Checksum: 1d947a386
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5830 ; free virtual = 39787
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3304.559 ; gain = 0.000 ; free physical = 4913 ; free virtual = 36133
 
 Starting Netlist Obfuscation Task
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5830 ; free virtual = 39787
-Ending Netlist Obfuscation Task | Checksum: fb794c4e
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3304.559 ; gain = 0.000 ; free physical = 4913 ; free virtual = 36133
+Ending Netlist Obfuscation Task | Checksum: 1d947a386
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5830 ; free virtual = 39787
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3304.559 ; gain = 0.000 ; free physical = 4913 ; free virtual = 36133
 INFO: [Common 17-83] Releasing license: Implementation
-33 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+35 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
 opt_design completed successfully
-opt_design: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 3242.914 ; gain = 579.109 ; free physical = 5830 ; free virtual = 39787
+opt_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:07 . Memory (MB): peak = 3304.559 ; gain = 640.758 ; free physical = 4913 ; free virtual = 36133
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5825 ; free virtual = 39782
+Write XDEF Complete: Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3304.559 ; gain = 0.000 ; free physical = 4899 ; free virtual = 36120
 INFO: [Common 17-1381] The checkpoint '/home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.runs/impl_1/TopModule_opt.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_drc -file TopModule_drc_opted.rpt -pb TopModule_drc_opted.pb -rpx TopModule_drc_opted.rpx
 Command: report_drc -file TopModule_drc_opted.rpt -pb TopModule_drc_opted.pb -rpx TopModule_drc_opted.rpx
@@ -175,7 +176,7 @@ INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
 INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
 Running DRC as a precondition to command place_design
 INFO: [DRC 23-27] Running DRC with 8 threads
-INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors, 34 Warnings
 INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
 
 Starting Placer Task
@@ -184,107 +185,107 @@ INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 
 Phase 1 Placer Initialization
 
 Phase 1.1 Placer Initialization Netlist Sorting
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5779 ; free virtual = 39737
-Phase 1.1 Placer Initialization Netlist Sorting | Checksum: b9916777
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4828 ; free virtual = 36050
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 19dfe1e07
 
-Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5779 ; free virtual = 39737
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5779 ; free virtual = 39737
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4828 ; free virtual = 36050
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4828 ; free virtual = 36050
 
 Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
-Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 1408fd179
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 1a9fb3e1d
 
-Time (s): cpu = 00:00:00.31 ; elapsed = 00:00:00.13 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5789 ; free virtual = 39746
+Time (s): cpu = 00:00:00.57 ; elapsed = 00:00:00.28 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4866 ; free virtual = 36088
 
 Phase 1.3 Build Placer Netlist Model
-Phase 1.3 Build Placer Netlist Model | Checksum: 1b6c5a61c
+Phase 1.3 Build Placer Netlist Model | Checksum: 1d28cfefd
 
-Time (s): cpu = 00:00:00.34 ; elapsed = 00:00:00.15 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5790 ; free virtual = 39747
+Time (s): cpu = 00:00:00.73 ; elapsed = 00:00:00.41 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4860 ; free virtual = 36082
 
 Phase 1.4 Constrain Clocks/Macros
-Phase 1.4 Constrain Clocks/Macros | Checksum: 1b6c5a61c
+Phase 1.4 Constrain Clocks/Macros | Checksum: 1d28cfefd
 
-Time (s): cpu = 00:00:00.34 ; elapsed = 00:00:00.15 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5790 ; free virtual = 39747
-Phase 1 Placer Initialization | Checksum: 1b6c5a61c
+Time (s): cpu = 00:00:00.74 ; elapsed = 00:00:00.42 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4860 ; free virtual = 36082
+Phase 1 Placer Initialization | Checksum: 1d28cfefd
 
-Time (s): cpu = 00:00:00.35 ; elapsed = 00:00:00.15 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5789 ; free virtual = 39746
+Time (s): cpu = 00:00:00.74 ; elapsed = 00:00:00.42 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4858 ; free virtual = 36080
 
 Phase 2 Global Placement
 
 Phase 2.1 Floorplanning
-Phase 2.1 Floorplanning | Checksum: 1b6c5a61c
+Phase 2.1 Floorplanning | Checksum: 1d28cfefd
 
-Time (s): cpu = 00:00:00.35 ; elapsed = 00:00:00.15 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5788 ; free virtual = 39745
+Time (s): cpu = 00:00:00.75 ; elapsed = 00:00:00.44 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4854 ; free virtual = 36076
 
 Phase 2.2 Update Timing before SLR Path Opt
-Phase 2.2 Update Timing before SLR Path Opt | Checksum: 1b6c5a61c
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 1d28cfefd
 
-Time (s): cpu = 00:00:00.35 ; elapsed = 00:00:00.15 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5788 ; free virtual = 39745
+Time (s): cpu = 00:00:00.75 ; elapsed = 00:00:00.44 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4854 ; free virtual = 36076
 
 Phase 2.3 Post-Processing in Floorplanning
-Phase 2.3 Post-Processing in Floorplanning | Checksum: 1b6c5a61c
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 1d28cfefd
 
-Time (s): cpu = 00:00:00.35 ; elapsed = 00:00:00.15 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5788 ; free virtual = 39745
+Time (s): cpu = 00:00:00.75 ; elapsed = 00:00:00.44 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4854 ; free virtual = 36076
 
 Phase 2.4 Global Placement Core
 WARNING: [Place 46-29] place_design is not in timing mode. Skip physical synthesis in placer
-Phase 2.4 Global Placement Core | Checksum: 1d83a1adf
+Phase 2.4 Global Placement Core | Checksum: 1ab5e44a2
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.3 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5777 ; free virtual = 39734
-Phase 2 Global Placement | Checksum: 1d83a1adf
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:02 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4822 ; free virtual = 36045
+Phase 2 Global Placement | Checksum: 1ab5e44a2
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.31 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5777 ; free virtual = 39734
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:02 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4823 ; free virtual = 36045
 
 Phase 3 Detail Placement
 
 Phase 3.1 Commit Multi Column Macros
-Phase 3.1 Commit Multi Column Macros | Checksum: 1d83a1adf
+Phase 3.1 Commit Multi Column Macros | Checksum: 1ab5e44a2
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.31 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5777 ; free virtual = 39734
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:02 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4823 ; free virtual = 36045
 
 Phase 3.2 Commit Most Macros & LUTRAMs
-Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: e3e68ebd
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 221a12a8b
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.32 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5777 ; free virtual = 39734
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:02 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4822 ; free virtual = 36045
 
 Phase 3.3 Area Swap Optimization
-Phase 3.3 Area Swap Optimization | Checksum: f8bd79bd
+Phase 3.3 Area Swap Optimization | Checksum: 18be3aa44
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.32 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5776 ; free virtual = 39734
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:02 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4822 ; free virtual = 36045
 
 Phase 3.4 Pipeline Register Optimization
-Phase 3.4 Pipeline Register Optimization | Checksum: f8bd79bd
+Phase 3.4 Pipeline Register Optimization | Checksum: 18be3aa44
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.33 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5777 ; free virtual = 39734
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:02 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4822 ; free virtual = 36045
 
 Phase 3.5 Small Shape Detail Placement
-Phase 3.5 Small Shape Detail Placement | Checksum: 24c744687
+Phase 3.5 Small Shape Detail Placement | Checksum: 2015c53b8
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.39 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5771 ; free virtual = 39728
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:04 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4799 ; free virtual = 36022
 
 Phase 3.6 Re-assign LUT pins
-Phase 3.6 Re-assign LUT pins | Checksum: 24c744687
+Phase 3.6 Re-assign LUT pins | Checksum: 2015c53b8
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.39 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5771 ; free virtual = 39728
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:05 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4794 ; free virtual = 36017
 
 Phase 3.7 Pipeline Register Optimization
-Phase 3.7 Pipeline Register Optimization | Checksum: 24c744687
+Phase 3.7 Pipeline Register Optimization | Checksum: 2015c53b8
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.39 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5771 ; free virtual = 39728
-Phase 3 Detail Placement | Checksum: 24c744687
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:05 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4794 ; free virtual = 36017
+Phase 3 Detail Placement | Checksum: 2015c53b8
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.39 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5771 ; free virtual = 39728
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:05 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4794 ; free virtual = 36017
 
 Phase 4 Post Placement Optimization and Clean-Up
 
 Phase 4.1 Post Commit Optimization
-Phase 4.1 Post Commit Optimization | Checksum: 24c744687
+Phase 4.1 Post Commit Optimization | Checksum: 2015c53b8
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.42 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5769 ; free virtual = 39726
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:05 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4794 ; free virtual = 36017
 
 Phase 4.2 Post Placement Cleanup
-Phase 4.2 Post Placement Cleanup | Checksum: 24c744687
+Phase 4.2 Post Placement Cleanup | Checksum: 2015c53b8
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.42 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5770 ; free virtual = 39727
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:05 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4795 ; free virtual = 36018
 
 Phase 4.3 Placer Reporting
 
@@ -303,49 +304,50 @@ INFO: [Place 30-612] Post-Placement Estimated Congestion
 |       West|                1x1|                1x1|
 |___________|___________________|___________________|
 
-Phase 4.3.1 Print Estimated Congestion | Checksum: 24c744687
+Phase 4.3.1 Print Estimated Congestion | Checksum: 2015c53b8
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.43 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5770 ; free virtual = 39727
-Phase 4.3 Placer Reporting | Checksum: 24c744687
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:05 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4796 ; free virtual = 36019
+Phase 4.3 Placer Reporting | Checksum: 2015c53b8
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.43 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5770 ; free virtual = 39727
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:05 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4796 ; free virtual = 36019
 
 Phase 4.4 Final Placement Cleanup
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5770 ; free virtual = 39727
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4796 ; free virtual = 36019
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.43 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5770 ; free virtual = 39727
-Phase 4 Post Placement Optimization and Clean-Up | Checksum: 269682123
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:05 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4796 ; free virtual = 36019
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 13aabdbbe
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.43 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5770 ; free virtual = 39727
-Ending Placer Task | Checksum: 16a43b074
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:05 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4796 ; free virtual = 36019
+Ending Placer Task | Checksum: 75802884
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.43 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5771 ; free virtual = 39729
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:05 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4796 ; free virtual = 36019
 INFO: [Common 17-83] Releasing license: Implementation
-50 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+52 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 place_design completed successfully
+place_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:05 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4829 ; free virtual = 36052
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5795 ; free virtual = 39753
+Write XDEF Complete: Time (s): cpu = 00:00:00.77 ; elapsed = 00:00:00.34 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4817 ; free virtual = 36054
 INFO: [Common 17-1381] The checkpoint '/home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.runs/impl_1/TopModule_placed.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_io -file TopModule_io_placed.rpt
-report_io: Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.07 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5783 ; free virtual = 39740
+report_io: Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.09 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4828 ; free virtual = 36054
 INFO: [runtcl-4] Executing : report_utilization -file TopModule_utilization_placed.rpt -pb TopModule_utilization_placed.pb
 INFO: [runtcl-4] Executing : report_control_sets -verbose -file TopModule_control_sets_placed.rpt
-report_control_sets: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5789 ; free virtual = 39747
+report_control_sets: Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.08 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4831 ; free virtual = 36057
 Command: phys_opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
 INFO: [Vivado_Tcl 4-235] No timing constraint found. The netlist was not modified.
 INFO: [Common 17-83] Releasing license: Implementation
-58 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+60 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 phys_opt_design completed successfully
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5769 ; free virtual = 39727
+Write XDEF Complete: Time (s): cpu = 00:00:00.79 ; elapsed = 00:00:00.36 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4779 ; free virtual = 36020
 INFO: [Common 17-1381] The checkpoint '/home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.runs/impl_1/TopModule_physopt.dcp' has been generated.
 Command: route_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
@@ -360,24 +362,24 @@ Starting Routing Task
 INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 8 CPUs
 
 Phase 1 Build RT Design
-Checksum: PlaceDB: 7674a20d ConstDB: 0 ShapeSum: f3cf0e67 RouteDB: 0
-Post Restoration Checksum: NetGraph: 930c7426 NumContArr: 957007a8 Constraints: 0 Timing: 0
-Phase 1 Build RT Design | Checksum: 1287c7bce
+Checksum: PlaceDB: 66552192 ConstDB: 0 ShapeSum: f2b06f2 RouteDB: 0
+Post Restoration Checksum: NetGraph: 43f75435 NumContArr: ae32dee Constraints: 0 Timing: 0
+Phase 1 Build RT Design | Checksum: 4eda8223
 
-Time (s): cpu = 00:00:16 ; elapsed = 00:00:13 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5636 ; free virtual = 39594
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:15 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4651 ; free virtual = 35881
 
 Phase 2 Router Initialization
 INFO: [Route 35-64] No timing constraints were detected. The router will operate in resource-optimization mode.
 
 Phase 2.1 Fix Topology Constraints
-Phase 2.1 Fix Topology Constraints | Checksum: 1287c7bce
+Phase 2.1 Fix Topology Constraints | Checksum: 4eda8223
 
-Time (s): cpu = 00:00:16 ; elapsed = 00:00:13 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5597 ; free virtual = 39555
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:15 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4615 ; free virtual = 35845
 
 Phase 2.2 Pre Route Cleanup
-Phase 2.2 Pre Route Cleanup | Checksum: 1287c7bce
+Phase 2.2 Pre Route Cleanup | Checksum: 4eda8223
 
-Time (s): cpu = 00:00:16 ; elapsed = 00:00:13 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5597 ; free virtual = 39555
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:15 . Memory (MB): peak = 3327.621 ; gain = 0.000 ; free physical = 4615 ; free virtual = 35845
  Number of Nodes with overlaps = 0
 
 Router Utilization Summary
@@ -386,57 +388,60 @@ Router Utilization Summary
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
-  Number of Failed Nets               = 88
+  Number of Failed Nets               = 9268
     (Failed Nets is the sum of unrouted and partially routed nets)
-  Number of Unrouted Nets             = 88
-  Number of Partially Routed Nets     = 0
+  Number of Unrouted Nets             = 9267
+  Number of Partially Routed Nets     = 1
   Number of Node Overlaps             = 0
 
-Phase 2 Router Initialization | Checksum: 56558bf8
+Phase 2 Router Initialization | Checksum: 1be356ff6
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:14 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5585 ; free virtual = 39543
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:15 . Memory (MB): peak = 3340.836 ; gain = 13.215 ; free physical = 4603 ; free virtual = 35833
 
 Phase 3 Initial Routing
 
 Phase 3.1 Global Routing
-Phase 3.1 Global Routing | Checksum: 56558bf8
+Phase 3.1 Global Routing | Checksum: 1be356ff6
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:14 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5585 ; free virtual = 39543
-Phase 3 Initial Routing | Checksum: fb8df00c
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:15 . Memory (MB): peak = 3340.836 ; gain = 13.215 ; free physical = 4603 ; free virtual = 35833
+Phase 3 Initial Routing | Checksum: a8ca9838
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:14 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5585 ; free virtual = 39543
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:15 . Memory (MB): peak = 3346.836 ; gain = 19.215 ; free physical = 4598 ; free virtual = 35828
 
 Phase 4 Rip-up And Reroute
 
 Phase 4.1 Global Iteration 0
+ Number of Nodes with overlaps = 1093
+ Number of Nodes with overlaps = 5
+ Number of Nodes with overlaps = 1
  Number of Nodes with overlaps = 0
-Phase 4.1 Global Iteration 0 | Checksum: 14ddfdd83
+Phase 4.1 Global Iteration 0 | Checksum: f99721cd
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:14 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5585 ; free virtual = 39543
-Phase 4 Rip-up And Reroute | Checksum: 14ddfdd83
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:17 . Memory (MB): peak = 3346.836 ; gain = 19.215 ; free physical = 4600 ; free virtual = 35830
+Phase 4 Rip-up And Reroute | Checksum: f99721cd
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:14 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5585 ; free virtual = 39543
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:17 . Memory (MB): peak = 3346.836 ; gain = 19.215 ; free physical = 4600 ; free virtual = 35830
 
 Phase 5 Delay and Skew Optimization
-Phase 5 Delay and Skew Optimization | Checksum: 14ddfdd83
+Phase 5 Delay and Skew Optimization | Checksum: f99721cd
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:14 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5585 ; free virtual = 39543
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:17 . Memory (MB): peak = 3346.836 ; gain = 19.215 ; free physical = 4600 ; free virtual = 35830
 
 Phase 6 Post Hold Fix
 
 Phase 6.1 Hold Fix Iter
-Phase 6.1 Hold Fix Iter | Checksum: 14ddfdd83
+Phase 6.1 Hold Fix Iter | Checksum: f99721cd
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:14 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5585 ; free virtual = 39543
-Phase 6 Post Hold Fix | Checksum: 14ddfdd83
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:17 . Memory (MB): peak = 3346.836 ; gain = 19.215 ; free physical = 4600 ; free virtual = 35830
+Phase 6 Post Hold Fix | Checksum: f99721cd
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:14 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5585 ; free virtual = 39543
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:17 . Memory (MB): peak = 3346.836 ; gain = 19.215 ; free physical = 4600 ; free virtual = 35830
 
 Phase 7 Route finalize
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 0.0161031 %
-  Global Horizontal Routing Utilization  = 0.0134982 %
+  Global Vertical Routing Utilization    = 1.92484 %
+  Global Horizontal Routing Utilization  = 2.42057 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
@@ -447,10 +452,10 @@ Router Utilization Summary
   Number of Node Overlaps             = 0
 
 Congestion Report
-North Dir 1x1 Area, Max Cong = 22.5225%, No Congested Regions.
-South Dir 1x1 Area, Max Cong = 16.2162%, No Congested Regions.
-East Dir 1x1 Area, Max Cong = 4.41176%, No Congested Regions.
-West Dir 1x1 Area, Max Cong = 20.5882%, No Congested Regions.
+North Dir 1x1 Area, Max Cong = 44.1441%, No Congested Regions.
+South Dir 1x1 Area, Max Cong = 45.9459%, No Congested Regions.
+East Dir 1x1 Area, Max Cong = 51.4706%, No Congested Regions.
+West Dir 1x1 Area, Max Cong = 54.4118%, No Congested Regions.
 
 ------------------------------
 Reporting congestion hotspots
@@ -472,35 +477,35 @@ Direction: West
 Congested clusters found at Level 0
 Effective congestion level: 0 Aspect Ratio: 1 Sparse Ratio: 0
 
-Phase 7 Route finalize | Checksum: 14ddfdd83
+Phase 7 Route finalize | Checksum: f99721cd
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:14 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5584 ; free virtual = 39542
+Time (s): cpu = 00:00:24 ; elapsed = 00:00:17 . Memory (MB): peak = 3346.836 ; gain = 19.215 ; free physical = 4600 ; free virtual = 35830
 
 Phase 8 Verifying routed nets
 
  Verification completed successfully
-Phase 8 Verifying routed nets | Checksum: 14ddfdd83
+Phase 8 Verifying routed nets | Checksum: f99721cd
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:14 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5584 ; free virtual = 39542
+Time (s): cpu = 00:00:24 ; elapsed = 00:00:17 . Memory (MB): peak = 3346.836 ; gain = 19.215 ; free physical = 4599 ; free virtual = 35829
 
 Phase 9 Depositing Routes
-Phase 9 Depositing Routes | Checksum: ca701b7a
+Phase 9 Depositing Routes | Checksum: 124eb0f8e
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:14 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5584 ; free virtual = 39542
+Time (s): cpu = 00:00:24 ; elapsed = 00:00:17 . Memory (MB): peak = 3362.844 ; gain = 35.223 ; free physical = 4600 ; free virtual = 35831
 INFO: [Route 35-16] Router Completed Successfully
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:14 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5624 ; free virtual = 39582
+Time (s): cpu = 00:00:24 ; elapsed = 00:00:17 . Memory (MB): peak = 3362.844 ; gain = 35.223 ; free physical = 4641 ; free virtual = 35872
 
 Routing Is Done.
 INFO: [Common 17-83] Releasing license: Implementation
-68 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+70 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 route_design completed successfully
-route_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:14 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5624 ; free virtual = 39582
+route_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:18 . Memory (MB): peak = 3362.844 ; gain = 35.223 ; free physical = 4641 ; free virtual = 35872
 INFO: [Timing 38-480] Writing timing data to binary archive.
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3242.914 ; gain = 0.000 ; free physical = 5617 ; free virtual = 39576
+Write XDEF Complete: Time (s): cpu = 00:00:00.79 ; elapsed = 00:00:00.37 . Memory (MB): peak = 3362.844 ; gain = 0.000 ; free physical = 4622 ; free virtual = 35868
 INFO: [Common 17-1381] The checkpoint '/home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.runs/impl_1/TopModule_routed.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_drc -file TopModule_drc_routed.rpt -pb TopModule_drc_routed.pb -rpx TopModule_drc_routed.rpx
 Command: report_drc -file TopModule_drc_routed.rpt -pb TopModule_drc_routed.pb -rpx TopModule_drc_routed.rpx
@@ -514,6 +519,7 @@ INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [DRC 23-133] Running Methodology with 8 threads
 INFO: [Vivado_Tcl 2-1520] The results of Report Methodology are in file /home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.runs/impl_1/TopModule_methodology_drc_routed.rpt.
 report_methodology completed successfully
+report_methodology: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 3396.695 ; gain = 0.000 ; free physical = 4618 ; free virtual = 35854
 INFO: [runtcl-4] Executing : report_power -file TopModule_power_routed.rpt -pb TopModule_power_summary_routed.pb -rpx TopModule_power_routed.rpx
 Command: report_power -file TopModule_power_routed.rpt -pb TopModule_power_summary_routed.pb -rpx TopModule_power_routed.rpx
 INFO: [Timing 38-35] Done setting XDC timing constraints.
@@ -522,7 +528,7 @@ Resolution: Please specify clocks using create_clock/create_generated_clock for 
 Running Vector-less Activity Propagation...
 
 Finished Running Vector-less Activity Propagation
-80 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
+82 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
 report_power completed successfully
 INFO: [runtcl-4] Executing : report_route_status -file TopModule_route_status.rpt -pb TopModule_route_status.pb
 INFO: [runtcl-4] Executing : report_timing_summary -max_paths 10 -report_unconstrained -file TopModule_timing_summary_routed.rpt -pb TopModule_timing_summary_routed.pb -rpx TopModule_timing_summary_routed.rpx -warn_on_violation 
@@ -535,7 +541,7 @@ INFO: [runtcl-4] Executing : report_clock_utilization -file TopModule_clock_util
 INFO: [runtcl-4] Executing : report_bus_skew -warn_on_violation -file TopModule_bus_skew_routed.rpt -pb TopModule_bus_skew_routed.pb -rpx TopModule_bus_skew_routed.rpx
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
 INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
-INFO: [Common 17-206] Exiting Vivado at Fri Nov 18 17:09:35 2022...
+INFO: [Common 17-206] Exiting Vivado at Fri Nov 18 17:35:45 2022...
 
 *** Running vivado
     with args -log TopModule.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source TopModule.tcl -notrace
@@ -549,9 +555,10 @@ INFO: [Common 17-206] Exiting Vivado at Fri Nov 18 17:09:35 2022...
 source TopModule.tcl -notrace
 Command: open_checkpoint TopModule_routed.dcp
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2613.711 ; gain = 0.000 ; free physical = 6578 ; free virtual = 40572
-INFO: [Netlist 29-17] Analyzing 16 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2613.715 ; gain = 0.000 ; free physical = 5647 ; free virtual = 36967
+INFO: [Netlist 29-17] Analyzing 1212 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'TopModule' is not ideal for floorplanning, since the cellview 'CacheController' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
 INFO: [Project 1-479] Netlist was created with Vivado 2022.1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Timing 38-478] Restoring timing data from binary archive.
@@ -561,15 +568,15 @@ INFO: [Project 1-853] Binary constraint restore complete.
 Reading XDEF placement.
 Reading placer database...
 Reading XDEF routing.
-Read XDEF Files: Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2677.742 ; gain = 0.000 ; free physical = 5932 ; free virtual = 39957
-Restored from archive | CPU: 0.040000 secs | Memory: 1.384003 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2677.742 ; gain = 0.000 ; free physical = 5932 ; free virtual = 39957
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2677.742 ; gain = 0.000 ; free physical = 5932 ; free virtual = 39957
+Read XDEF Files: Time (s): cpu = 00:00:00.37 ; elapsed = 00:00:00.38 . Memory (MB): peak = 2677.746 ; gain = 0.000 ; free physical = 5020 ; free virtual = 36339
+Restored from archive | CPU: 0.380000 secs | Memory: 14.358910 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.37 ; elapsed = 00:00:00.38 . Memory (MB): peak = 2677.746 ; gain = 0.000 ; free physical = 5020 ; free virtual = 36339
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2677.746 ; gain = 0.000 ; free physical = 5020 ; free virtual = 36339
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Project 1-604] Checkpoint was created with Vivado v2022.1 (64-bit) build 3526262
-open_checkpoint: Time (s): cpu = 00:00:11 ; elapsed = 00:00:10 . Memory (MB): peak = 2677.742 ; gain = 75.930 ; free physical = 5932 ; free virtual = 39957
+open_checkpoint: Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 2677.746 ; gain = 75.930 ; free physical = 5020 ; free virtual = 36339
 Command: write_bitstream -force TopModule.bit
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
@@ -587,7 +594,142 @@ WARNING: [DRC CFGBVS-1] Missing CFGBVS and CONFIG_VOLTAGE Design Properties: Nei
  #where value2 is the voltage provided to configuration bank 0
 
 Refer to the device configuration user guide for more information.
-INFO: [Vivado 12-3199] DRC finished with 0 Errors, 1 Warnings
+WARNING: [DRC CHECK-3] Report rule limit reached: REQP-1839 rule limit reached: 20 violations have been found.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/E[0] is a gated clock net sourced by a combinational pin cacheController/Segments_reg[6]_i_2/O, cell cacheController/Segments_reg[6]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/fetch_reg_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/fetch_reg_i_2/O, cell cacheController/fetch_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/miss_count_reg[8]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/miss_count_reg[8]_i_2/O, cell cacheController/miss_count_reg[8]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/next_state_reg[2]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/next_state_reg[2]_i_1/O, cell cacheController/next_state_reg[2]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/set_offset_reg[1]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/set_offset_reg[1]_i_2/O, cell cacheController/set_offset_reg[1]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[0][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[0][21]_i_1/O, cell cacheController/tag_dir_reg[0][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[0][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[0][23]_i_2/O, cell cacheController/tag_dir_reg[0][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[100][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[100][21]_i_1/O, cell cacheController/tag_dir_reg[100][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[100][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[100][23]_i_2/O, cell cacheController/tag_dir_reg[100][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[101][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[101][21]_i_1/O, cell cacheController/tag_dir_reg[101][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[101][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[101][23]_i_2/O, cell cacheController/tag_dir_reg[101][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[102][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[102][21]_i_1/O, cell cacheController/tag_dir_reg[102][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[102][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[102][23]_i_2/O, cell cacheController/tag_dir_reg[102][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[103][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[103][21]_i_1/O, cell cacheController/tag_dir_reg[103][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[103][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[103][23]_i_2/O, cell cacheController/tag_dir_reg[103][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[104][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[104][21]_i_1/O, cell cacheController/tag_dir_reg[104][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[104][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[104][23]_i_2/O, cell cacheController/tag_dir_reg[104][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[105][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[105][21]_i_1/O, cell cacheController/tag_dir_reg[105][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[105][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[105][23]_i_2/O, cell cacheController/tag_dir_reg[105][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[106][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[106][21]_i_1/O, cell cacheController/tag_dir_reg[106][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[106][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[106][23]_i_2/O, cell cacheController/tag_dir_reg[106][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[107][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[107][21]_i_1/O, cell cacheController/tag_dir_reg[107][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[107][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[107][23]_i_2/O, cell cacheController/tag_dir_reg[107][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[108][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[108][21]_i_1/O, cell cacheController/tag_dir_reg[108][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[108][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[108][23]_i_2/O, cell cacheController/tag_dir_reg[108][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[109][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[109][21]_i_1/O, cell cacheController/tag_dir_reg[109][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[109][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[109][23]_i_2/O, cell cacheController/tag_dir_reg[109][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[10][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[10][21]_i_1/O, cell cacheController/tag_dir_reg[10][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[10][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[10][23]_i_2/O, cell cacheController/tag_dir_reg[10][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[110][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[110][21]_i_1/O, cell cacheController/tag_dir_reg[110][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[110][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[110][23]_i_2/O, cell cacheController/tag_dir_reg[110][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[111][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[111][21]_i_1/O, cell cacheController/tag_dir_reg[111][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[111][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[111][23]_i_2/O, cell cacheController/tag_dir_reg[111][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[112][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[112][21]_i_1/O, cell cacheController/tag_dir_reg[112][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[112][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[112][23]_i_2/O, cell cacheController/tag_dir_reg[112][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[113][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[113][21]_i_1/O, cell cacheController/tag_dir_reg[113][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[113][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[113][23]_i_2/O, cell cacheController/tag_dir_reg[113][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[114][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[114][21]_i_1/O, cell cacheController/tag_dir_reg[114][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[114][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[114][23]_i_2/O, cell cacheController/tag_dir_reg[114][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[115][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[115][21]_i_1/O, cell cacheController/tag_dir_reg[115][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[115][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[115][23]_i_2/O, cell cacheController/tag_dir_reg[115][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[116][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[116][21]_i_1/O, cell cacheController/tag_dir_reg[116][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[116][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[116][23]_i_2/O, cell cacheController/tag_dir_reg[116][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[117][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[117][21]_i_1/O, cell cacheController/tag_dir_reg[117][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[117][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[117][23]_i_2/O, cell cacheController/tag_dir_reg[117][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[118][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[118][21]_i_1/O, cell cacheController/tag_dir_reg[118][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[118][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[118][23]_i_2/O, cell cacheController/tag_dir_reg[118][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[119][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[119][21]_i_1/O, cell cacheController/tag_dir_reg[119][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[119][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[119][23]_i_2/O, cell cacheController/tag_dir_reg[119][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[11][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[11][21]_i_1/O, cell cacheController/tag_dir_reg[11][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[11][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[11][23]_i_2/O, cell cacheController/tag_dir_reg[11][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[120][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[120][21]_i_1/O, cell cacheController/tag_dir_reg[120][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[120][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[120][23]_i_2/O, cell cacheController/tag_dir_reg[120][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[121][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[121][21]_i_1/O, cell cacheController/tag_dir_reg[121][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[121][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[121][23]_i_2/O, cell cacheController/tag_dir_reg[121][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[122][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[122][21]_i_1/O, cell cacheController/tag_dir_reg[122][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[122][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[122][23]_i_2/O, cell cacheController/tag_dir_reg[122][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[123][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[123][21]_i_1/O, cell cacheController/tag_dir_reg[123][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[123][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[123][23]_i_2/O, cell cacheController/tag_dir_reg[123][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[124][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[124][21]_i_1/O, cell cacheController/tag_dir_reg[124][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[124][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[124][23]_i_2/O, cell cacheController/tag_dir_reg[124][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[125][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[125][21]_i_1/O, cell cacheController/tag_dir_reg[125][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[125][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[125][23]_i_2/O, cell cacheController/tag_dir_reg[125][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[126][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[126][21]_i_1/O, cell cacheController/tag_dir_reg[126][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[126][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[126][23]_i_2/O, cell cacheController/tag_dir_reg[126][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[127][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[127][21]_i_1/O, cell cacheController/tag_dir_reg[127][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[127][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[127][23]_i_2/O, cell cacheController/tag_dir_reg[127][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[128][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[128][21]_i_1/O, cell cacheController/tag_dir_reg[128][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[128][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[128][23]_i_2/O, cell cacheController/tag_dir_reg[128][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[129][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[129][21]_i_1/O, cell cacheController/tag_dir_reg[129][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[129][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[129][23]_i_2/O, cell cacheController/tag_dir_reg[129][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[12][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[12][21]_i_1/O, cell cacheController/tag_dir_reg[12][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[12][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[12][23]_i_2/O, cell cacheController/tag_dir_reg[12][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[130][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[130][21]_i_1/O, cell cacheController/tag_dir_reg[130][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[130][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[130][23]_i_2/O, cell cacheController/tag_dir_reg[130][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[131][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[131][21]_i_1/O, cell cacheController/tag_dir_reg[131][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[131][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[131][23]_i_2/O, cell cacheController/tag_dir_reg[131][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[132][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[132][21]_i_1/O, cell cacheController/tag_dir_reg[132][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[132][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[132][23]_i_2/O, cell cacheController/tag_dir_reg[132][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[133][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[133][21]_i_1/O, cell cacheController/tag_dir_reg[133][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[133][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[133][23]_i_2/O, cell cacheController/tag_dir_reg[133][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[134][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[134][21]_i_1/O, cell cacheController/tag_dir_reg[134][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[134][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[134][23]_i_2/O, cell cacheController/tag_dir_reg[134][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[135][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[135][21]_i_1/O, cell cacheController/tag_dir_reg[135][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[135][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[135][23]_i_2/O, cell cacheController/tag_dir_reg[135][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[136][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[136][21]_i_1/O, cell cacheController/tag_dir_reg[136][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[136][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[136][23]_i_2/O, cell cacheController/tag_dir_reg[136][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[137][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[137][21]_i_1/O, cell cacheController/tag_dir_reg[137][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[137][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[137][23]_i_2/O, cell cacheController/tag_dir_reg[137][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[138][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[138][21]_i_1/O, cell cacheController/tag_dir_reg[138][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[138][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[138][23]_i_2/O, cell cacheController/tag_dir_reg[138][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[139][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[139][21]_i_1/O, cell cacheController/tag_dir_reg[139][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[139][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[139][23]_i_2/O, cell cacheController/tag_dir_reg[139][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[13][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[13][21]_i_1/O, cell cacheController/tag_dir_reg[13][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[13][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[13][23]_i_2/O, cell cacheController/tag_dir_reg[13][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[140][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[140][21]_i_1/O, cell cacheController/tag_dir_reg[140][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[140][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[140][23]_i_2/O, cell cacheController/tag_dir_reg[140][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[141][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[141][21]_i_1/O, cell cacheController/tag_dir_reg[141][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[141][23]_i_2_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[141][23]_i_2/O, cell cacheController/tag_dir_reg[141][23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net cacheController/tag_dir_reg[142][21]_i_1_n_0 is a gated clock net sourced by a combinational pin cacheController/tag_dir_reg[142][21]_i_1/O, cell cacheController/tag_dir_reg[142][21]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+INFO: [Common 17-14] Message 'DRC PDRC-153' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/ADDRARDADDR[10] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/addra[8]) which is driven by a register (prog_count_reg[8]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/ADDRARDADDR[11] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/addra[9]) which is driven by a register (prog_count_reg[9]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/ADDRARDADDR[12] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/addra[10]) which is driven by a register (prog_count_reg[10]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/ADDRARDADDR[13] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/addra[11]) which is driven by a register (prog_count_reg[11]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/ADDRARDADDR[14] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/addra[12]) which is driven by a register (prog_count_reg[12]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/ADDRARDADDR[2] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/addra[0]) which is driven by a register (prog_count_reg[0]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/ADDRARDADDR[3] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/addra[1]) which is driven by a register (prog_count_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/ADDRARDADDR[4] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/addra[2]) which is driven by a register (prog_count_reg[2]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/ADDRARDADDR[5] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/addra[3]) which is driven by a register (prog_count_reg[3]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/ADDRARDADDR[6] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/addra[4]) which is driven by a register (prog_count_reg[4]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/ADDRARDADDR[7] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/addra[5]) which is driven by a register (prog_count_reg[5]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/ADDRARDADDR[8] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/addra[6]) which is driven by a register (prog_count_reg[6]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/ADDRARDADDR[9] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/addra[7]) which is driven by a register (prog_count_reg[7]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/ADDRARDADDR[10] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/addra[7]) which is driven by a register (prog_count_reg[7]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/ADDRARDADDR[11] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/addra[8]) which is driven by a register (prog_count_reg[8]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/ADDRARDADDR[12] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/addra[9]) which is driven by a register (prog_count_reg[9]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/ADDRARDADDR[13] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/addra[10]) which is driven by a register (prog_count_reg[10]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/ADDRARDADDR[14] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/addra[11]) which is driven by a register (prog_count_reg[11]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/ADDRARDADDR[8] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/addra[5]) which is driven by a register (prog_count_reg[5]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/ADDRARDADDR[9] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/addra[6]) which is driven by a register (prog_count_reg[6]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram/ADDRARDADDR[10] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/addra[9]) which is driven by a register (prog_count_reg[9]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram/ADDRARDADDR[11] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/addra[10]) which is driven by a register (prog_count_reg[10]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram/ADDRARDADDR[12] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/addra[11]) which is driven by a register (prog_count_reg[11]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram/ADDRARDADDR[13] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/addra[12]) which is driven by a register (prog_count_reg[12]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram/ADDRARDADDR[1] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/addra[0]) which is driven by a register (prog_count_reg[0]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram/ADDRARDADDR[2] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/addra[1]) which is driven by a register (prog_count_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram/ADDRARDADDR[3] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/addra[2]) which is driven by a register (prog_count_reg[2]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram/ADDRARDADDR[4] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/addra[3]) which is driven by a register (prog_count_reg[3]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram/ADDRARDADDR[5] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/addra[4]) which is driven by a register (prog_count_reg[4]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram/ADDRARDADDR[6] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/addra[5]) which is driven by a register (prog_count_reg[5]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram/ADDRARDADDR[7] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/addra[6]) which is driven by a register (prog_count_reg[6]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram/ADDRARDADDR[8] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/addra[7]) which is driven by a register (prog_count_reg[7]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1840] RAMB18 async control check: The RAMB18E1 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram has an input control pin bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram/ADDRARDADDR[9] (net: bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/addra[8]) which is driven by a register (prog_count_reg[8]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 552 Warnings
 INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
 INFO: [Designutils 20-2272] Running write_bitstream with 8 threads.
 Loading data files...
@@ -600,7 +742,7 @@ Writing bitstream ./TopModule.bit...
 INFO: [Vivado 12-1842] Bitgen Completed Successfully.
 INFO: [Project 1-1876] WebTalk data collection is mandatory when using a ULT device. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
 INFO: [Common 17-83] Releasing license: Implementation
-22 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+23 Infos, 136 Warnings, 0 Critical Warnings and 0 Errors encountered.
 write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:00:06 ; elapsed = 00:00:15 . Memory (MB): peak = 3070.816 ; gain = 393.074 ; free physical = 5799 ; free virtual = 39832
-INFO: [Common 17-206] Exiting Vivado at Fri Nov 18 17:20:49 2022...
+write_bitstream: Time (s): cpu = 00:00:12 ; elapsed = 00:00:16 . Memory (MB): peak = 3207.207 ; gain = 529.461 ; free physical = 4917 ; free virtual = 36231
+INFO: [Common 17-206] Exiting Vivado at Fri Nov 18 17:36:35 2022...

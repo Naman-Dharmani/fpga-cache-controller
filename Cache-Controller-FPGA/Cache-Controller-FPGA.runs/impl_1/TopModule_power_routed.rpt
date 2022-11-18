@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.1 (lin64) Build 3526262 Mon Apr 18 15:47:01 MDT 2022
-| Date             : Fri Nov 18 17:09:34 2022
+| Date             : Fri Nov 18 17:35:41 2022
 | Host             : kite running 64-bit CachyOS
 | Command          : report_power -file TopModule_power_routed.rpt -pb TopModule_power_summary_routed.pb -rpx TopModule_power_routed.rpx
 | Design           : TopModule
@@ -29,20 +29,20 @@ Table of Contents
 1. Summary
 ----------
 
-+--------------------------+--------------+
-| Total On-Chip Power (W)  | 12.390       |
-| Design Power Budget (W)  | Unspecified* |
-| Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 12.141       |
-| Device Static (W)        | 0.249        |
-| Effective TJA (C/W)      | 4.6          |
-| Max Ambient (C)          | 28.5         |
-| Junction Temperature (C) | 81.5         |
-| Confidence Level         | Low          |
-| Setting File             | ---          |
-| Simulation Activity File | ---          |
-| Design Nets Matched      | NA           |
-+--------------------------+--------------+
++--------------------------+----------------------------------+
+| Total On-Chip Power (W)  | 64.107 (Junction temp exceeded!) |
+| Design Power Budget (W)  | Unspecified*                     |
+| Power Budget Margin (W)  | NA                               |
+| Dynamic (W)              | 63.305                           |
+| Device Static (W)        | 0.802                            |
+| Effective TJA (C/W)      | 4.6                              |
+| Max Ambient (C)          | 0.0                              |
+| Junction Temperature (C) | 125.0                            |
+| Confidence Level         | Low                              |
+| Setting File             | ---                              |
+| Simulation Activity File | ---                              |
+| Design Nets Matched      | NA                               |
++--------------------------+----------------------------------+
 * Specify Design Power Budget using, set_operating_conditions -design_power_budget <value in Watts>
 
 
@@ -52,17 +52,18 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.171 |       96 |       --- |             --- |
-|   LUT as Logic |     0.115 |       13 |     63400 |            0.02 |
-|   CARRY4       |     0.026 |       12 |     15850 |            0.08 |
-|   Register     |     0.024 |       48 |    126800 |            0.04 |
-|   BUFG         |     0.006 |        1 |        32 |            3.13 |
-|   Others       |     0.000 |       18 |       --- |             --- |
-| Signals        |     0.307 |       90 |       --- |             --- |
-| Block RAM      |     0.000 |      3.5 |       135 |            2.59 |
-| I/O            |    11.663 |       29 |       210 |           13.81 |
-| Static Power   |     0.249 |          |           |                 |
-| Total          |    12.390 |          |           |                 |
+| Slice Logic    |    11.009 |    11770 |       --- |             --- |
+|   LUT as Logic |    10.825 |     3998 |     63400 |            6.31 |
+|   F7/F8 Muxes  |     0.103 |     1178 |     63400 |            1.86 |
+|   CARRY4       |     0.044 |       26 |     15850 |            0.16 |
+|   Register     |     0.025 |     6396 |    126800 |            5.04 |
+|   BUFG         |     0.012 |        3 |        32 |            9.38 |
+|   Others       |     0.000 |       31 |       --- |             --- |
+| Signals        |    13.499 |     9271 |       --- |             --- |
+| Block RAM      |     0.568 |      7.5 |       135 |            5.56 |
+| I/O            |    38.229 |       31 |       210 |           14.76 |
+| Static Power   |     0.802 |          |           |                 |
+| Total          |    64.107 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,16 +73,16 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.617 |       0.482 |      0.136 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.461 |       0.427 |      0.034 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     3.304 |       3.300 |      0.004 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |    25.602 |      25.037 |      0.565 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     1.493 |       1.401 |      0.093 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |    10.822 |      10.818 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.004 |       0.000 |      0.004 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.067 |       0.047 |      0.020 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |       NA    | Unspecified | NA         |
@@ -136,12 +137,17 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+----------------+-----------+
-| Name           | Power (W) |
-+----------------+-----------+
-| TopModule      |    12.141 |
-|   bcd1         |     0.290 |
-|   clockDivider |     0.173 |
-+----------------+-----------+
++---------------------+-----------+
+| Name                | Power (W) |
++---------------------+-----------+
+| TopModule           |    63.305 |
+|   bcd1              |     0.342 |
+|     A4              |     0.002 |
+|   bramWrapper       |     1.169 |
+|     bram_i          |     1.169 |
+|       blk_mem_gen_0 |     1.169 |
+|   cacheController   |    23.351 |
+|   clockDivider      |     0.181 |
++---------------------+-----------+
 
 

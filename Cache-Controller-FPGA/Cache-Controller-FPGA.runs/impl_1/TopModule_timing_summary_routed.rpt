@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.1 (lin64) Build 3526262 Mon Apr 18 15:47:01 MDT 2022
-| Date         : Fri Nov 18 17:09:35 2022
+| Date         : Fri Nov 18 17:35:44 2022
 | Host         : kite running 64-bit CachyOS
 | Command      : report_timing_summary -max_paths 10 -report_unconstrained -file TopModule_timing_summary_routed.rpt -pb TopModule_timing_summary_routed.pb -rpx TopModule_timing_summary_routed.rpx -warn_on_violation
 | Design       : TopModule
@@ -39,9 +39,11 @@ Timing Summary Report
 | ------------------
 ------------------------------------------------------------------------------------------------
 
-Rule       Severity          Description                  Violations  
----------  ----------------  ---------------------------  ----------  
-TIMING-17  Critical Warning  Non-clocked sequential cell  52          
+Rule       Severity          Description                     Violations  
+---------  ----------------  ------------------------------  ----------  
+TIMING-17  Critical Warning  Non-clocked sequential cell     79          
+TIMING-20  Warning           Non-clocked latch               1000        
+LATCH-1    Advisory          Existing latches in the design  1           
 
 Note: This report is based on the most recent report_methodology run and may not be up-to-date. Run report_methodology on the current design for the latest report.
 
@@ -51,26 +53,700 @@ check_timing report
 
 Table of Contents
 -----------------
-1. checking no_clock (52)
+1. checking no_clock (1569677)
 2. checking constant_clock (0)
 3. checking pulse_width_clock (0)
-4. checking unconstrained_internal_endpoints (77)
-5. checking no_input_delay (0)
-6. checking no_output_delay (20)
+4. checking unconstrained_internal_endpoints (6572)
+5. checking no_input_delay (2)
+6. checking no_output_delay (27)
 7. checking multiple_clock (0)
 8. checking generated_clocks (0)
 9. checking loops (0)
 10. checking partial_input_delay (0)
 11. checking partial_output_delay (0)
-12. checking latch_loops (0)
+12. checking latch_loops (271)
 
-1. checking no_clock (52)
--------------------------
+1. checking no_clock (1569677)
+------------------------------
  There are 45 register/latch pins with no clock driven by root clock pin: clk_in (HIGH)
+
+ There are 7 register/latch pins with no clock driven by root clock pin: bcd1/Sel_reg[0]/Q (HIGH)
+
+ There are 7 register/latch pins with no clock driven by root clock pin: bcd1/Sel_reg[1]/Q (HIGH)
 
  There are 2 register/latch pins with no clock driven by root clock pin: bcd1/count_reg[16]/Q (HIGH)
 
- There are 5 register/latch pins with no clock driven by root clock pin: clockDivider/clk_out_reg/Q (HIGH)
+ There are 7 register/latch pins with no clock driven by root clock pin: cacheController/miss_count_reg[1]/Q (HIGH)
+
+ There are 7 register/latch pins with no clock driven by root clock pin: cacheController/miss_count_reg[2]/Q (HIGH)
+
+ There are 7 register/latch pins with no clock driven by root clock pin: cacheController/miss_count_reg[3]/Q (HIGH)
+
+ There are 7 register/latch pins with no clock driven by root clock pin: cacheController/miss_count_reg[4]/Q (HIGH)
+
+ There are 7 register/latch pins with no clock driven by root clock pin: cacheController/miss_count_reg[5]/Q (HIGH)
+
+ There are 7 register/latch pins with no clock driven by root clock pin: cacheController/miss_count_reg[6]/Q (HIGH)
+
+ There are 7 register/latch pins with no clock driven by root clock pin: cacheController/miss_count_reg[7]/Q (HIGH)
+
+ There are 576 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[0]/Q (HIGH)
+
+ There are 1256 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[0]_rep/Q (HIGH)
+
+ There are 636 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[0]_rep__0/Q (HIGH)
+
+ There are 710 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[0]_rep__1/Q (HIGH)
+
+ There are 12 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[0]_rep__11/Q (HIGH)
+
+ There are 5968 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[0]_rep__12/Q (HIGH)
+
+ There are 5704 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[0]_rep__13/Q (HIGH)
+
+ There are 632 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[0]_rep__16/Q (HIGH)
+
+ There are 1556 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[0]_rep__2/Q (HIGH)
+
+ There are 1248 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[0]_rep__3/Q (HIGH)
+
+ There are 188 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[0]_rep__6/Q (HIGH)
+
+ There are 8 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[0]_rep__7/Q (HIGH)
+
+ There are 46 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[0]_rep__9/Q (HIGH)
+
+ There are 510 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[1]/Q (HIGH)
+
+ There are 1282 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[1]_rep/Q (HIGH)
+
+ There are 614 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[1]_rep__0/Q (HIGH)
+
+ There are 1450 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[1]_rep__1/Q (HIGH)
+
+ There are 5968 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[1]_rep__12/Q (HIGH)
+
+ There are 5704 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[1]_rep__13/Q (HIGH)
+
+ There are 460 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[1]_rep__16/Q (HIGH)
+
+ There are 822 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[1]_rep__2/Q (HIGH)
+
+ There are 1400 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[1]_rep__3/Q (HIGH)
+
+ There are 210 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[1]_rep__6/Q (HIGH)
+
+ There are 8 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[1]_rep__8/Q (HIGH)
+
+ There are 46 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[1]_rep__9/Q (HIGH)
+
+ There are 6152 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[2]/Q (HIGH)
+
+ There are 6152 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[3]/Q (HIGH)
+
+ There are 286 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[4]/Q (HIGH)
+
+ There are 734 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[4]_rep/Q (HIGH)
+
+ There are 6120 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[4]_rep__0/Q (HIGH)
+
+ There are 6120 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[4]_rep__1/Q (HIGH)
+
+ There are 918 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[4]_rep__2/Q (HIGH)
+
+ There are 6152 register/latch pins with no clock driven by root clock pin: cacheController/set_bits_reg[5]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/set_offset_reg[0]/Q (HIGH)
+
+ There are 174 register/latch pins with no clock driven by root clock pin: cacheController/set_offset_reg[0]_rep/Q (HIGH)
+
+ There are 300 register/latch pins with no clock driven by root clock pin: cacheController/set_offset_reg[0]_rep__0/Q (HIGH)
+
+ There are 512 register/latch pins with no clock driven by root clock pin: cacheController/set_offset_reg[0]_rep__1/Q (HIGH)
+
+ There are 5614 register/latch pins with no clock driven by root clock pin: cacheController/set_offset_reg[1]/Q (HIGH)
+
+ There are 224 register/latch pins with no clock driven by root clock pin: cacheController/set_offset_reg[1]_rep/Q (HIGH)
+
+ There are 244 register/latch pins with no clock driven by root clock pin: cacheController/set_offset_reg[1]_rep__0/Q (HIGH)
+
+ There are 512 register/latch pins with no clock driven by root clock pin: cacheController/set_offset_reg[1]_rep__1/Q (HIGH)
+
+ There are 38 register/latch pins with no clock driven by root clock pin: cacheController/state_reg[0]/Q (HIGH)
+
+ There are 189 register/latch pins with no clock driven by root clock pin: cacheController/state_reg[0]_rep/Q (HIGH)
+
+ There are 2632 register/latch pins with no clock driven by root clock pin: cacheController/state_reg[0]_rep__1/Q (HIGH)
+
+ There are 2530 register/latch pins with no clock driven by root clock pin: cacheController/state_reg[0]_rep__2/Q (HIGH)
+
+ There are 926 register/latch pins with no clock driven by root clock pin: cacheController/state_reg[0]_rep__3/Q (HIGH)
+
+ There are 1756 register/latch pins with no clock driven by root clock pin: cacheController/state_reg[1]/Q (HIGH)
+
+ There are 4564 register/latch pins with no clock driven by root clock pin: cacheController/state_reg[1]_rep/Q (HIGH)
+
+ There are 1776 register/latch pins with no clock driven by root clock pin: cacheController/state_reg[2]/Q (HIGH)
+
+ There are 4544 register/latch pins with no clock driven by root clock pin: cacheController/state_reg[2]_rep/Q (HIGH)
+
+ There are 8 register/latch pins with no clock driven by root clock pin: cacheController/tag_bits_reg[10]/Q (HIGH)
+
+ There are 8 register/latch pins with no clock driven by root clock pin: cacheController/tag_bits_reg[11]/Q (HIGH)
+
+ There are 8 register/latch pins with no clock driven by root clock pin: cacheController/tag_bits_reg[9]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[101][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[102][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[103][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[103][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[105][22]/Q (HIGH)
+
+ There are 5702 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[105][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[106][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[107][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[107][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[109][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[10][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[110][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[111][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[111][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[113][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[114][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[115][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[115][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[117][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[118][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[119][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[119][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[11][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[11][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[121][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[122][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[123][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[123][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[125][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[126][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[127][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[127][23]/Q (HIGH)
+
+ There are 14 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[128][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[129][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[130][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[131][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[131][23]/Q (HIGH)
+
+ There are 14 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[132][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[133][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[134][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[135][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[135][23]/Q (HIGH)
+
+ There are 14 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[136][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[137][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[138][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[139][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[139][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[13][22]/Q (HIGH)
+
+ There are 14 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[140][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[141][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[142][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[143][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[143][23]/Q (HIGH)
+
+ There are 14 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[144][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[145][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[146][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[147][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[147][23]/Q (HIGH)
+
+ There are 14 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[148][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[149][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[14][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[150][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[151][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[151][23]/Q (HIGH)
+
+ There are 14 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[152][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[153][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[154][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[155][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[155][23]/Q (HIGH)
+
+ There are 14 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[156][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[157][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[158][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[159][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[159][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[15][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[15][23]/Q (HIGH)
+
+ There are 14 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[160][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[161][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[162][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[163][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[163][23]/Q (HIGH)
+
+ There are 14 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[164][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[165][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[166][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[167][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[167][23]/Q (HIGH)
+
+ There are 14 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[168][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[169][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[170][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[171][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[171][23]/Q (HIGH)
+
+ There are 14 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[172][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[173][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[174][22]/Q (HIGH)
+
+ There are 5624 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[175][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[175][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[177][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[178][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[179][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[179][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[17][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[181][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[182][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[183][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[183][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[185][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[186][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[187][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[187][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[189][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[18][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[190][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[191][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[191][23]/Q (HIGH)
+
+ There are 5878 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[193][22]/Q (HIGH)
+
+ There are 5878 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[194][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[195][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[195][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[197][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[198][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[199][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[199][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[19][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[19][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[1][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[201][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[202][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[203][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[203][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[205][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[206][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[207][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[207][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[209][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[210][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[211][22]/Q (HIGH)
+
+ There are 5690 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[211][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[213][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[214][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[215][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[217][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[218][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[219][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[21][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[221][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[222][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[223][22]/Q (HIGH)
+
+ There are 5690 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[223][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[225][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[226][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[227][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[227][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[229][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[22][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[230][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[231][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[231][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[233][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[234][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[235][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[235][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[237][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[238][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[239][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[239][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[23][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[23][23]/Q (HIGH)
+
+ There are 5718 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[240][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[241][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[242][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[243][22]/Q (HIGH)
+
+ There are 5690 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[243][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[245][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[246][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[247][22]/Q (HIGH)
+
+ There are 5690 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[247][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[249][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[250][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[251][22]/Q (HIGH)
+
+ There are 5690 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[251][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[253][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[254][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[255][22]/Q (HIGH)
+
+ There are 5690 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[255][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[25][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[26][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[27][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[27][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[29][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[2][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[30][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[31][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[31][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[33][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[34][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[35][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[35][23]/Q (HIGH)
+
+ There are 510 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[36][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[37][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[38][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[39][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[39][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[3][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[3][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[41][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[42][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[43][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[43][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[45][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[46][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[47][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[47][23]/Q (HIGH)
+
+ There are 5704 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[48][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[49][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[50][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[51][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[51][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[53][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[54][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[55][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[55][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[57][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[58][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[59][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[59][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[5][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[61][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[62][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[63][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[63][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[65][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[66][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[67][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[67][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[69][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[6][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[70][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[71][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[71][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[73][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[74][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[75][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[75][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[77][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[78][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[79][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[79][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[7][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[7][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[81][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[82][22]/Q (HIGH)
+
+ There are 5660 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[82][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[83][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[83][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[85][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[86][22]/Q (HIGH)
+
+ There are 5660 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[86][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[87][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[87][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[89][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[90][22]/Q (HIGH)
+
+ There are 5660 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[90][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[91][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[91][23]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[93][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[94][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[95][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[95][23]/Q (HIGH)
+
+ There are 5750 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[97][22]/Q (HIGH)
+
+ There are 5702 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[97][23]/Q (HIGH)
+
+ There are 5750 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[98][22]/Q (HIGH)
+
+ There are 5750 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[99][22]/Q (HIGH)
+
+ There are 5610 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[99][23]/Q (HIGH)
+
+ There are 8 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[99][9]/Q (HIGH)
+
+ There are 5956 register/latch pins with no clock driven by root clock pin: cacheController/tag_dir_reg[9][22]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: clockDivider/clk_out_reg/Q (HIGH)
 
 
 2. checking constant_clock (0)
@@ -83,23 +759,23 @@ Table of Contents
  There are 0 register/latch pins which need pulse_width check
 
 
-4. checking unconstrained_internal_endpoints (77)
--------------------------------------------------
- There are 77 pins that are not constrained for maximum delay. (HIGH)
+4. checking unconstrained_internal_endpoints (6572)
+---------------------------------------------------
+ There are 6572 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
 
-5. checking no_input_delay (0)
+5. checking no_input_delay (2)
 ------------------------------
- There are 0 input ports with no input delay specified.
+ There are 2 input ports with no input delay specified. (HIGH)
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
 
-6. checking no_output_delay (20)
+6. checking no_output_delay (27)
 --------------------------------
- There are 20 ports with no output delay specified. (HIGH)
+ There are 27 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 
@@ -131,9 +807,9 @@ Table of Contents
  There are 0 ports with partial output delay specified.
 
 
-12. checking latch_loops (0)
-----------------------------
- There are 0 combinational latch loops in the design through latch input
+12. checking latch_loops (271)
+------------------------------
+ There are 271 combinational latch loops in the design through latch input (HIGH)
 
 
 
@@ -144,7 +820,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-        inf        0.000                      0                   97          inf        0.000                      0                   97           NA           NA                      NA                    NA  
+        inf        0.000                      0                 6599          inf        0.000                      0                 6599           NA           NA                      NA                    NA  
 
 
 There are no user specified timing constraints.
@@ -213,222 +889,313 @@ Path Group:  (none)
 From Clock:  
   To Clock:  
 
-Max Delay            97 Endpoints
-Min Delay            97 Endpoints
+Max Delay          6599 Endpoints
+Min Delay          6599 Endpoints
 --------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
-  Source:                 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/CLKARDCLK
-                            (rising edge-triggered cell RAMB36E1)
-  Destination:            leds[5]
-                            (output port)
+  Source:                 cacheController/set_bits_reg[2]/G
+                            (positive level-sensitive latch)
+  Destination:            cacheController/tag_dir_reg[206][23]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        9.034ns  (logic 6.006ns (66.479%)  route 3.028ns (33.521%))
-  Logic Levels:           2  (OBUF=1 RAMB36E1=1)
+  Data Path Delay:        29.144ns  (logic 1.617ns (5.548%)  route 27.527ns (94.452%))
+  Logic Levels:           7  (LDCE=1 LUT2=2 LUT6=2 MUXF7=1 MUXF8=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    RAMB36_X0Y17         RAMB36E1                     0.000     0.000 r  bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/CLKARDCLK
-    RAMB36_X0Y17         RAMB36E1 (Prop_ramb36e1_CLKARDCLK_DOADO[3])
-                                                      2.454     2.454 r  bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[3]
-                         net (fo=1, routed)           3.028     5.482    leds_OBUF[5]
-    V17                  OBUF (Prop_obuf_I_O)         3.552     9.034 r  leds_OBUF[5]_inst/O
-                         net (fo=0)                   0.000     9.034    leds[5]
-    V17                                                               r  leds[5] (OUT)
+    SLICE_X0Y32          LDCE                         0.000     0.000 r  cacheController/set_bits_reg[2]/G
+    SLICE_X0Y32          LDCE (EnToQ_ldce_G_Q)        0.559     0.559 r  cacheController/set_bits_reg[2]/Q
+                         net (fo=1128, routed)       13.159    13.718    cacheController/p_1_in[4]
+    SLICE_X43Y48         MUXF7 (Prop_muxf7_S_O)       0.276    13.994 r  cacheController/tag_dir_reg[162][22]_i_19/O
+                         net (fo=1, routed)           0.000    13.994    cacheController/tag_dir_reg[162][22]_i_19_n_0
+    SLICE_X43Y48         MUXF8 (Prop_muxf8_I1_O)      0.094    14.088 r  cacheController/tag_dir_reg[162][22]_i_7/O
+                         net (fo=1, routed)           1.155    15.243    cacheController/tag_dir_reg[162][22]_i_7_n_0
+    SLICE_X42Y42         LUT6 (Prop_lut6_I5_O)        0.316    15.559 r  cacheController/tag_dir_reg[162][22]_i_2/O
+                         net (fo=93, routed)          2.087    17.645    cacheController/tag_dir_reg[162][22]_i_2_n_0
+    SLICE_X28Y36         LUT2 (Prop_lut2_I0_O)        0.124    17.769 r  cacheController/tag_dir_reg[162][23]_i_3/O
+                         net (fo=82, routed)          2.569    20.338    cacheController/p_8_out[23]
+    SLICE_X28Y48         LUT2 (Prop_lut2_I0_O)        0.124    20.462 r  cacheController/tag_dir_reg[172][23]_i_4/O
+                         net (fo=257, routed)         7.590    28.053    cacheController/tag_dir_reg[172][23]_i_4_n_0
+    SLICE_X33Y40         LUT6 (Prop_lut6_I0_O)        0.124    28.177 r  cacheController/tag_dir_reg[206][23]_i_1/O
+                         net (fo=1, routed)           0.968    29.144    cacheController/tag_dir_reg[206][23]_i_1_n_0
+    SLICE_X33Y40         LDCE                                         r  cacheController/tag_dir_reg[206][23]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/CLKARDCLK
-                            (rising edge-triggered cell RAMB36E1)
-  Destination:            leds[2]
-                            (output port)
+  Source:                 cacheController/set_bits_reg[2]/G
+                            (positive level-sensitive latch)
+  Destination:            cacheController/tag_dir_reg[235][23]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        8.919ns  (logic 6.007ns (67.344%)  route 2.913ns (32.656%))
-  Logic Levels:           2  (OBUF=1 RAMB36E1=1)
+  Data Path Delay:        28.831ns  (logic 1.741ns (6.039%)  route 27.090ns (93.961%))
+  Logic Levels:           8  (LDCE=1 LUT2=2 LUT6=3 MUXF7=1 MUXF8=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    RAMB36_X0Y17         RAMB36E1                     0.000     0.000 r  bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/CLKARDCLK
-    RAMB36_X0Y17         RAMB36E1 (Prop_ramb36e1_CLKARDCLK_DOADO[0])
-                                                      2.454     2.454 r  bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[0]
-                         net (fo=1, routed)           2.913     5.367    leds_OBUF[2]
-    J13                  OBUF (Prop_obuf_I_O)         3.553     8.919 r  leds_OBUF[2]_inst/O
-                         net (fo=0)                   0.000     8.919    leds[2]
-    J13                                                               r  leds[2] (OUT)
+    SLICE_X0Y32          LDCE                         0.000     0.000 r  cacheController/set_bits_reg[2]/G
+    SLICE_X0Y32          LDCE (EnToQ_ldce_G_Q)        0.559     0.559 r  cacheController/set_bits_reg[2]/Q
+                         net (fo=1128, routed)       13.159    13.718    cacheController/p_1_in[4]
+    SLICE_X43Y48         MUXF7 (Prop_muxf7_S_O)       0.276    13.994 r  cacheController/tag_dir_reg[162][22]_i_19/O
+                         net (fo=1, routed)           0.000    13.994    cacheController/tag_dir_reg[162][22]_i_19_n_0
+    SLICE_X43Y48         MUXF8 (Prop_muxf8_I1_O)      0.094    14.088 r  cacheController/tag_dir_reg[162][22]_i_7/O
+                         net (fo=1, routed)           1.155    15.243    cacheController/tag_dir_reg[162][22]_i_7_n_0
+    SLICE_X42Y42         LUT6 (Prop_lut6_I5_O)        0.316    15.559 r  cacheController/tag_dir_reg[162][22]_i_2/O
+                         net (fo=93, routed)          2.087    17.645    cacheController/tag_dir_reg[162][22]_i_2_n_0
+    SLICE_X28Y36         LUT2 (Prop_lut2_I0_O)        0.124    17.769 r  cacheController/tag_dir_reg[162][23]_i_3/O
+                         net (fo=82, routed)          2.569    20.338    cacheController/p_8_out[23]
+    SLICE_X28Y48         LUT2 (Prop_lut2_I0_O)        0.124    20.462 r  cacheController/tag_dir_reg[172][23]_i_4/O
+                         net (fo=257, routed)         6.797    27.259    cacheController/tag_dir_reg[172][23]_i_4_n_0
+    SLICE_X38Y38         LUT6 (Prop_lut6_I0_O)        0.124    27.383 r  cacheController/tag_dir_reg[235][23]_i_5/O
+                         net (fo=1, routed)           0.804    28.188    cacheController/tag_dir_reg[235][23]_i_5_n_0
+    SLICE_X40Y37         LUT6 (Prop_lut6_I2_O)        0.124    28.312 r  cacheController/tag_dir_reg[235][23]_i_1/O
+                         net (fo=1, routed)           0.519    28.831    cacheController/tag_dir_reg[235][23]_i_1_n_0
+    SLICE_X40Y37         LDCE                                         r  cacheController/tag_dir_reg[235][23]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram/CLKARDCLK
-                            (rising edge-triggered cell RAMB18E1)
-  Destination:            leds[0]
-                            (output port)
+  Source:                 cacheController/set_bits_reg[2]/G
+                            (positive level-sensitive latch)
+  Destination:            cacheController/tag_dir_reg[196][23]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        8.681ns  (logic 5.974ns (68.817%)  route 2.707ns (31.183%))
-  Logic Levels:           2  (OBUF=1 RAMB18E1=1)
+  Data Path Delay:        28.250ns  (logic 1.617ns (5.724%)  route 26.633ns (94.276%))
+  Logic Levels:           7  (LDCE=1 LUT2=2 LUT6=2 MUXF7=1 MUXF8=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    RAMB18_X0Y36         RAMB18E1                     0.000     0.000 r  bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram/CLKARDCLK
-    RAMB18_X0Y36         RAMB18E1 (Prop_ramb18e1_CLKARDCLK_DOADO[0])
-                                                      2.454     2.454 r  bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram/DOADO[0]
-                         net (fo=1, routed)           2.707     5.161    leds_OBUF[0]
-    H17                  OBUF (Prop_obuf_I_O)         3.520     8.681 r  leds_OBUF[0]_inst/O
-                         net (fo=0)                   0.000     8.681    leds[0]
-    H17                                                               r  leds[0] (OUT)
+    SLICE_X0Y32          LDCE                         0.000     0.000 r  cacheController/set_bits_reg[2]/G
+    SLICE_X0Y32          LDCE (EnToQ_ldce_G_Q)        0.559     0.559 r  cacheController/set_bits_reg[2]/Q
+                         net (fo=1128, routed)       13.159    13.718    cacheController/p_1_in[4]
+    SLICE_X43Y48         MUXF7 (Prop_muxf7_S_O)       0.276    13.994 r  cacheController/tag_dir_reg[162][22]_i_19/O
+                         net (fo=1, routed)           0.000    13.994    cacheController/tag_dir_reg[162][22]_i_19_n_0
+    SLICE_X43Y48         MUXF8 (Prop_muxf8_I1_O)      0.094    14.088 r  cacheController/tag_dir_reg[162][22]_i_7/O
+                         net (fo=1, routed)           1.155    15.243    cacheController/tag_dir_reg[162][22]_i_7_n_0
+    SLICE_X42Y42         LUT6 (Prop_lut6_I5_O)        0.316    15.559 r  cacheController/tag_dir_reg[162][22]_i_2/O
+                         net (fo=93, routed)          2.087    17.645    cacheController/tag_dir_reg[162][22]_i_2_n_0
+    SLICE_X28Y36         LUT2 (Prop_lut2_I0_O)        0.124    17.769 r  cacheController/tag_dir_reg[162][23]_i_3/O
+                         net (fo=82, routed)          2.569    20.338    cacheController/p_8_out[23]
+    SLICE_X28Y48         LUT2 (Prop_lut2_I0_O)        0.124    20.462 r  cacheController/tag_dir_reg[172][23]_i_4/O
+                         net (fo=257, routed)         7.332    27.794    cacheController/tag_dir_reg[172][23]_i_4_n_0
+    SLICE_X36Y39         LUT6 (Prop_lut6_I4_O)        0.124    27.918 r  cacheController/tag_dir_reg[196][23]_i_1/O
+                         net (fo=1, routed)           0.332    28.250    cacheController/tag_dir_reg[196][23]_i_1_n_0
+    SLICE_X36Y39         LDCE                                         r  cacheController/tag_dir_reg[196][23]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 bcd1/Sel_reg[1]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            digit_en[2]
-                            (output port)
+  Source:                 cacheController/set_bits_reg[2]/G
+                            (positive level-sensitive latch)
+  Destination:            cacheController/tag_dir_reg[167][23]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        8.606ns  (logic 4.390ns (51.017%)  route 4.215ns (48.983%))
-  Logic Levels:           3  (FDRE=1 LUT2=1 OBUF=1)
+  Data Path Delay:        28.225ns  (logic 1.741ns (6.168%)  route 26.484ns (93.832%))
+  Logic Levels:           8  (LDCE=1 LUT2=2 LUT6=3 MUXF7=1 MUXF8=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X1Y103         FDRE                         0.000     0.000 r  bcd1/Sel_reg[1]/C
-    SLICE_X1Y103         FDRE (Prop_fdre_C_Q)         0.456     0.456 f  bcd1/Sel_reg[1]/Q
-                         net (fo=5, routed)           0.677     1.133    bcd1/Sel[1]
-    SLICE_X1Y103         LUT2 (Prop_lut2_I1_O)        0.152     1.285 r  bcd1/digit_en_OBUF[2]_inst_i_1/O
-                         net (fo=1, routed)           3.538     4.823    digit_en_OBUF[2]
-    T9                   OBUF (Prop_obuf_I_O)         3.782     8.606 r  digit_en_OBUF[2]_inst/O
-                         net (fo=0)                   0.000     8.606    digit_en[2]
-    T9                                                                r  digit_en[2] (OUT)
+    SLICE_X0Y32          LDCE                         0.000     0.000 r  cacheController/set_bits_reg[2]/G
+    SLICE_X0Y32          LDCE (EnToQ_ldce_G_Q)        0.559     0.559 r  cacheController/set_bits_reg[2]/Q
+                         net (fo=1128, routed)       13.159    13.718    cacheController/p_1_in[4]
+    SLICE_X43Y48         MUXF7 (Prop_muxf7_S_O)       0.276    13.994 r  cacheController/tag_dir_reg[162][22]_i_19/O
+                         net (fo=1, routed)           0.000    13.994    cacheController/tag_dir_reg[162][22]_i_19_n_0
+    SLICE_X43Y48         MUXF8 (Prop_muxf8_I1_O)      0.094    14.088 r  cacheController/tag_dir_reg[162][22]_i_7/O
+                         net (fo=1, routed)           1.155    15.243    cacheController/tag_dir_reg[162][22]_i_7_n_0
+    SLICE_X42Y42         LUT6 (Prop_lut6_I5_O)        0.316    15.559 r  cacheController/tag_dir_reg[162][22]_i_2/O
+                         net (fo=93, routed)          2.087    17.645    cacheController/tag_dir_reg[162][22]_i_2_n_0
+    SLICE_X28Y36         LUT2 (Prop_lut2_I0_O)        0.124    17.769 r  cacheController/tag_dir_reg[162][23]_i_3/O
+                         net (fo=82, routed)          2.569    20.338    cacheController/p_8_out[23]
+    SLICE_X28Y48         LUT2 (Prop_lut2_I0_O)        0.124    20.462 r  cacheController/tag_dir_reg[172][23]_i_4/O
+                         net (fo=257, routed)         6.268    26.730    cacheController/tag_dir_reg[172][23]_i_4_n_0
+    SLICE_X43Y36         LUT6 (Prop_lut6_I4_O)        0.124    26.854 r  cacheController/tag_dir_reg[167][23]_i_3/O
+                         net (fo=1, routed)           0.867    27.722    cacheController/tag_dir_reg[167][23]_i_3_n_0
+    SLICE_X42Y36         LUT6 (Prop_lut6_I3_O)        0.124    27.846 r  cacheController/tag_dir_reg[167][23]_i_1/O
+                         net (fo=1, routed)           0.379    28.225    cacheController/tag_dir_reg[167][23]_i_1_n_0
+    SLICE_X42Y36         LDCE                                         r  cacheController/tag_dir_reg[167][23]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/CLKARDCLK
-                            (rising edge-triggered cell RAMB36E1)
-  Destination:            leds[13]
-                            (output port)
+  Source:                 cacheController/set_bits_reg[2]/G
+                            (positive level-sensitive latch)
+  Destination:            cacheController/tag_dir_reg[93][22]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        8.580ns  (logic 6.008ns (70.029%)  route 2.571ns (29.971%))
-  Logic Levels:           2  (OBUF=1 RAMB36E1=1)
+  Data Path Delay:        28.218ns  (logic 1.647ns (5.837%)  route 26.571ns (94.163%))
+  Logic Levels:           7  (LDCE=1 LUT2=1 LUT6=3 MUXF7=1 MUXF8=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    RAMB36_X0Y13         RAMB36E1                     0.000     0.000 r  bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/CLKARDCLK
-    RAMB36_X0Y13         RAMB36E1 (Prop_ramb36e1_CLKARDCLK_DOADO[7])
-                                                      2.454     2.454 r  bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[7]
-                         net (fo=1, routed)           2.571     5.025    leds_OBUF[13]
-    V14                  OBUF (Prop_obuf_I_O)         3.554     8.580 r  leds_OBUF[13]_inst/O
-                         net (fo=0)                   0.000     8.580    leds[13]
-    V14                                                               r  leds[13] (OUT)
+    SLICE_X0Y32          LDCE                         0.000     0.000 r  cacheController/set_bits_reg[2]/G
+    SLICE_X0Y32          LDCE (EnToQ_ldce_G_Q)        0.559     0.559 r  cacheController/set_bits_reg[2]/Q
+                         net (fo=1128, routed)       13.518    14.077    cacheController/p_1_in[4]
+    SLICE_X43Y49         MUXF7 (Prop_muxf7_S_O)       0.296    14.373 f  cacheController/tag_dir_reg[101][22]_i_13/O
+                         net (fo=1, routed)           0.000    14.373    cacheController/tag_dir_reg[101][22]_i_13_n_0
+    SLICE_X43Y49         MUXF8 (Prop_muxf8_I0_O)      0.104    14.477 f  cacheController/tag_dir_reg[101][22]_i_6/O
+                         net (fo=1, routed)           1.187    15.664    cacheController/tag_dir_reg[101][22]_i_6_n_0
+    SLICE_X39Y43         LUT6 (Prop_lut6_I5_O)        0.316    15.980 f  cacheController/tag_dir_reg[101][22]_i_2/O
+                         net (fo=162, routed)         6.894    22.874    cacheController/tag_dir_reg[101][22]_i_2_n_0
+    SLICE_X48Y53         LUT2 (Prop_lut2_I1_O)        0.124    22.998 r  cacheController/tag_dir_reg[233][22]_i_2/O
+                         net (fo=38, routed)          3.517    26.514    cacheController/tag_dir_reg[233][22]_i_2_n_0
+    SLICE_X56Y37         LUT6 (Prop_lut6_I0_O)        0.124    26.638 r  cacheController/tag_dir_reg[93][22]_i_2/O
+                         net (fo=1, routed)           0.962    27.600    cacheController/tag_dir_reg[93][22]_i_2_n_0
+    SLICE_X56Y38         LUT6 (Prop_lut6_I0_O)        0.124    27.724 r  cacheController/tag_dir_reg[93][22]_i_1/O
+                         net (fo=1, routed)           0.493    28.218    cacheController/tag_dir_reg[93][22]_i_1_n_0
+    SLICE_X55Y38         LDCE                                         r  cacheController/tag_dir_reg[93][22]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram/CLKARDCLK
-                            (rising edge-triggered cell RAMB18E1)
-  Destination:            leds[1]
-                            (output port)
+  Source:                 cacheController/set_bits_reg[2]/G
+                            (positive level-sensitive latch)
+  Destination:            cacheController/tag_dir_reg[221][23]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        8.384ns  (logic 5.989ns (71.440%)  route 2.394ns (28.560%))
-  Logic Levels:           2  (OBUF=1 RAMB18E1=1)
+  Data Path Delay:        28.218ns  (logic 1.741ns (6.170%)  route 26.477ns (93.830%))
+  Logic Levels:           8  (LDCE=1 LUT2=2 LUT5=1 LUT6=2 MUXF7=1 MUXF8=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    RAMB18_X0Y36         RAMB18E1                     0.000     0.000 r  bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram/CLKARDCLK
-    RAMB18_X0Y36         RAMB18E1 (Prop_ramb18e1_CLKARDCLK_DOADO[1])
-                                                      2.454     2.454 r  bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram/DOADO[1]
-                         net (fo=1, routed)           2.394     4.848    leds_OBUF[1]
-    K15                  OBUF (Prop_obuf_I_O)         3.535     8.384 r  leds_OBUF[1]_inst/O
-                         net (fo=0)                   0.000     8.384    leds[1]
-    K15                                                               r  leds[1] (OUT)
+    SLICE_X0Y32          LDCE                         0.000     0.000 r  cacheController/set_bits_reg[2]/G
+    SLICE_X0Y32          LDCE (EnToQ_ldce_G_Q)        0.559     0.559 r  cacheController/set_bits_reg[2]/Q
+                         net (fo=1128, routed)       13.159    13.718    cacheController/p_1_in[4]
+    SLICE_X43Y48         MUXF7 (Prop_muxf7_S_O)       0.276    13.994 r  cacheController/tag_dir_reg[162][22]_i_19/O
+                         net (fo=1, routed)           0.000    13.994    cacheController/tag_dir_reg[162][22]_i_19_n_0
+    SLICE_X43Y48         MUXF8 (Prop_muxf8_I1_O)      0.094    14.088 r  cacheController/tag_dir_reg[162][22]_i_7/O
+                         net (fo=1, routed)           1.155    15.243    cacheController/tag_dir_reg[162][22]_i_7_n_0
+    SLICE_X42Y42         LUT6 (Prop_lut6_I5_O)        0.316    15.559 r  cacheController/tag_dir_reg[162][22]_i_2/O
+                         net (fo=93, routed)          2.087    17.645    cacheController/tag_dir_reg[162][22]_i_2_n_0
+    SLICE_X28Y36         LUT2 (Prop_lut2_I0_O)        0.124    17.769 r  cacheController/tag_dir_reg[162][23]_i_3/O
+                         net (fo=82, routed)          2.569    20.338    cacheController/p_8_out[23]
+    SLICE_X28Y48         LUT2 (Prop_lut2_I0_O)        0.124    20.462 r  cacheController/tag_dir_reg[172][23]_i_4/O
+                         net (fo=257, routed)         4.254    24.716    cacheController/tag_dir_reg[172][23]_i_4_n_0
+    SLICE_X48Y53         LUT5 (Prop_lut5_I0_O)        0.124    24.840 r  cacheController/tag_dir_reg[225][23]_i_4/O
+                         net (fo=14, routed)          2.746    27.586    cacheController/tag_dir_reg[225][23]_i_4_n_0
+    SLICE_X21Y39         LUT6 (Prop_lut6_I1_O)        0.124    27.710 r  cacheController/tag_dir_reg[221][23]_i_1/O
+                         net (fo=1, routed)           0.508    28.218    cacheController/tag_dir_reg[221][23]_i_1_n_0
+    SLICE_X28Y39         LDCE                                         r  cacheController/tag_dir_reg[221][23]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/CLKARDCLK
-                            (rising edge-triggered cell RAMB36E1)
-  Destination:            leds[10]
-                            (output port)
+  Source:                 cacheController/set_bits_reg[2]/G
+                            (positive level-sensitive latch)
+  Destination:            cacheController/tag_dir_reg[217][23]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        8.379ns  (logic 6.006ns (71.683%)  route 2.373ns (28.317%))
-  Logic Levels:           2  (OBUF=1 RAMB36E1=1)
+  Data Path Delay:        28.170ns  (logic 1.741ns (6.180%)  route 26.429ns (93.820%))
+  Logic Levels:           8  (LDCE=1 LUT2=2 LUT5=1 LUT6=2 MUXF7=1 MUXF8=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    RAMB36_X0Y13         RAMB36E1                     0.000     0.000 r  bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/CLKARDCLK
-    RAMB36_X0Y13         RAMB36E1 (Prop_ramb36e1_CLKARDCLK_DOADO[4])
-                                                      2.454     2.454 r  bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[4]
-                         net (fo=1, routed)           2.373     4.827    leds_OBUF[10]
-    U14                  OBUF (Prop_obuf_I_O)         3.552     8.379 r  leds_OBUF[10]_inst/O
-                         net (fo=0)                   0.000     8.379    leds[10]
-    U14                                                               r  leds[10] (OUT)
+    SLICE_X0Y32          LDCE                         0.000     0.000 r  cacheController/set_bits_reg[2]/G
+    SLICE_X0Y32          LDCE (EnToQ_ldce_G_Q)        0.559     0.559 r  cacheController/set_bits_reg[2]/Q
+                         net (fo=1128, routed)       13.159    13.718    cacheController/p_1_in[4]
+    SLICE_X43Y48         MUXF7 (Prop_muxf7_S_O)       0.276    13.994 r  cacheController/tag_dir_reg[162][22]_i_19/O
+                         net (fo=1, routed)           0.000    13.994    cacheController/tag_dir_reg[162][22]_i_19_n_0
+    SLICE_X43Y48         MUXF8 (Prop_muxf8_I1_O)      0.094    14.088 r  cacheController/tag_dir_reg[162][22]_i_7/O
+                         net (fo=1, routed)           1.155    15.243    cacheController/tag_dir_reg[162][22]_i_7_n_0
+    SLICE_X42Y42         LUT6 (Prop_lut6_I5_O)        0.316    15.559 r  cacheController/tag_dir_reg[162][22]_i_2/O
+                         net (fo=93, routed)          2.087    17.645    cacheController/tag_dir_reg[162][22]_i_2_n_0
+    SLICE_X28Y36         LUT2 (Prop_lut2_I0_O)        0.124    17.769 r  cacheController/tag_dir_reg[162][23]_i_3/O
+                         net (fo=82, routed)          2.569    20.338    cacheController/p_8_out[23]
+    SLICE_X28Y48         LUT2 (Prop_lut2_I0_O)        0.124    20.462 r  cacheController/tag_dir_reg[172][23]_i_4/O
+                         net (fo=257, routed)         4.254    24.716    cacheController/tag_dir_reg[172][23]_i_4_n_0
+    SLICE_X48Y53         LUT5 (Prop_lut5_I0_O)        0.124    24.840 r  cacheController/tag_dir_reg[225][23]_i_4/O
+                         net (fo=14, routed)          2.441    27.281    cacheController/tag_dir_reg[225][23]_i_4_n_0
+    SLICE_X25Y40         LUT6 (Prop_lut6_I1_O)        0.124    27.405 r  cacheController/tag_dir_reg[217][23]_i_1/O
+                         net (fo=1, routed)           0.765    28.170    cacheController/tag_dir_reg[217][23]_i_1_n_0
+    SLICE_X30Y40         LDCE                                         r  cacheController/tag_dir_reg[217][23]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/CLKARDCLK
-                            (rising edge-triggered cell RAMB36E1)
-  Destination:            leds[14]
-                            (output port)
+  Source:                 cacheController/set_bits_reg[2]/G
+                            (positive level-sensitive latch)
+  Destination:            cacheController/tag_dir_reg[107][23]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        8.371ns  (logic 6.024ns (71.969%)  route 2.346ns (28.031%))
-  Logic Levels:           2  (OBUF=1 RAMB36E1=1)
+  Data Path Delay:        28.135ns  (logic 1.741ns (6.188%)  route 26.394ns (93.812%))
+  Logic Levels:           8  (LDCE=1 LUT2=2 LUT6=3 MUXF7=1 MUXF8=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    RAMB36_X0Y13         RAMB36E1                     0.000     0.000 r  bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/CLKARDCLK
-    RAMB36_X0Y13         RAMB36E1 (Prop_ramb36e1_CLKARDCLK_DOPADOP[0])
-                                                      2.454     2.454 r  bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOPADOP[0]
-                         net (fo=1, routed)           2.346     4.800    leds_OBUF[14]
-    V12                  OBUF (Prop_obuf_I_O)         3.570     8.371 r  leds_OBUF[14]_inst/O
-                         net (fo=0)                   0.000     8.371    leds[14]
-    V12                                                               r  leds[14] (OUT)
+    SLICE_X0Y32          LDCE                         0.000     0.000 r  cacheController/set_bits_reg[2]/G
+    SLICE_X0Y32          LDCE (EnToQ_ldce_G_Q)        0.559     0.559 r  cacheController/set_bits_reg[2]/Q
+                         net (fo=1128, routed)       13.159    13.718    cacheController/p_1_in[4]
+    SLICE_X43Y48         MUXF7 (Prop_muxf7_S_O)       0.276    13.994 r  cacheController/tag_dir_reg[162][22]_i_19/O
+                         net (fo=1, routed)           0.000    13.994    cacheController/tag_dir_reg[162][22]_i_19_n_0
+    SLICE_X43Y48         MUXF8 (Prop_muxf8_I1_O)      0.094    14.088 r  cacheController/tag_dir_reg[162][22]_i_7/O
+                         net (fo=1, routed)           1.155    15.243    cacheController/tag_dir_reg[162][22]_i_7_n_0
+    SLICE_X42Y42         LUT6 (Prop_lut6_I5_O)        0.316    15.559 r  cacheController/tag_dir_reg[162][22]_i_2/O
+                         net (fo=93, routed)          2.087    17.645    cacheController/tag_dir_reg[162][22]_i_2_n_0
+    SLICE_X28Y36         LUT2 (Prop_lut2_I0_O)        0.124    17.769 r  cacheController/tag_dir_reg[162][23]_i_3/O
+                         net (fo=82, routed)          2.569    20.338    cacheController/p_8_out[23]
+    SLICE_X28Y48         LUT2 (Prop_lut2_I0_O)        0.124    20.462 r  cacheController/tag_dir_reg[172][23]_i_4/O
+                         net (fo=257, routed)         6.336    26.799    cacheController/tag_dir_reg[172][23]_i_4_n_0
+    SLICE_X48Y35         LUT6 (Prop_lut6_I4_O)        0.124    26.923 r  cacheController/tag_dir_reg[107][23]_i_3/O
+                         net (fo=1, routed)           0.444    27.367    cacheController/tag_dir_reg[107][23]_i_3_n_0
+    SLICE_X48Y35         LUT6 (Prop_lut6_I3_O)        0.124    27.491 r  cacheController/tag_dir_reg[107][23]_i_1/O
+                         net (fo=1, routed)           0.644    28.135    cacheController/tag_dir_reg[107][23]_i_1_n_0
+    SLICE_X48Y37         LDCE                                         r  cacheController/tag_dir_reg[107][23]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/CLKARDCLK
-                            (rising edge-triggered cell RAMB36E1)
-  Destination:            leds[12]
-                            (output port)
+  Source:                 cacheController/set_bits_reg[2]/G
+                            (positive level-sensitive latch)
+  Destination:            cacheController/tag_dir_reg[216][23]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        8.349ns  (logic 6.006ns (71.933%)  route 2.343ns (28.067%))
-  Logic Levels:           2  (OBUF=1 RAMB36E1=1)
+  Data Path Delay:        28.118ns  (logic 1.617ns (5.751%)  route 26.501ns (94.249%))
+  Logic Levels:           7  (LDCE=1 LUT2=2 LUT5=1 LUT6=1 MUXF7=1 MUXF8=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    RAMB36_X0Y13         RAMB36E1                     0.000     0.000 r  bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/CLKARDCLK
-    RAMB36_X0Y13         RAMB36E1 (Prop_ramb36e1_CLKARDCLK_DOADO[6])
-                                                      2.454     2.454 r  bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[6]
-                         net (fo=1, routed)           2.343     4.797    leds_OBUF[12]
-    V15                  OBUF (Prop_obuf_I_O)         3.552     8.349 r  leds_OBUF[12]_inst/O
-                         net (fo=0)                   0.000     8.349    leds[12]
-    V15                                                               r  leds[12] (OUT)
+    SLICE_X0Y32          LDCE                         0.000     0.000 r  cacheController/set_bits_reg[2]/G
+    SLICE_X0Y32          LDCE (EnToQ_ldce_G_Q)        0.559     0.559 r  cacheController/set_bits_reg[2]/Q
+                         net (fo=1128, routed)       13.159    13.718    cacheController/p_1_in[4]
+    SLICE_X43Y48         MUXF7 (Prop_muxf7_S_O)       0.276    13.994 r  cacheController/tag_dir_reg[162][22]_i_19/O
+                         net (fo=1, routed)           0.000    13.994    cacheController/tag_dir_reg[162][22]_i_19_n_0
+    SLICE_X43Y48         MUXF8 (Prop_muxf8_I1_O)      0.094    14.088 r  cacheController/tag_dir_reg[162][22]_i_7/O
+                         net (fo=1, routed)           1.155    15.243    cacheController/tag_dir_reg[162][22]_i_7_n_0
+    SLICE_X42Y42         LUT6 (Prop_lut6_I5_O)        0.316    15.559 r  cacheController/tag_dir_reg[162][22]_i_2/O
+                         net (fo=93, routed)          2.087    17.645    cacheController/tag_dir_reg[162][22]_i_2_n_0
+    SLICE_X28Y36         LUT2 (Prop_lut2_I0_O)        0.124    17.769 r  cacheController/tag_dir_reg[162][23]_i_3/O
+                         net (fo=82, routed)          2.569    20.338    cacheController/p_8_out[23]
+    SLICE_X28Y48         LUT2 (Prop_lut2_I0_O)        0.124    20.462 r  cacheController/tag_dir_reg[172][23]_i_4/O
+                         net (fo=257, routed)         7.200    27.662    cacheController/tag_dir_reg[172][23]_i_4_n_0
+    SLICE_X38Y38         LUT5 (Prop_lut5_I4_O)        0.124    27.786 r  cacheController/tag_dir_reg[216][23]_i_1/O
+                         net (fo=1, routed)           0.332    28.118    cacheController/tag_dir_reg[216][23]_i_1_n_0
+    SLICE_X38Y38         LDCE                                         r  cacheController/tag_dir_reg[216][23]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/CLKARDCLK
-                            (rising edge-triggered cell RAMB36E1)
-  Destination:            leds[15]
-                            (output port)
+  Source:                 cacheController/set_bits_reg[2]/G
+                            (positive level-sensitive latch)
+  Destination:            cacheController/tag_dir_reg[231][23]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        8.227ns  (logic 6.023ns (73.207%)  route 2.204ns (26.793%))
-  Logic Levels:           2  (OBUF=1 RAMB36E1=1)
+  Data Path Delay:        28.096ns  (logic 1.971ns (7.015%)  route 26.125ns (92.985%))
+  Logic Levels:           8  (LDCE=1 LUT2=3 LUT6=2 MUXF7=1 MUXF8=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    RAMB36_X0Y12         RAMB36E1                     0.000     0.000 r  bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/CLKARDCLK
-    RAMB36_X0Y12         RAMB36E1 (Prop_ramb36e1_CLKARDCLK_DOADO[0])
-                                                      2.454     2.454 r  bramWrapper/bram_i/blk_mem_gen_0/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/prim_init.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram/DOADO[0]
-                         net (fo=1, routed)           2.204     4.658    leds_OBUF[15]
-    V11                  OBUF (Prop_obuf_I_O)         3.569     8.227 r  leds_OBUF[15]_inst/O
-                         net (fo=0)                   0.000     8.227    leds[15]
-    V11                                                               r  leds[15] (OUT)
+    SLICE_X0Y32          LDCE                         0.000     0.000 r  cacheController/set_bits_reg[2]/G
+    SLICE_X0Y32          LDCE (EnToQ_ldce_G_Q)        0.559     0.559 r  cacheController/set_bits_reg[2]/Q
+                         net (fo=1128, routed)       13.159    13.718    cacheController/p_1_in[4]
+    SLICE_X43Y48         MUXF7 (Prop_muxf7_S_O)       0.276    13.994 r  cacheController/tag_dir_reg[162][22]_i_19/O
+                         net (fo=1, routed)           0.000    13.994    cacheController/tag_dir_reg[162][22]_i_19_n_0
+    SLICE_X43Y48         MUXF8 (Prop_muxf8_I1_O)      0.094    14.088 r  cacheController/tag_dir_reg[162][22]_i_7/O
+                         net (fo=1, routed)           1.155    15.243    cacheController/tag_dir_reg[162][22]_i_7_n_0
+    SLICE_X42Y42         LUT6 (Prop_lut6_I5_O)        0.316    15.559 r  cacheController/tag_dir_reg[162][22]_i_2/O
+                         net (fo=93, routed)          2.087    17.645    cacheController/tag_dir_reg[162][22]_i_2_n_0
+    SLICE_X28Y36         LUT2 (Prop_lut2_I0_O)        0.124    17.769 r  cacheController/tag_dir_reg[162][23]_i_3/O
+                         net (fo=82, routed)          2.569    20.338    cacheController/p_8_out[23]
+    SLICE_X28Y48         LUT2 (Prop_lut2_I0_O)        0.124    20.462 r  cacheController/tag_dir_reg[172][23]_i_4/O
+                         net (fo=257, routed)         5.539    26.002    cacheController/tag_dir_reg[172][23]_i_4_n_0
+    SLICE_X52Y37         LUT2 (Prop_lut2_I0_O)        0.152    26.154 r  cacheController/tag_dir_reg[231][23]_i_4/O
+                         net (fo=1, routed)           1.089    27.243    cacheController/tag_dir_reg[231][23]_i_4_n_0
+    SLICE_X47Y37         LUT6 (Prop_lut6_I2_O)        0.326    27.569 r  cacheController/tag_dir_reg[231][23]_i_1/O
+                         net (fo=1, routed)           0.527    28.096    cacheController/tag_dir_reg[231][23]_i_1_n_0
+    SLICE_X44Y37         LDCE                                         r  cacheController/tag_dir_reg[231][23]/D
   -------------------------------------------------------------------    -------------------
 
 
@@ -438,202 +1205,173 @@ Slack:                    inf
 Min Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
-  Source:                 clockDivider/clk_out_reg/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            clockDivider/clk_out_reg/D
+  Source:                 cacheController/tag_bits_reg[1]_rep__0/G
+                            (positive level-sensitive latch)
+  Destination:            cacheController/tag_dir_reg[20][1]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.369ns  (logic 0.186ns (50.452%)  route 0.183ns (49.548%))
-  Logic Levels:           2  (FDRE=1 LUT3=1)
+  Data Path Delay:        0.281ns  (logic 0.158ns (56.225%)  route 0.123ns (43.775%))
+  Logic Levels:           1  (LDCE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X9Y76          FDRE                         0.000     0.000 r  clockDivider/clk_out_reg/C
-    SLICE_X9Y76          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  clockDivider/clk_out_reg/Q
-                         net (fo=10, routed)          0.183     0.324    clockDivider/BRAM_PORTA_0_clk
-    SLICE_X9Y76          LUT3 (Prop_lut3_I2_O)        0.045     0.369 r  clockDivider/clk_out_i_1/O
-                         net (fo=1, routed)           0.000     0.369    clockDivider/clk_out_i_1_n_0
-    SLICE_X9Y76          FDRE                                         r  clockDivider/clk_out_reg/D
+    SLICE_X24Y14         LDCE                         0.000     0.000 r  cacheController/tag_bits_reg[1]_rep__0/G
+    SLICE_X24Y14         LDCE (EnToQ_ldce_G_Q)        0.158     0.158 r  cacheController/tag_bits_reg[1]_rep__0/Q
+                         net (fo=64, routed)          0.123     0.281    cacheController/tag_bits_reg[1]_rep__0_n_0
+    SLICE_X27Y15         LDCE                                         r  cacheController/tag_dir_reg[20][1]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 bcd1/count_reg[10]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            bcd1/count_reg[10]/D
+  Source:                 cacheController/tag_bits_reg[1]_rep__1/G
+                            (positive level-sensitive latch)
+  Destination:            cacheController/tag_dir_reg[66][1]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.373ns  (logic 0.252ns (67.478%)  route 0.121ns (32.522%))
-  Logic Levels:           2  (CARRY4=1 FDRE=1)
+  Data Path Delay:        0.281ns  (logic 0.158ns (56.173%)  route 0.123ns (43.827%))
+  Logic Levels:           1  (LDCE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X0Y104         FDRE                         0.000     0.000 r  bcd1/count_reg[10]/C
-    SLICE_X0Y104         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  bcd1/count_reg[10]/Q
-                         net (fo=1, routed)           0.121     0.262    bcd1/count_reg_n_0_[10]
-    SLICE_X0Y104         CARRY4 (Prop_carry4_S[2]_O[2])
-                                                      0.111     0.373 r  bcd1/count_reg[8]_i_1/O[2]
-                         net (fo=1, routed)           0.000     0.373    bcd1/count_reg[8]_i_1_n_5
-    SLICE_X0Y104         FDRE                                         r  bcd1/count_reg[10]/D
+    SLICE_X24Y14         LDCE                         0.000     0.000 r  cacheController/tag_bits_reg[1]_rep__1/G
+    SLICE_X24Y14         LDCE (EnToQ_ldce_G_Q)        0.158     0.158 r  cacheController/tag_bits_reg[1]_rep__1/Q
+                         net (fo=64, routed)          0.123     0.281    cacheController/tag_bits_reg[1]_rep__1_n_0
+    SLICE_X26Y13         LDCE                                         r  cacheController/tag_dir_reg[66][1]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 bcd1/count_reg[14]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            bcd1/count_reg[14]/D
+  Source:                 cacheController/tag_bits_reg[20]_rep__0/G
+                            (positive level-sensitive latch)
+  Destination:            cacheController/tag_dir_reg[72][20]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.373ns  (logic 0.252ns (67.478%)  route 0.121ns (32.522%))
-  Logic Levels:           2  (CARRY4=1 FDRE=1)
+  Data Path Delay:        0.283ns  (logic 0.158ns (55.820%)  route 0.125ns (44.180%))
+  Logic Levels:           1  (LDCE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X0Y105         FDRE                         0.000     0.000 r  bcd1/count_reg[14]/C
-    SLICE_X0Y105         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  bcd1/count_reg[14]/Q
-                         net (fo=1, routed)           0.121     0.262    bcd1/count_reg_n_0_[14]
-    SLICE_X0Y105         CARRY4 (Prop_carry4_S[2]_O[2])
-                                                      0.111     0.373 r  bcd1/count_reg[12]_i_1/O[2]
-                         net (fo=1, routed)           0.000     0.373    bcd1/count_reg[12]_i_1_n_5
-    SLICE_X0Y105         FDRE                                         r  bcd1/count_reg[14]/D
+    SLICE_X44Y30         LDCE                         0.000     0.000 r  cacheController/tag_bits_reg[20]_rep__0/G
+    SLICE_X44Y30         LDCE (EnToQ_ldce_G_Q)        0.158     0.158 r  cacheController/tag_bits_reg[20]_rep__0/Q
+                         net (fo=64, routed)          0.125     0.283    cacheController/tag_bits_reg[20]_rep__0_n_0
+    SLICE_X44Y31         LDCE                                         r  cacheController/tag_dir_reg[72][20]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 bcd1/count_reg[2]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            bcd1/count_reg[2]/D
+  Source:                 cacheController/tag_bits_reg[17]_rep/G
+                            (positive level-sensitive latch)
+  Destination:            cacheController/tag_dir_reg[191][17]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.373ns  (logic 0.252ns (67.478%)  route 0.121ns (32.522%))
-  Logic Levels:           2  (CARRY4=1 FDRE=1)
+  Data Path Delay:        0.292ns  (logic 0.158ns (54.187%)  route 0.134ns (45.813%))
+  Logic Levels:           1  (LDCE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X0Y102         FDRE                         0.000     0.000 r  bcd1/count_reg[2]/C
-    SLICE_X0Y102         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  bcd1/count_reg[2]/Q
-                         net (fo=1, routed)           0.121     0.262    bcd1/count_reg_n_0_[2]
-    SLICE_X0Y102         CARRY4 (Prop_carry4_S[2]_O[2])
-                                                      0.111     0.373 r  bcd1/count_reg[0]_i_1/O[2]
-                         net (fo=1, routed)           0.000     0.373    bcd1/count_reg[0]_i_1_n_5
-    SLICE_X0Y102         FDRE                                         r  bcd1/count_reg[2]/D
+    SLICE_X39Y30         LDCE                         0.000     0.000 r  cacheController/tag_bits_reg[17]_rep/G
+    SLICE_X39Y30         LDCE (EnToQ_ldce_G_Q)        0.158     0.158 r  cacheController/tag_bits_reg[17]_rep/Q
+                         net (fo=64, routed)          0.134     0.292    cacheController/tag_bits_reg[17]_rep_n_0
+    SLICE_X41Y31         LDCE                                         r  cacheController/tag_dir_reg[191][17]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 clockDivider/counter_reg[11]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            clockDivider/counter_reg[11]/D
+  Source:                 cacheController/tag_bits_reg[1]_rep__1/G
+                            (positive level-sensitive latch)
+  Destination:            cacheController/tag_dir_reg[70][1]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.399ns  (logic 0.274ns (68.589%)  route 0.125ns (31.411%))
-  Logic Levels:           2  (CARRY4=1 FDRE=1)
+  Data Path Delay:        0.292ns  (logic 0.158ns (54.127%)  route 0.134ns (45.873%))
+  Logic Levels:           1  (LDCE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X8Y78          FDRE                         0.000     0.000 r  clockDivider/counter_reg[11]/C
-    SLICE_X8Y78          FDRE (Prop_fdre_C_Q)         0.164     0.164 r  clockDivider/counter_reg[11]/Q
-                         net (fo=2, routed)           0.125     0.289    clockDivider/counter[11]
-    SLICE_X8Y78          CARRY4 (Prop_carry4_S[2]_O[2])
-                                                      0.110     0.399 r  clockDivider/counter0_carry__1/O[2]
-                         net (fo=1, routed)           0.000     0.399    clockDivider/data0[11]
-    SLICE_X8Y78          FDRE                                         r  clockDivider/counter_reg[11]/D
+    SLICE_X24Y14         LDCE                         0.000     0.000 r  cacheController/tag_bits_reg[1]_rep__1/G
+    SLICE_X24Y14         LDCE (EnToQ_ldce_G_Q)        0.158     0.158 r  cacheController/tag_bits_reg[1]_rep__1/Q
+                         net (fo=64, routed)          0.134     0.292    cacheController/tag_bits_reg[1]_rep__1_n_0
+    SLICE_X25Y13         LDCE                                         r  cacheController/tag_dir_reg[70][1]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 clockDivider/counter_reg[15]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            clockDivider/counter_reg[15]/D
+  Source:                 cacheController/tag_bits_reg[9]_rep/G
+                            (positive level-sensitive latch)
+  Destination:            cacheController/tag_dir_reg[111][9]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.399ns  (logic 0.274ns (68.589%)  route 0.125ns (31.411%))
-  Logic Levels:           2  (CARRY4=1 FDRE=1)
+  Data Path Delay:        0.293ns  (logic 0.158ns (53.978%)  route 0.135ns (46.022%))
+  Logic Levels:           1  (LDCE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X8Y79          FDRE                         0.000     0.000 r  clockDivider/counter_reg[15]/C
-    SLICE_X8Y79          FDRE (Prop_fdre_C_Q)         0.164     0.164 r  clockDivider/counter_reg[15]/Q
-                         net (fo=2, routed)           0.125     0.289    clockDivider/counter[15]
-    SLICE_X8Y79          CARRY4 (Prop_carry4_S[2]_O[2])
-                                                      0.110     0.399 r  clockDivider/counter0_carry__2/O[2]
-                         net (fo=1, routed)           0.000     0.399    clockDivider/data0[15]
-    SLICE_X8Y79          FDRE                                         r  clockDivider/counter_reg[15]/D
+    SLICE_X21Y31         LDCE                         0.000     0.000 r  cacheController/tag_bits_reg[9]_rep/G
+    SLICE_X21Y31         LDCE (EnToQ_ldce_G_Q)        0.158     0.158 r  cacheController/tag_bits_reg[9]_rep/Q
+                         net (fo=64, routed)          0.135     0.293    cacheController/tag_bits_reg[9]_rep_n_0
+    SLICE_X23Y30         LDCE                                         r  cacheController/tag_dir_reg[111][9]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 clockDivider/counter_reg[23]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            clockDivider/counter_reg[23]/D
+  Source:                 cacheController/tag_bits_reg[9]_rep/G
+                            (positive level-sensitive latch)
+  Destination:            cacheController/tag_dir_reg[247][9]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.399ns  (logic 0.274ns (68.589%)  route 0.125ns (31.411%))
-  Logic Levels:           2  (CARRY4=1 FDRE=1)
+  Data Path Delay:        0.293ns  (logic 0.158ns (53.969%)  route 0.135ns (46.031%))
+  Logic Levels:           1  (LDCE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X8Y81          FDRE                         0.000     0.000 r  clockDivider/counter_reg[23]/C
-    SLICE_X8Y81          FDRE (Prop_fdre_C_Q)         0.164     0.164 r  clockDivider/counter_reg[23]/Q
-                         net (fo=2, routed)           0.125     0.289    clockDivider/counter[23]
-    SLICE_X8Y81          CARRY4 (Prop_carry4_S[2]_O[2])
-                                                      0.110     0.399 r  clockDivider/counter0_carry__4/O[2]
-                         net (fo=1, routed)           0.000     0.399    clockDivider/data0[23]
-    SLICE_X8Y81          FDRE                                         r  clockDivider/counter_reg[23]/D
+    SLICE_X21Y31         LDCE                         0.000     0.000 r  cacheController/tag_bits_reg[9]_rep/G
+    SLICE_X21Y31         LDCE (EnToQ_ldce_G_Q)        0.158     0.158 r  cacheController/tag_bits_reg[9]_rep/Q
+                         net (fo=64, routed)          0.135     0.293    cacheController/tag_bits_reg[9]_rep_n_0
+    SLICE_X22Y32         LDCE                                         r  cacheController/tag_dir_reg[247][9]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 clockDivider/counter_reg[19]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            clockDivider/counter_reg[19]/D
+  Source:                 cacheController/tag_bits_reg[6]_rep__0/G
+                            (positive level-sensitive latch)
+  Destination:            cacheController/tag_dir_reg[104][6]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.400ns  (logic 0.274ns (68.524%)  route 0.126ns (31.476%))
-  Logic Levels:           2  (CARRY4=1 FDRE=1)
+  Data Path Delay:        0.293ns  (logic 0.158ns (53.849%)  route 0.135ns (46.151%))
+  Logic Levels:           1  (LDCE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X8Y80          FDRE                         0.000     0.000 r  clockDivider/counter_reg[19]/C
-    SLICE_X8Y80          FDRE (Prop_fdre_C_Q)         0.164     0.164 r  clockDivider/counter_reg[19]/Q
-                         net (fo=2, routed)           0.126     0.290    clockDivider/counter[19]
-    SLICE_X8Y80          CARRY4 (Prop_carry4_S[2]_O[2])
-                                                      0.110     0.400 r  clockDivider/counter0_carry__3/O[2]
-                         net (fo=1, routed)           0.000     0.400    clockDivider/data0[19]
-    SLICE_X8Y80          FDRE                                         r  clockDivider/counter_reg[19]/D
+    SLICE_X21Y21         LDCE                         0.000     0.000 r  cacheController/tag_bits_reg[6]_rep__0/G
+    SLICE_X21Y21         LDCE (EnToQ_ldce_G_Q)        0.158     0.158 r  cacheController/tag_bits_reg[6]_rep__0/Q
+                         net (fo=64, routed)          0.135     0.293    cacheController/tag_bits_reg[6]_rep__0_n_0
+    SLICE_X25Y21         LDCE                                         r  cacheController/tag_dir_reg[104][6]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 bcd1/count_reg[10]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            bcd1/count_reg[11]/D
+  Source:                 cacheController/tag_bits_reg[16]_rep/G
+                            (positive level-sensitive latch)
+  Destination:            cacheController/tag_dir_reg[55][16]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.406ns  (logic 0.285ns (70.118%)  route 0.121ns (29.882%))
-  Logic Levels:           2  (CARRY4=1 FDRE=1)
+  Data Path Delay:        0.295ns  (logic 0.158ns (53.507%)  route 0.137ns (46.493%))
+  Logic Levels:           1  (LDCE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X0Y104         FDRE                         0.000     0.000 r  bcd1/count_reg[10]/C
-    SLICE_X0Y104         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  bcd1/count_reg[10]/Q
-                         net (fo=1, routed)           0.121     0.262    bcd1/count_reg_n_0_[10]
-    SLICE_X0Y104         CARRY4 (Prop_carry4_S[2]_O[3])
-                                                      0.144     0.406 r  bcd1/count_reg[8]_i_1/O[3]
-                         net (fo=1, routed)           0.000     0.406    bcd1/count_reg[8]_i_1_n_4
-    SLICE_X0Y104         FDRE                                         r  bcd1/count_reg[11]/D
+    SLICE_X9Y20          LDCE                         0.000     0.000 r  cacheController/tag_bits_reg[16]_rep/G
+    SLICE_X9Y20          LDCE (EnToQ_ldce_G_Q)        0.158     0.158 r  cacheController/tag_bits_reg[16]_rep/Q
+                         net (fo=64, routed)          0.137     0.295    cacheController/tag_bits_reg[16]_rep_n_0
+    SLICE_X11Y20         LDCE                                         r  cacheController/tag_dir_reg[55][16]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 bcd1/count_reg[14]/C
-                            (rising edge-triggered cell FDRE)
-  Destination:            bcd1/count_reg[15]/D
+  Source:                 cacheController/tag_bits_reg[0]_rep__2/G
+                            (positive level-sensitive latch)
+  Destination:            cacheController/tag_dir_reg[193][0]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.406ns  (logic 0.285ns (70.118%)  route 0.121ns (29.882%))
-  Logic Levels:           2  (CARRY4=1 FDRE=1)
+  Data Path Delay:        0.299ns  (logic 0.158ns (52.830%)  route 0.141ns (47.170%))
+  Logic Levels:           1  (LDCE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X0Y105         FDRE                         0.000     0.000 r  bcd1/count_reg[14]/C
-    SLICE_X0Y105         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  bcd1/count_reg[14]/Q
-                         net (fo=1, routed)           0.121     0.262    bcd1/count_reg_n_0_[14]
-    SLICE_X0Y105         CARRY4 (Prop_carry4_S[2]_O[3])
-                                                      0.144     0.406 r  bcd1/count_reg[12]_i_1/O[3]
-                         net (fo=1, routed)           0.000     0.406    bcd1/count_reg[12]_i_1_n_4
-    SLICE_X0Y105         FDRE                                         r  bcd1/count_reg[15]/D
+    SLICE_X21Y49         LDCE                         0.000     0.000 r  cacheController/tag_bits_reg[0]_rep__2/G
+    SLICE_X21Y49         LDCE (EnToQ_ldce_G_Q)        0.158     0.158 r  cacheController/tag_bits_reg[0]_rep__2/Q
+                         net (fo=64, routed)          0.141     0.299    cacheController/tag_bits_reg[0]_rep__2_n_0
+    SLICE_X22Y49         LDCE                                         r  cacheController/tag_dir_reg[193][0]/D
   -------------------------------------------------------------------    -------------------
 
 

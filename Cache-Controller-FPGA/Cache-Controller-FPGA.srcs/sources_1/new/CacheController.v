@@ -36,6 +36,17 @@ module CacheController #(parameter n_pa_bits = 32)(
     reg [n_valid_index:0] tag_dir [0:n_lines-1];
 
     integer i;
+    initial begin
+        hit_count <= 0;
+        miss_count <= 0;
+        fetch <= 0;
+        // instantiate tag_dir age in the order 3, 2, 1, 0 for each set 
+        // instantiate tag_dir valid & dirty bit = 0 for all lines
+        for (i = 0; i < n_lines; i = i + 1) begin
+            tag_dir[i][n_age_index+1:n_age_index] <= 3 - (i % 4);
+            tag_dir[i][n_valid_index:n_dirty_index] <= 2'b00;
+        end
+    end
 
     always @(state) begin
         case(state)
@@ -205,16 +216,16 @@ module CacheController #(parameter n_pa_bits = 32)(
         if (!reset) begin
             // Reset
             state <= 6;
-            hit_count <= 0;
-            miss_count <= 0;
-            fetch <= 0;
+//            hit_count <= 0;
+//            miss_count <= 0;
+//            fetch <= 0;
 
-            // instantiate tag_dir age in the order 3, 2, 1, 0 for each set 
-            // instantiate tag_dir valid & dirty bit = 0 for all lines
-            for (i = 0; i < n_lines; i = i + 1) begin
-                tag_dir[i][n_age_index+1:n_age_index] <= 3 - (i % 4);
-                tag_dir[i][n_valid_index:n_dirty_index] <= 2'b00;
-            end
+//            // instantiate tag_dir age in the order 3, 2, 1, 0 for each set 
+//            // instantiate tag_dir valid & dirty bit = 0 for all lines
+//            for (i = 0; i < n_lines; i = i + 1) begin
+//                tag_dir[i][n_age_index+1:n_age_index] <= 3 - (i % 4);
+//                tag_dir[i][n_valid_index:n_dirty_index] <= 2'b00;
+//            end
         end
         else
             if (!halt) begin

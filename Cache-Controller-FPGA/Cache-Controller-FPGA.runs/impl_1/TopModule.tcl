@@ -123,6 +123,7 @@ start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
+  set_param xicom.use_bs_reader 1
   set_param chipscope.maxJobs 4
   open_checkpoint TopModule_routed.dcp
   set_property webtalk.parent_dir /home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.cache/wt [current_project]
