@@ -1,0 +1,7 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"TopModuleTB_func_impl.v" \
+"../../../../../Cache-Controller-FPGA.srcs/sim_1/new/TopModuleTB.v" \
+
+# Do not sort compile order
+nosort

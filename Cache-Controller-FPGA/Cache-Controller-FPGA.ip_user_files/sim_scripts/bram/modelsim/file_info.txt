@@ -1,0 +1,6 @@
+xpm_memory.sv,systemverilog,xpm,../../../../../../../../../../../../opt/Xilinx/Vivado/2022.1/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv,
+xpm_VCOMP.vhd,vhdl,xpm,../../../../../../../../../../../../opt/Xilinx/Vivado/2022.1/data/ip/xpm/xpm_VCOMP.vhd,
+blk_mem_gen_v8_4.v,verilog,blk_mem_gen_v8_4_5,../../../../Cache-Controller-FPGA.gen/sources_1/bd/bram/ipshared/25a8/simulation/blk_mem_gen_v8_4.v,
+bram_blk_mem_gen_0_0.v,verilog,xil_defaultlib,../../../bd/bram/ip/bram_blk_mem_gen_0_0/sim/bram_blk_mem_gen_0_0.v,
+bram.v,verilog,xil_defaultlib,../../../bd/bram/sim/bram.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v
