@@ -10,7 +10,7 @@ module TopModule(
     wire halt;
     wire fetch;
     wire [32:0] instruction;
-   	wire [13:0] miss_count, hit_count;
+   	wire [7:0] miss_count, hit_count;
     reg [12:0] prog_count;
 
     assign halt = halt_in | (prog_count == 201);
@@ -19,7 +19,7 @@ module TopModule(
     CacheController cacheController(clk, reset, halt, instruction, fetch, hit_count, miss_count);
 
     ClockDivider clockDivider(clk_in, clk);
-    BcdDisplay bcd1(clk_in, miss_count[7:0], segments, digit_en);
+    BcdDisplay bcd1(clk_in, miss_count, segments, digit_en);
     assign leds = instruction[15:0];
 //    BcdDisplay bcdDisplay(clk_in, miss_count[7:0], segments, digit_en);
     
