@@ -2,7 +2,7 @@
 
 module BcdDisplay(
     input clk, // 100 MHz
-    input [7:0] Number,
+    input [12:0] Number,
     output [7:0] Segments,
     output [3:0] Digit_En
     );
@@ -16,15 +16,17 @@ module BcdDisplay(
     reg [1:0] Sel;
     always @(posedge count[16]) Sel <= Sel + 1;
     
-    wire [3:0] Ones, Tens, Hundreds;
     wire [3:0] BCD_Digit;
-    wire i_Start = count[10];
+
+    // wire [3:0] Ones, Tens, Hundreds;
+    wire [15:0] o_BCD;
+    wire i_Start = count[6];
     
     Decoder A1(Sel, Digit_En);
     
-    Binary_to_BCD #(INPUT_WIDTH = 8, DECIMAL_DIGITS = 3) A2(clk, Number, i_Start, {Hundreds, Tens, Ones}, o_DV);
+    Binary_to_BCD #(.INPUT_WIDTH(13), .DECIMAL_DIGITS(4)) A2(clk, Number, i_Start, o_BCD, o_DV);
     
-    Mux_4to1 A3(Sel, Ones, Tens, Hundreds, 4'b0000, BCD_Digit);
+    Mux_4to1 A3(Sel, o_BCD, BCD_Digit);
     
     Bin_7Segment_Display A4(BCD_Digit, Segments);
 endmodule
@@ -56,16 +58,16 @@ endmodule
 
 module Mux_4to1(
     input [1:0] Sel,
-    input [3:0] In0, In1, In2, In3,
+    input [15:0] In,
     output reg [3:0] Out
     );
     
-    always @(Sel, In0, In1, In2, In3) begin
+    always @(Sel, In) begin
         case(Sel)
-            2'b00: Out <= In0;
-            2'b01: Out <= In1;
-            2'b10: Out <= In2;
-            2'b11: Out <= In3;
+            2'b00: Out <= In[0+:4];
+            2'b01: Out <= In[3+:4];
+            2'b10: Out <= In[6+:4];
+            2'b11: Out <= In[9+:4];
         endcase
     end
 endmodule

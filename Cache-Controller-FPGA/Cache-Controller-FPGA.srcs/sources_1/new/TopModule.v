@@ -10,7 +10,7 @@ module TopModule(
     wire halt;
     wire fetch;
     wire [32:0] instruction;
-   	wire [7:0] miss_count, hit_count;
+   	wire [12:0] miss_count, hit_count;
     reg [12:0] prog_count;
 
     assign halt = halt_in | (prog_count == 201);
@@ -29,7 +29,7 @@ module TopModule(
     	else begin
     		if (!halt && fetch) begin
     			prog_count = prog_count + 1;
-			end
+				end
     	end
     end
 endmodule
