@@ -7,7 +7,7 @@ module BcdDisplay(
     output [3:0] Digit_En
     );
     
-    parameter clk_divider = 100000000/800/2;
+    // parameter clk_divider = 100000000/800/2;
     
     // Clock + Counter logic
     reg [16:0] count;
@@ -18,10 +18,11 @@ module BcdDisplay(
     
     wire [3:0] Ones, Tens, Hundreds;
     wire [3:0] BCD_Digit;
+    wire i_Start = count[10];
     
     Decoder A1(Sel, Digit_En);
     
-    BinBcdConverter A2(Number, Hundreds[1:0], Tens, Ones);
+    Binary_to_BCD #(INPUT_WIDTH = 8, DECIMAL_DIGITS = 3) A2(clk, Number, i_Start, {Hundreds, Tens, Ones}, o_DV);
     
     Mux_4to1 A3(Sel, Ones, Tens, Hundreds, 4'b0000, BCD_Digit);
     
@@ -36,7 +37,15 @@ module Decoder(
     
     always @(Sel) begin
         case(Sel)
-            2'b00: Out <= 4'b1110; 
+            // 3'b000: Out <= 8'b11111110;
+            // 3'b001: Out <= 8'b11111101;
+            // 3'b010: Out <= 8'b11111011;
+            // 3'b011: Out <= 8'b11110111;
+            // 3'b100: Out <= 8'b11101111;
+            // 3'b101: Out <= 8'b11011111;
+            // 3'b110: Out <= 8'b10111111;
+            // 3'b111: Out <= 8'b01111111;
+            2'b00: Out <= 4'b1110;
             2'b01: Out <= 4'b1101;
             2'b10: Out <= 4'b1011;
             2'b11: Out <= 4'b0111;
