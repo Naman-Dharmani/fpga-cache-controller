@@ -2,9 +2,10 @@
 
 module BcdDisplay(
     input clk, // 100 MHz
-    input [12:0] Number,
+    input [12:0] Number1,
+    input [12:0] Number2,
     output [7:0] Segments,
-    output [3:0] Digit_En
+    output [7:0] Digit_En
     );
     
     // parameter clk_divider = 100000000/800/2;
@@ -14,43 +15,47 @@ module BcdDisplay(
     always @(posedge clk) count <= count + 1;
 
     reg [1:0] Sel;
-    always @(posedge count[16]) Sel <= Sel + 1;
+    always @(posedge count[10]) Sel <= Sel + 1;
     
     wire [3:0] BCD_Digit;
 
     // wire [3:0] Ones, Tens, Hundreds;
     wire [15:0] o_BCD;
+    reg [15:0] r_BCD;
     wire i_Start = count[6];
     
-    Decoder A1(Sel, Digit_En);
+    Decoder A1({count[12], Sel}, Digit_En);
     
-    Binary_to_BCD #(.INPUT_WIDTH(13), .DECIMAL_DIGITS(4)) A2(clk, Number, i_Start, o_BCD, o_DV);
+    Binary_to_BCD #(.INPUT_WIDTH(13), .DECIMAL_DIGITS(4)) A2(clk, (count[12] ? Number1 : Number2), i_Start, o_BCD, o_DV);
     
-    Mux_4to1 A3(Sel, o_BCD, BCD_Digit);
+    Mux_4to1 A3(Sel, r_BCD, BCD_Digit);
     
     Bin_7Segment_Display A4(BCD_Digit, Segments);
+
+    always @(o_DV) begin
+        if(o_DV)
+            r_BCD <= o_BCD;
+        else
+            r_BCD <= r_BCD;
+    end
 endmodule
 
 
 module Decoder(
-    input [1:0] Sel,
-    output reg [3:0] Out
+    input [2:0] Sel,
+    output reg [7:0] Out
     );
     
     always @(Sel) begin
         case(Sel)
-            // 3'b000: Out <= 8'b11111110;
-            // 3'b001: Out <= 8'b11111101;
-            // 3'b010: Out <= 8'b11111011;
-            // 3'b011: Out <= 8'b11110111;
-            // 3'b100: Out <= 8'b11101111;
-            // 3'b101: Out <= 8'b11011111;
-            // 3'b110: Out <= 8'b10111111;
-            // 3'b111: Out <= 8'b01111111;
-            2'b00: Out <= 4'b1110;
-            2'b01: Out <= 4'b1101;
-            2'b10: Out <= 4'b1011;
-            2'b11: Out <= 4'b0111;
+            3'b000: Out <= 8'b11111110;
+            3'b001: Out <= 8'b11111101;
+            3'b010: Out <= 8'b11111011;
+            3'b011: Out <= 8'b11110111;
+            3'b100: Out <= 8'b11101111;
+            3'b101: Out <= 8'b11011111;
+            3'b110: Out <= 8'b10111111;
+            3'b111: Out <= 8'b01111111;
         endcase
     end
 endmodule
@@ -65,9 +70,9 @@ module Mux_4to1(
     always @(Sel, In) begin
         case(Sel)
             2'b00: Out <= In[0+:4];
-            2'b01: Out <= In[3+:4];
-            2'b10: Out <= In[6+:4];
-            2'b11: Out <= In[9+:4];
+            2'b01: Out <= In[4+:4];
+            2'b10: Out <= In[8+:4];
+            2'b11: Out <= In[12+:4];
         endcase
     end
 endmodule

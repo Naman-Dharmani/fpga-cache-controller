@@ -3,7 +3,7 @@
 module TopModule(
 	input clk_in, reset, halt_in,
 	output [7:0] segments,
-	output [3:0] digit_en,
+	output [7:0] digit_en,
 	output [15:0] leds
 ); // fpga i/o
     
@@ -19,7 +19,7 @@ module TopModule(
     CacheController cacheController(clk, reset, halt, instruction, fetch, hit_count, miss_count);
 
     ClockDivider clockDivider(clk_in, clk);
-    BcdDisplay bcd1(clk_in, miss_count, segments, digit_en);
+    BcdDisplay bcd1(clk_in, hit_count, miss_count, segments, digit_en);
     assign leds = instruction[15:0];
     
     always @(posedge clk or negedge reset) begin
