@@ -21,7 +21,6 @@ module TopModule(
     ClockDivider clockDivider(clk_in, clk);
     BcdDisplay bcd1(clk_in, miss_count, segments, digit_en);
     assign leds = instruction[15:0];
-//    BcdDisplay bcdDisplay(clk_in, miss_count[7:0], segments, digit_en);
     
     always @(posedge clk or negedge reset) begin
     	if (!reset) begin

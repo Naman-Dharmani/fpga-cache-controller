@@ -1,6 +1,5 @@
 set_property PACKAGE_PIN J15 [get_ports reset]
 set_property PACKAGE_PIN L16 [get_ports halt_in]
-set_property PACKAGE_PIN E3 [get_ports clk_in]
 set_property PACKAGE_PIN J17 [get_ports {digit_en[0]}]
 set_property PACKAGE_PIN J18 [get_ports {digit_en[1]}]
 set_property PACKAGE_PIN T9 [get_ports {digit_en[2]}]
@@ -26,7 +25,6 @@ set_property IOSTANDARD LVCMOS33 [get_ports {segments[3]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {segments[2]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {segments[1]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {segments[0]}]
-set_property IOSTANDARD LVCMOS33 [get_ports clk_in]
 set_property IOSTANDARD LVCMOS33 [get_ports halt_in]
 set_property IOSTANDARD LVCMOS33 [get_ports reset]
 
@@ -62,3 +60,11 @@ set_property PACKAGE_PIN V15 [get_ports {leds[12]}]
 set_property PACKAGE_PIN V14 [get_ports {leds[13]}]
 set_property PACKAGE_PIN V12 [get_ports {leds[14]}]
 set_property PACKAGE_PIN V11 [get_ports {leds[15]}]
+
+
+
+
+set_property PACKAGE_PIN E3 [get_ports clk_in]
+set_property IOSTANDARD LVCMOS33 [get_ports clk_in]
+
+create_clock -period 10.000 -name clk_in -waveform {0.000 5.000} [get_ports clk_in]

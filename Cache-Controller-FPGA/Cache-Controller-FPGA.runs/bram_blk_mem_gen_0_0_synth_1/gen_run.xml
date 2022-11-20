@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="bram_blk_mem_gen_0_0_synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1668725748">
-  <File Type="RDS-DCP" Name="bram_blk_mem_gen_0_0.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="bram_blk_mem_gen_0_0_utilization_synth.pb"/>
+<GenRun Id="bram_blk_mem_gen_0_0_synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1668928416">
   <File Type="PA-TCL" Name="bram_blk_mem_gen_0_0.tcl"/>
-  <File Type="RDS-UTIL" Name="bram_blk_mem_gen_0_0_utilization_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="bram_blk_mem_gen_0_0_reports.tcl"/>
   <File Type="RDS-RDS" Name="bram_blk_mem_gen_0_0.vds"/>
+  <File Type="RDS-DCP" Name="bram_blk_mem_gen_0_0.dcp"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/bram_blk_mem_gen_0_0">
     <File Path="$PSRCDIR/sources_1/bd/bram/ip/bram_blk_mem_gen_0_0/bram_blk_mem_gen_0_0.xci">
       <FileInfo>
+        <Attr Name="Library" Val="xil_defaultlib"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -22,6 +21,7 @@
   <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/bram_blk_mem_gen_0_0">
     <File Path="$PSRCDIR/sources_1/bd/bram/ip/bram_blk_mem_gen_0_0/bram_blk_mem_gen_0_0.xci">
       <FileInfo>
+        <Attr Name="Library" Val="xil_defaultlib"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>

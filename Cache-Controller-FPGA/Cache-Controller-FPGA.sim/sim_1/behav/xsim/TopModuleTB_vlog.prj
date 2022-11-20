@@ -5,7 +5,6 @@ verilog xil_defaultlib  \
 "../../../../Cache-Controller-FPGA.srcs/sources_1/new/BcdDisplay.v" \
 "../../../../Cache-Controller-FPGA.srcs/sources_1/new/BinBcdConverter.v" \
 "../../../../Cache-Controller-FPGA.srcs/sources_1/new/CacheController.v" \
-"../../../../Cache-Controller-FPGA.srcs/sources_1/new/ClockDivider.v" \
 "../../../../Cache-Controller-FPGA.srcs/sources_1/new/TopModule.v" \
 "../../../../Cache-Controller-FPGA.gen/sources_1/bd/bram/hdl/bram_wrapper.v" \
 "../../../../Cache-Controller-FPGA.srcs/sim_1/new/TopModuleTB.v" \

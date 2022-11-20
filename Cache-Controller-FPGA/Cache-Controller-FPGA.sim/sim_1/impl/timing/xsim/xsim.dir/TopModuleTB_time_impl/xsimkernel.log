@@ -2,3 +2,6 @@ Running: xsim.dir/TopModuleTB_time_impl/xsimk -simmode gui -wdb TopModuleTB_time
 Design successfully loaded
 Design Loading Memory Usage: 34480 KB (Peak: 34480 KB)
 Design Loading CPU Usage: 20 ms
+Simulation completed
+Simulation Memory Usage: 120836 KB (Peak: 173748 KB)
+Simulation CPU Usage: 200 ms

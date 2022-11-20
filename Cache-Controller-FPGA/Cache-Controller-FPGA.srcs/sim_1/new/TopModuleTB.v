@@ -21,7 +21,7 @@ module TopModuleTB();
 		reset = 0; #1;
 		reset = 1;
 		
-		#3000;
-		$finish;
+//		#3000000;
+//		$finish;
 	end
 endmodule

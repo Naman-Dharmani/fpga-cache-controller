@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.1 (lin64) Build 3526262 Mon Apr 18 15:47:01 MDT 2022
--- Date        : Fri Nov 18 04:26:44 2022
+-- Date        : Sun Nov 20 00:35:14 2022
 -- Host        : kite running 64-bit CachyOS
--- Command     : write_vhdl -force -mode synth_stub
---               /home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.gen/sources_1/bd/bram/ip/bram_blk_mem_gen_0_0/bram_blk_mem_gen_0_0_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top bram_blk_mem_gen_0_0 -prefix
+--               bram_blk_mem_gen_0_0_ bram_blk_mem_gen_0_0_stub.vhdl
 -- Design      : bram_blk_mem_gen_0_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a100tcsg324-1

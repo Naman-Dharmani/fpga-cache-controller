@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.1 (lin64) Build 3526262 Mon Apr 18 15:47:01 MDT 2022
-| Date         : Fri Nov 18 17:35:12 2022
+| Date         : Sun Nov 20 21:59:21 2022
 | Host         : kite running 64-bit CachyOS
 | Command      : report_control_sets -verbose -file TopModule_control_sets_placed.rpt
 | Design       : TopModule
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |   524 |
-|    Minimum number of control sets                        |   524 |
+| Total control sets                                       |   269 |
+|    Minimum number of control sets                        |   269 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |  2108 |
+| Unused register locations in slices containing registers |   552 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |   524 |
-| >= 0 to < 4        |   260 |
+| Total control sets |   269 |
+| >= 0 to < 4        |     1 |
 | >= 4 to < 6        |     0 |
 | >= 6 to < 8        |     1 |
 | >= 8 to < 10       |     2 |
-| >= 10 to < 12      |     1 |
+| >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     1 |
-| >= 14 to < 16      |     0 |
-| >= 16              |   259 |
+| >= 14 to < 16      |     1 |
+| >= 16              |   263 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,11 +58,11 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |            6347 |         2719 |
-| No           | No                    | Yes                    |               0 |            0 |
+| No           | No                    | No                     |              37 |           14 |
+| No           | No                    | Yes                    |              15 |           11 |
 | No           | Yes                   | No                     |              26 |            7 |
-| Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |              23 |            6 |
+| Yes          | No                    | No                     |             110 |           43 |
+| Yes          | No                    | Yes                    |            6412 |         3017 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -70,533 +70,278 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+-----------------------------------------------+--------------------------+-----------------------+------------------+----------------+--------------+
-|                  Clock Signal                 |       Enable Signal      |    Set/Reset Signal   | Slice Load Count | Bel Load Count | Bels / Slice |
-+-----------------------------------------------+--------------------------+-----------------------+------------------+----------------+--------------+
-|  cacheController/fetch_reg_i_2_n_0            |                          |                       |                1 |              1 |         1.00 |
-|  clockDivider/clk_BUFG                        |                          |                       |                1 |              1 |         1.00 |
-|  cacheController/tag_dir_reg[233][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[215][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[232][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[231][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[230][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[22][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[229][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[228][23]_i_2_n_0 |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[227][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[226][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[225][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[224][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[223][23]_i_2_n_0 |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[222][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[221][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[220][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[21][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[219][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[218][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[217][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[216][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[252][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[243][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[177][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[251][23]_i_2_n_0 |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[250][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[24][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[249][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[248][23]_i_2_n_0 |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[247][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[246][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[245][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[244][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[234][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[242][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[241][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[240][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[23][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[239][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[238][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[237][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[236][23]_i_2_n_0 |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[235][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[186][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[195][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[194][23]_i_2_n_0 |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[193][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[192][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[191][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[190][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[18][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[189][23]_i_2_n_0 |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[188][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[187][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[196][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[185][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[184][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[183][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[182][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[181][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[180][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[17][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[179][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[178][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  bcd1/p_0_in                                  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[204][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[213][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[212][23]_i_2_n_0 |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[211][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[210][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[20][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[209][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[208][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[207][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[206][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[205][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[214][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[203][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[202][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[201][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[200][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[1][23]_i_2_n_0   |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[19][23]_i_2_n_0  |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[199][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[198][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[197][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[71][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[80][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[7][23]_i_2_n_0   |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[79][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[78][23]_i_2_n_0  |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[77][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[76][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[75][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[74][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[73][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[72][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[81][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[70][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[6][23]_i_2_n_0   |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[69][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[68][23]_i_2_n_0  |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[67][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[66][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[65][23]_i_2_n_0  |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[64][23]_i_2_n_0  |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[63][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[62][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[90][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[9][23]_i_2_n_0   |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[99][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[98][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[97][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[96][23]_i_2_n_0  |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[95][23]_i_2_n_0  |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[94][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[93][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[92][23]_i_2_n_0  |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[91][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[61][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[8][23]_i_2_n_0   |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[89][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[88][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[87][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[86][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[85][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[84][23]_i_2_n_0  |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[83][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[82][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[32][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[41][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[40][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[3][23]_i_2_n_0   |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[39][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[38][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[37][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[36][23]_i_2_n_0  |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[35][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[34][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[33][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[42][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[31][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[30][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[2][23]_i_2_n_0   |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[29][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[28][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[27][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[26][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[25][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[255][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[254][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[51][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[60][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[5][23]_i_2_n_0   |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[59][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[58][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[57][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[56][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[55][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[54][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[53][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[52][23]_i_2_n_0  |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[253][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[50][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[4][23]_i_2_n_0   |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[49][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[48][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[47][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[46][23]_i_2_n_0  |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[45][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[44][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[43][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[154][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[119][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[147][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[148][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[118][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[149][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[117][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[14][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[116][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[150][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[151][23]_i_2_n_0 |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[115][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[152][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[114][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[153][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[113][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[146][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[155][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[112][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[156][23]_i_2_n_0 |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[111][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[157][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[110][23]_i_2_n_0 |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[158][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[159][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[10][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[15][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[109][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[160][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[108][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[161][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[125][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[130][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[131][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[12][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[132][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[133][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[129][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[134][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[128][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[135][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[127][23]_i_2_n_0 |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[136][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[137][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[126][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[138][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[176][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[139][23]_i_2_n_0 |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[124][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[13][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[140][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[123][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[141][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[122][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[142][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[121][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[143][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[144][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[120][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[145][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[11][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[170][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[168][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[173][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[166][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[100][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[171][23]_i_2_n_0 |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[165][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[102][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[105][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[104][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[174][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[169][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[164][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[172][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[106][23]_i_2_n_0 |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[16][23]_i_2_n_0  |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[103][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[162][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[107][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[101][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[163][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[167][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/tag_dir_reg[0][23]_i_2_n_0   |                          |                       |                2 |              2 |         1.00 |
-|  cacheController/tag_dir_reg[175][23]_i_2_n_0 |                          |                       |                1 |              2 |         2.00 |
-|  cacheController/next_state_reg[2]_i_1_n_0    |                          |                       |                1 |              3 |         3.00 |
-|  cacheController/E[0]                         |                          |                       |                3 |              7 |         2.33 |
-|  cacheController/set_offset_reg[1]_i_2_n_0    |                          |                       |                3 |              8 |         2.67 |
-|  cacheController/miss_count_reg[8]_i_2_n_0    |                          |                       |                3 |              9 |         3.00 |
-|  clockDivider/clk_BUFG                        | cacheController/state__0 | cacheController/reset |                2 |             10 |         5.00 |
-|  clockDivider/clk_BUFG                        | cacheController/halt_in  | cacheController/reset |                4 |             13 |         3.25 |
-|  clk_in_IBUF_BUFG                             |                          |                       |                6 |             19 |         3.17 |
-|  cacheController/tag_dir_reg[100][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[4][21]_i_1_n_0   |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[124][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[122][21]_i_1_n_0 |                          |                       |               11 |             22 |         2.00 |
-|  cacheController/tag_dir_reg[50][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[49][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[123][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[96][21]_i_1_n_0  |                          |                       |               21 |             22 |         1.05 |
-|  cacheController/tag_dir_reg[51][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[52][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[95][21]_i_1_n_0  |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[0][21]_i_1_n_0   |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[53][21]_i_1_n_0  |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[101][21]_i_1_n_0 |                          |                       |               11 |             22 |         2.00 |
-|  cacheController/tag_dir_reg[54][21]_i_1_n_0  |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[121][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[55][21]_i_1_n_0  |                          |                       |                6 |             22 |         3.67 |
-|  cacheController/tag_dir_reg[94][21]_i_1_n_0  |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[56][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[9][21]_i_1_n_0   |                          |                       |               19 |             22 |         1.16 |
-|  cacheController/tag_dir_reg[177][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[36][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[130][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[37][21]_i_1_n_0  |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[38][21]_i_1_n_0  |                          |                       |               11 |             22 |         2.00 |
-|  cacheController/tag_dir_reg[12][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[39][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[3][21]_i_1_n_0   |                          |                       |                6 |             22 |         3.67 |
-|  cacheController/tag_dir_reg[129][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[40][21]_i_1_n_0  |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[41][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[128][21]_i_1_n_0 |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[42][21]_i_1_n_0  |                          |                       |               13 |             22 |         1.69 |
-|  cacheController/tag_dir_reg[97][21]_i_1_n_0  |                          |                       |               19 |             22 |         1.16 |
-|  cacheController/tag_dir_reg[43][21]_i_1_n_0  |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[127][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[44][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[99][21]_i_1_n_0  |                          |                       |               22 |             22 |         1.00 |
-|  cacheController/tag_dir_reg[45][21]_i_1_n_0  |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[126][21]_i_1_n_0 |                          |                       |               13 |             22 |         1.69 |
-|  cacheController/tag_dir_reg[59][21]_i_1_n_0  |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[46][21]_i_1_n_0  |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[98][21]_i_1_n_0  |                          |                       |               22 |             22 |         1.00 |
-|  cacheController/tag_dir_reg[47][21]_i_1_n_0  |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[125][21]_i_1_n_0 |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[48][21]_i_1_n_0  |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[85][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[6][21]_i_1_n_0   |                          |                       |               21 |             22 |         1.05 |
-|  cacheController/tag_dir_reg[88][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[105][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[70][21]_i_1_n_0  |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[113][21]_i_1_n_0 |                          |                       |               11 |             22 |         2.00 |
-|  cacheController/tag_dir_reg[71][21]_i_1_n_0  |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[87][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[72][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[112][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[73][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[86][21]_i_1_n_0  |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[74][21]_i_1_n_0  |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[106][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[111][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[75][21]_i_1_n_0  |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[114][21]_i_1_n_0 |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[76][21]_i_1_n_0  |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[110][21]_i_1_n_0 |                          |                       |               11 |             22 |         2.00 |
-|  cacheController/tag_dir_reg[77][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[84][21]_i_1_n_0  |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[78][21]_i_1_n_0  |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[10][21]_i_1_n_0  |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[79][21]_i_1_n_0  |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[107][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[7][21]_i_1_n_0   |                          |                       |               20 |             22 |         1.10 |
-|  cacheController/tag_dir_reg[83][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[109][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[80][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[81][21]_i_1_n_0  |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[108][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[62][21]_i_1_n_0  |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[57][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[93][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[58][21]_i_1_n_0  |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[102][21]_i_1_n_0 |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[11][21]_i_1_n_0  |                          |                       |                6 |             22 |         3.67 |
-|  cacheController/tag_dir_reg[82][21]_i_1_n_0  |                          |                       |               13 |             22 |         1.69 |
-|  cacheController/tag_dir_reg[92][21]_i_1_n_0  |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[5][21]_i_1_n_0   |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[119][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[60][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[91][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[61][21]_i_1_n_0  |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[118][21]_i_1_n_0 |                          |                       |               12 |             22 |         1.83 |
-|  cacheController/tag_dir_reg[103][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[120][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[63][21]_i_1_n_0  |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[90][21]_i_1_n_0  |                          |                       |               11 |             22 |         2.00 |
-|  cacheController/tag_dir_reg[117][21]_i_1_n_0 |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[64][21]_i_1_n_0  |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[8][21]_i_1_n_0   |                          |                       |               21 |             22 |         1.05 |
-|  cacheController/tag_dir_reg[65][21]_i_1_n_0  |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[116][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[66][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[104][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[67][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[115][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[89][21]_i_1_n_0  |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[68][21]_i_1_n_0  |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[69][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[162][21]_i_1_n_0 |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[15][21]_i_1_n_0  |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[209][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[208][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[160][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[207][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[206][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[161][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[205][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[204][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[20][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[203][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[202][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[163][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[201][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[200][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[164][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[1][21]_i_1_n_0   |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[19][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[215][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[220][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[154][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[21][21]_i_1_n_0  |                          |                       |               11 |             22 |         2.00 |
-|  cacheController/tag_dir_reg[219][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[155][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[218][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[217][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[156][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[216][21]_i_1_n_0 |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[165][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[157][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[214][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[213][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[158][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[212][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[211][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[159][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[210][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[182][21]_i_1_n_0 |                          |                       |               11 |             22 |         2.00 |
-|  cacheController/tag_dir_reg[188][21]_i_1_n_0 |                          |                       |               18 |             22 |         1.22 |
-|  cacheController/tag_dir_reg[187][21]_i_1_n_0 |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[171][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[186][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[185][21]_i_1_n_0 |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[172][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[184][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[183][21]_i_1_n_0 |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[173][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[170][21]_i_1_n_0 |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[181][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[174][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[180][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[17][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[175][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[179][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[178][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[176][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[168][21]_i_1_n_0 |                          |                       |               12 |             22 |         1.83 |
-|  cacheController/tag_dir_reg[199][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[198][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[166][21]_i_1_n_0 |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[197][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[196][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[167][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[195][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[194][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[131][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[193][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[192][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[169][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[191][21]_i_1_n_0 |                          |                       |               16 |             22 |         1.38 |
-|  cacheController/tag_dir_reg[190][21]_i_1_n_0 |                          |                       |               22 |             22 |         1.00 |
-|  cacheController/tag_dir_reg[16][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[18][21]_i_1_n_0  |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[189][21]_i_1_n_0 |                          |                       |               18 |             22 |         1.22 |
-|  cacheController/tag_dir_reg[13][21]_i_1_n_0  |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[137][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[254][21]_i_1_n_0 |                          |                       |               21 |             22 |         1.05 |
-|  cacheController/tag_dir_reg[253][21]_i_1_n_0 |                          |                       |               19 |             22 |         1.16 |
-|  cacheController/tag_dir_reg[138][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[252][21]_i_1_n_0 |                          |                       |               21 |             22 |         1.05 |
-|  cacheController/tag_dir_reg[251][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[139][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[250][21]_i_1_n_0 |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[24][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[255][21]_i_1_n_0 |                          |                       |               20 |             22 |         1.10 |
-|  cacheController/tag_dir_reg[249][21]_i_1_n_0 |                          |                       |               12 |             22 |         1.83 |
-|  cacheController/tag_dir_reg[248][21]_i_1_n_0 |                          |                       |               12 |             22 |         1.83 |
-|  cacheController/tag_dir_reg[140][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[247][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[246][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[141][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[245][21]_i_1_n_0 |                          |                       |               11 |             22 |         2.00 |
-|  cacheController/tag_dir_reg[244][21]_i_1_n_0 |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[2][21]_i_1_n_0   |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[35][21]_i_1_n_0  |                          |                       |                6 |             22 |         3.67 |
-|  cacheController/tag_dir_reg[34][21]_i_1_n_0  |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[33][21]_i_1_n_0  |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[132][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[32][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[31][21]_i_1_n_0  |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[133][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[30][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[153][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[134][21]_i_1_n_0 |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[29][21]_i_1_n_0  |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[28][21]_i_1_n_0  |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[135][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[27][21]_i_1_n_0  |                          |                       |                6 |             22 |         3.67 |
-|  cacheController/tag_dir_reg[26][21]_i_1_n_0  |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[136][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[25][21]_i_1_n_0  |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[227][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[232][21]_i_1_n_0 |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[231][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[149][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[230][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[22][21]_i_1_n_0  |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[14][21]_i_1_n_0  |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[229][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[228][21]_i_1_n_0 |                          |                       |               11 |             22 |         2.00 |
-|  cacheController/tag_dir_reg[150][21]_i_1_n_0 |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[243][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[226][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[151][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[225][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[224][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[152][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[223][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[222][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[221][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[233][21]_i_1_n_0 |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[142][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[242][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[143][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[241][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[240][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[144][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[23][21]_i_1_n_0  |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[239][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[145][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[238][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[237][21]_i_1_n_0 |                          |                       |               10 |             22 |         2.20 |
-|  cacheController/tag_dir_reg[146][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[236][21]_i_1_n_0 |                          |                       |                8 |             22 |         2.75 |
-|  cacheController/tag_dir_reg[235][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[147][21]_i_1_n_0 |                          |                       |                7 |             22 |         3.14 |
-|  cacheController/tag_dir_reg[234][21]_i_1_n_0 |                          |                       |                9 |             22 |         2.44 |
-|  cacheController/tag_dir_reg[148][21]_i_1_n_0 |                          |                       |                6 |             22 |         3.67 |
-|  clk_in_IBUF_BUFG                             |                          | clockDivider/clk_out  |                7 |             26 |         3.71 |
-|  set_bits                                     |                          |                       |               53 |            153 |         2.89 |
-+-----------------------------------------------+--------------------------+-----------------------+------------------+----------------+--------------+
++-----------------------+------------------------------------------+-----------------------+------------------+----------------+--------------+
+|      Clock Signal     |               Enable Signal              |    Set/Reset Signal   | Slice Load Count | Bel Load Count | Bels / Slice |
++-----------------------+------------------------------------------+-----------------------+------------------+----------------+--------------+
+|  bcd1/p_0_in          |                                          |                       |                1 |              2 |         2.00 |
+|  cacheController/E[0] |                                          |                       |                2 |              7 |         3.50 |
+|  clk_BUFG             | cacheController/miss_count[7]_i_1_n_0    | cacheController/reset |                2 |              8 |         4.00 |
+|  clk_BUFG             |                                          |                       |                5 |              9 |         1.80 |
+|  clk_BUFG             | cacheController/fetch_reg_0              | cacheController/reset |                4 |             13 |         3.25 |
+|  clk_BUFG             |                                          | cacheController/reset |               11 |             15 |         1.36 |
+|  clk_in_IBUF_BUFG     |                                          |                       |                6 |             19 |         3.17 |
+|  clk_BUFG             | cacheController/tag_dir[254][21]_i_1_n_0 | cacheController/reset |               12 |             22 |         1.83 |
+|  clk_BUFG             | cacheController/tag_dir[30][21]_i_1_n_0  | cacheController/reset |               12 |             22 |         1.83 |
+|  clk_BUFG             | cacheController/tag_dir[2][21]_i_1_n_0   | cacheController/reset |                6 |             22 |         3.67 |
+|  clk_BUFG             | cacheController/tag_dir[29][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[28][21]_i_1_n_0  | cacheController/reset |                5 |             22 |         4.40 |
+|  clk_BUFG             | cacheController/tag_dir[27][21]_i_1_n_0  | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[26][21]_i_1_n_0  | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[25][21]_i_1_n_0  | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[255][21]_i_1_n_0 | cacheController/reset |               15 |             22 |         1.47 |
+|  clk_BUFG             | cacheController/tag_dir[32][21]_i_1_n_0  | cacheController/reset |                4 |             22 |         5.50 |
+|  clk_BUFG             | cacheController/tag_dir[253][21]_i_1_n_0 | cacheController/reset |               12 |             22 |         1.83 |
+|  clk_BUFG             | cacheController/tag_dir[252][21]_i_1_n_0 | cacheController/reset |               19 |             22 |         1.16 |
+|  clk_BUFG             | cacheController/tag_dir[251][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[250][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
+|  clk_BUFG             | cacheController/tag_dir[24][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[249][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[31][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[247][21]_i_1_n_0 | cacheController/reset |               13 |             22 |         1.69 |
+|  clk_BUFG             | cacheController/tag_dir[33][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[34][21]_i_1_n_0  | cacheController/reset |                9 |             22 |         2.44 |
+|  clk_BUFG             | cacheController/tag_dir[35][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[36][21]_i_1_n_0  | cacheController/reset |                5 |             22 |         4.40 |
+|  clk_BUFG             | cacheController/tag_dir[37][21]_i_1_n_0  | cacheController/reset |               13 |             22 |         1.69 |
+|  clk_BUFG             | cacheController/tag_dir[38][21]_i_1_n_0  | cacheController/reset |               14 |             22 |         1.57 |
+|  clk_BUFG             | cacheController/tag_dir[39][21]_i_1_n_0  | cacheController/reset |               13 |             22 |         1.69 |
+|  clk_BUFG             | cacheController/tag_dir[3][21]_i_1_n_0   | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[40][21]_i_1_n_0  | cacheController/reset |                6 |             22 |         3.67 |
+|  clk_BUFG             | cacheController/tag_dir[41][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[42][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[43][21]_i_1_n_0  | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[44][21]_i_1_n_0  | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[45][21]_i_1_n_0  | cacheController/reset |                5 |             22 |         4.40 |
+|  clk_BUFG             | cacheController/tag_dir[233][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
+|  clk_BUFG             | cacheController/tag_dir[219][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
+|  clk_BUFG             | cacheController/tag_dir[21][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[220][21]_i_1_n_0 | cacheController/reset |               13 |             22 |         1.69 |
+|  clk_BUFG             | cacheController/tag_dir[221][21]_i_1_n_0 | cacheController/reset |               12 |             22 |         1.83 |
+|  clk_BUFG             | cacheController/tag_dir[223][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
+|  clk_BUFG             | cacheController/tag_dir[224][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[225][21]_i_1_n_0 | cacheController/reset |               12 |             22 |         1.83 |
+|  clk_BUFG             | cacheController/tag_dir[226][21]_i_1_n_0 | cacheController/reset |                4 |             22 |         5.50 |
+|  clk_BUFG             | cacheController/tag_dir[227][21]_i_1_n_0 | cacheController/reset |                6 |             22 |         3.67 |
+|  clk_BUFG             | cacheController/tag_dir[228][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[229][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
+|  clk_BUFG             | cacheController/tag_dir[22][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[230][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[231][21]_i_1_n_0 | cacheController/reset |               15 |             22 |         1.47 |
+|  clk_BUFG             | cacheController/tag_dir[232][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[248][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
+|  clk_BUFG             | cacheController/tag_dir[234][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[235][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[236][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[237][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[238][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
+|  clk_BUFG             | cacheController/tag_dir[239][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[23][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[240][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
+|  clk_BUFG             | cacheController/tag_dir[241][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
+|  clk_BUFG             | cacheController/tag_dir[242][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[243][21]_i_1_n_0 | cacheController/reset |               12 |             22 |         1.83 |
+|  clk_BUFG             | cacheController/tag_dir[244][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
+|  clk_BUFG             | cacheController/tag_dir[245][21]_i_1_n_0 | cacheController/reset |               12 |             22 |         1.83 |
+|  clk_BUFG             | cacheController/tag_dir[246][21]_i_1_n_0 | cacheController/reset |                6 |             22 |         3.67 |
+|  clk_BUFG             | cacheController/tag_dir[47][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[90][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[76][21]_i_1_n_0  | cacheController/reset |                9 |             22 |         2.44 |
+|  clk_BUFG             | cacheController/tag_dir[77][21]_i_1_n_0  | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[78][21]_i_1_n_0  | cacheController/reset |               15 |             22 |         1.47 |
+|  clk_BUFG             | cacheController/tag_dir[7][21]_i_1_n_0   | cacheController/reset |               17 |             22 |         1.29 |
+|  clk_BUFG             | cacheController/tag_dir[80][21]_i_1_n_0  | cacheController/reset |               12 |             22 |         1.83 |
+|  clk_BUFG             | cacheController/tag_dir[81][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[82][21]_i_1_n_0  | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[83][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[84][21]_i_1_n_0  | cacheController/reset |               15 |             22 |         1.47 |
+|  clk_BUFG             | cacheController/tag_dir[85][21]_i_1_n_0  | cacheController/reset |                4 |             22 |         5.50 |
+|  clk_BUFG             | cacheController/tag_dir[86][21]_i_1_n_0  | cacheController/reset |               12 |             22 |         1.83 |
+|  clk_BUFG             | cacheController/tag_dir[87][21]_i_1_n_0  | cacheController/reset |               13 |             22 |         1.69 |
+|  clk_BUFG             | cacheController/tag_dir[88][21]_i_1_n_0  | cacheController/reset |                5 |             22 |         4.40 |
+|  clk_BUFG             | cacheController/tag_dir[89][21]_i_1_n_0  | cacheController/reset |               14 |             22 |         1.57 |
+|  clk_BUFG             | cacheController/tag_dir[8][21]_i_1_n_0   | cacheController/reset |               16 |             22 |         1.38 |
+|  clk_BUFG             | cacheController/tag_dir[75][21]_i_1_n_0  | cacheController/reset |                5 |             22 |         4.40 |
+|  clk_BUFG             | cacheController/tag_dir[91][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[92][21]_i_1_n_0  | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[93][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[94][21]_i_1_n_0  | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[95][21]_i_1_n_0  | cacheController/reset |               17 |             22 |         1.29 |
+|  clk_BUFG             | cacheController/tag_dir[96][21]_i_1_n_0  | cacheController/reset |               14 |             22 |         1.57 |
+|  clk_BUFG             | cacheController/tag_dir[97][21]_i_1_n_0  | cacheController/reset |               16 |             22 |         1.38 |
+|  clk_BUFG             | cacheController/tag_dir[98][21]_i_1_n_0  | cacheController/reset |               14 |             22 |         1.57 |
+|  clk_BUFG             | cacheController/tag_dir[99][21]_i_1_n_0  | cacheController/reset |               16 |             22 |         1.38 |
+|  clk_BUFG             | cacheController/tag_dir[9][21]_i_1_n_0   | cacheController/reset |               19 |             22 |         1.16 |
+|  clk_BUFG             | cacheController/p_2_in__0[21]            | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/p_2_in__1[21]            | cacheController/reset |               14 |             22 |         1.57 |
+|  clk_BUFG             | cacheController/tag_dir0_out[21]         | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir0_out__0[21]      | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[0][21]_i_1_n_0   | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[60][21]_i_1_n_0  | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[101][21]_i_1_n_0 | cacheController/reset |                6 |             22 |         3.67 |
+|  clk_BUFG             | cacheController/tag_dir[48][21]_i_1_n_0  | cacheController/reset |                9 |             22 |         2.44 |
+|  clk_BUFG             | cacheController/tag_dir[49][21]_i_1_n_0  | cacheController/reset |                5 |             22 |         4.40 |
+|  clk_BUFG             | cacheController/tag_dir[4][21]_i_1_n_0   | cacheController/reset |                6 |             22 |         3.67 |
+|  clk_BUFG             | cacheController/tag_dir[50][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[51][21]_i_1_n_0  | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[52][21]_i_1_n_0  | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[53][21]_i_1_n_0  | cacheController/reset |                9 |             22 |         2.44 |
+|  clk_BUFG             | cacheController/tag_dir[54][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[55][21]_i_1_n_0  | cacheController/reset |               12 |             22 |         1.83 |
+|  clk_BUFG             | cacheController/tag_dir[56][21]_i_1_n_0  | cacheController/reset |               13 |             22 |         1.69 |
+|  clk_BUFG             | cacheController/tag_dir[57][21]_i_1_n_0  | cacheController/reset |               13 |             22 |         1.69 |
+|  clk_BUFG             | cacheController/tag_dir[58][21]_i_1_n_0  | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[59][21]_i_1_n_0  | cacheController/reset |               16 |             22 |         1.38 |
+|  clk_BUFG             | cacheController/tag_dir[5][21]_i_1_n_0   | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[46][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[61][21]_i_1_n_0  | cacheController/reset |               15 |             22 |         1.47 |
+|  clk_BUFG             | cacheController/tag_dir[62][21]_i_1_n_0  | cacheController/reset |               15 |             22 |         1.47 |
+|  clk_BUFG             | cacheController/tag_dir[63][21]_i_1_n_0  | cacheController/reset |               18 |             22 |         1.22 |
+|  clk_BUFG             | cacheController/tag_dir[64][21]_i_1_n_0  | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[65][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[66][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[67][21]_i_1_n_0  | cacheController/reset |                6 |             22 |         3.67 |
+|  clk_BUFG             | cacheController/tag_dir[68][21]_i_1_n_0  | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[69][21]_i_1_n_0  | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[6][21]_i_1_n_0   | cacheController/reset |               12 |             22 |         1.83 |
+|  clk_BUFG             | cacheController/tag_dir[70][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[71][21]_i_1_n_0  | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[72][21]_i_1_n_0  | cacheController/reset |                6 |             22 |         3.67 |
+|  clk_BUFG             | cacheController/tag_dir[73][21]_i_1_n_0  | cacheController/reset |                6 |             22 |         3.67 |
+|  clk_BUFG             | cacheController/tag_dir[74][21]_i_1_n_0  | cacheController/reset |                5 |             22 |         4.40 |
+|  clk_BUFG             | cacheController/tag_dir[137][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[145][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
+|  clk_BUFG             | cacheController/tag_dir[143][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
+|  clk_BUFG             | cacheController/tag_dir[142][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[141][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[140][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[13][21]_i_1_n_0  | cacheController/reset |                5 |             22 |         4.40 |
+|  clk_BUFG             | cacheController/tag_dir[139][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
+|  clk_BUFG             | cacheController/tag_dir[138][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[146][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
+|  clk_BUFG             | cacheController/tag_dir[136][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[135][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[134][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[133][21]_i_1_n_0 | cacheController/reset |               14 |             22 |         1.57 |
+|  clk_BUFG             | cacheController/tag_dir[132][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[131][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[130][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[12][21]_i_1_n_0  | cacheController/reset |                6 |             22 |         3.67 |
+|  clk_BUFG             | cacheController/tag_dir[147][21]_i_1_n_0 | cacheController/reset |               15 |             22 |         1.47 |
+|  clk_BUFG             | cacheController/tag_dir[148][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[149][21]_i_1_n_0 | cacheController/reset |               13 |             22 |         1.69 |
+|  clk_BUFG             | cacheController/tag_dir[14][21]_i_1_n_0  | cacheController/reset |               16 |             22 |         1.38 |
+|  clk_BUFG             | cacheController/tag_dir[150][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
+|  clk_BUFG             | cacheController/tag_dir[151][21]_i_1_n_0 | cacheController/reset |               13 |             22 |         1.69 |
+|  clk_BUFG             | cacheController/tag_dir[152][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[153][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[154][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[155][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[156][21]_i_1_n_0 | cacheController/reset |               12 |             22 |         1.83 |
+|  clk_BUFG             | cacheController/tag_dir[157][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[158][21]_i_1_n_0 | cacheController/reset |               13 |             22 |         1.69 |
+|  clk_BUFG             | cacheController/tag_dir[159][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[15][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[115][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[100][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
+|  clk_BUFG             | cacheController/tag_dir[102][21]_i_1_n_0 | cacheController/reset |                6 |             22 |         3.67 |
+|  clk_BUFG             | cacheController/tag_dir[103][21]_i_1_n_0 | cacheController/reset |                4 |             22 |         5.50 |
+|  clk_BUFG             | cacheController/tag_dir[104][21]_i_1_n_0 | cacheController/reset |                6 |             22 |         3.67 |
+|  clk_BUFG             | cacheController/tag_dir[105][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
+|  clk_BUFG             | cacheController/tag_dir[106][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[107][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[108][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[109][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[10][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[110][21]_i_1_n_0 | cacheController/reset |               12 |             22 |         1.83 |
+|  clk_BUFG             | cacheController/tag_dir[111][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
+|  clk_BUFG             | cacheController/tag_dir[112][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[113][21]_i_1_n_0 | cacheController/reset |                6 |             22 |         3.67 |
+|  clk_BUFG             | cacheController/tag_dir[114][21]_i_1_n_0 | cacheController/reset |                6 |             22 |         3.67 |
+|  clk_BUFG             | cacheController/tag_dir[216][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[116][21]_i_1_n_0 | cacheController/reset |                6 |             22 |         3.67 |
+|  clk_BUFG             | cacheController/tag_dir[117][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[118][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[119][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
+|  clk_BUFG             | cacheController/tag_dir[11][21]_i_1_n_0  | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[120][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[121][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[122][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[123][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[124][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[125][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[126][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
+|  clk_BUFG             | cacheController/tag_dir[127][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[128][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[129][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[202][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[18][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[190][21]_i_1_n_0 | cacheController/reset |               14 |             22 |         1.57 |
+|  clk_BUFG             | cacheController/tag_dir[191][21]_i_1_n_0 | cacheController/reset |               19 |             22 |         1.16 |
+|  clk_BUFG             | cacheController/tag_dir[192][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[193][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
+|  clk_BUFG             | cacheController/tag_dir[194][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[195][21]_i_1_n_0 | cacheController/reset |                4 |             22 |         5.50 |
+|  clk_BUFG             | cacheController/tag_dir[196][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[197][21]_i_1_n_0 | cacheController/reset |                4 |             22 |         5.50 |
+|  clk_BUFG             | cacheController/tag_dir[198][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[199][21]_i_1_n_0 | cacheController/reset |                6 |             22 |         3.67 |
+|  clk_BUFG             | cacheController/tag_dir[19][21]_i_1_n_0  | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[1][21]_i_1_n_0   | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[200][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[201][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[161][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[203][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[204][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
+|  clk_BUFG             | cacheController/tag_dir[205][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[206][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[207][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[208][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[209][21]_i_1_n_0 | cacheController/reset |                6 |             22 |         3.67 |
+|  clk_BUFG             | cacheController/tag_dir[20][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[210][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[211][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
+|  clk_BUFG             | cacheController/tag_dir[212][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[213][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
+|  clk_BUFG             | cacheController/tag_dir[214][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[215][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[217][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[188][21]_i_1_n_0 | cacheController/reset |               15 |             22 |         1.47 |
+|  clk_BUFG             | cacheController/tag_dir[160][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
+|  clk_BUFG             | cacheController/tag_dir[162][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[163][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[164][21]_i_1_n_0 | cacheController/reset |               12 |             22 |         1.83 |
+|  clk_BUFG             | cacheController/tag_dir[165][21]_i_1_n_0 | cacheController/reset |               14 |             22 |         1.57 |
+|  clk_BUFG             | cacheController/tag_dir[166][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
+|  clk_BUFG             | cacheController/tag_dir[167][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
+|  clk_BUFG             | cacheController/tag_dir[168][21]_i_1_n_0 | cacheController/reset |                6 |             22 |         3.67 |
+|  clk_BUFG             | cacheController/tag_dir[169][21]_i_1_n_0 | cacheController/reset |               14 |             22 |         1.57 |
+|  clk_BUFG             | cacheController/tag_dir[16][21]_i_1_n_0  | cacheController/reset |                5 |             22 |         4.40 |
+|  clk_BUFG             | cacheController/tag_dir[170][21]_i_1_n_0 | cacheController/reset |               14 |             22 |         1.57 |
+|  clk_BUFG             | cacheController/tag_dir[171][21]_i_1_n_0 | cacheController/reset |               13 |             22 |         1.69 |
+|  clk_BUFG             | cacheController/tag_dir[172][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[173][21]_i_1_n_0 | cacheController/reset |               13 |             22 |         1.69 |
+|  clk_BUFG             | cacheController/tag_dir[174][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
+|  clk_BUFG             | cacheController/tag_dir[176][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
+|  clk_BUFG             | cacheController/tag_dir[189][21]_i_1_n_0 | cacheController/reset |               13 |             22 |         1.69 |
+|  clk_BUFG             | cacheController/tag_dir[187][21]_i_1_n_0 | cacheController/reset |               15 |             22 |         1.47 |
+|  clk_BUFG             | cacheController/tag_dir[186][21]_i_1_n_0 | cacheController/reset |               16 |             22 |         1.38 |
+|  clk_BUFG             | cacheController/tag_dir[185][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[184][21]_i_1_n_0 | cacheController/reset |               17 |             22 |         1.29 |
+|  clk_BUFG             | cacheController/tag_dir[183][21]_i_1_n_0 | cacheController/reset |               17 |             22 |         1.29 |
+|  clk_BUFG             | cacheController/tag_dir[182][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[181][21]_i_1_n_0 | cacheController/reset |               12 |             22 |         1.83 |
+|  clk_BUFG             | cacheController/tag_dir[180][21]_i_1_n_0 | cacheController/reset |               15 |             22 |         1.47 |
+|  clk_BUFG             | cacheController/tag_dir[17][21]_i_1_n_0  | cacheController/reset |                6 |             22 |         3.67 |
+|  clk_BUFG             | cacheController/tag_dir[179][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
+|  clk_BUFG             | cacheController/tag_dir[178][21]_i_1_n_0 | cacheController/reset |               15 |             22 |         1.47 |
+|  clk_BUFG             | cacheController/tag_dir[177][21]_i_1_n_0 | cacheController/reset |               14 |             22 |         1.57 |
+|  clk_BUFG             | cacheController/tag_dir[175][21]_i_1_n_0 | cacheController/reset |               16 |             22 |         1.38 |
+|  clk_in_IBUF_BUFG     |                                          | clockDivider/clk_out  |                7 |             26 |         3.71 |
+|  clk_BUFG             | cacheController/tag_dir[222][25]_i_1_n_0 | cacheController/reset |               19 |             39 |         2.05 |
+|  clk_BUFG             | cacheController/p_2_in__0[23]            | cacheController/reset |               72 |             78 |         1.08 |
+|  clk_BUFG             | cacheController/tag_bits__0              |                       |               43 |            110 |         2.56 |
+|  clk_BUFG             | cacheController/tag_dir0_out__0[25]      | cacheController/reset |               82 |            212 |         2.59 |
+|  clk_BUFG             | cacheController/tag_dir[79][23]_i_1_n_0  | cacheController/reset |              378 |            430 |         1.14 |
++-----------------------+------------------------------------------+-----------------------+------------------+----------------+--------------+
 
 

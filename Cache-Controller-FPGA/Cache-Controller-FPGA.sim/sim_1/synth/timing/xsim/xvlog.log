@@ -1,6 +1,5 @@
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.sim/sim_1/synth/timing/xsim/TopModuleTB_time_synth.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module BcdDisplay
-INFO: [VRFC 10-311] analyzing module ClockDivider
+INFO: [VRFC 10-311] analyzing module CacheController
 INFO: [VRFC 10-311] analyzing module TopModule
 INFO: [VRFC 10-311] analyzing module bram
 INFO: [VRFC 10-311] analyzing module bram_blk_mem_gen_0_0
