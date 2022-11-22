@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.1 (lin64) Build 3526262 Mon Apr 18 15:47:01 MDT 2022
-| Date         : Sun Nov 20 21:59:21 2022
+| Date         : Tue Nov 22 16:03:21 2022
 | Host         : kite running 64-bit CachyOS
 | Command      : report_control_sets -verbose -file TopModule_control_sets_placed.rpt
 | Design       : TopModule
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |   269 |
-|    Minimum number of control sets                        |   269 |
+| Total control sets                                       |   278 |
+|    Minimum number of control sets                        |   278 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |   552 |
+| Unused register locations in slices containing registers |   585 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |   269 |
+| Total control sets |   278 |
 | >= 0 to < 4        |     1 |
-| >= 4 to < 6        |     0 |
+| >= 4 to < 6        |     5 |
 | >= 6 to < 8        |     1 |
 | >= 8 to < 10       |     2 |
-| >= 10 to < 12      |     0 |
-| >= 12 to < 14      |     1 |
-| >= 14 to < 16      |     1 |
-| >= 16              |   263 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     4 |
+| >= 14 to < 16      |     0 |
+| >= 16              |   264 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,290 +58,299 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              37 |           14 |
-| No           | No                    | Yes                    |              15 |           11 |
-| No           | Yes                   | No                     |              26 |            7 |
-| Yes          | No                    | No                     |             110 |           43 |
-| Yes          | No                    | Yes                    |            6412 |         3017 |
-| Yes          | Yes                   | No                     |               0 |            0 |
+| No           | No                    | No                     |              58 |           23 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              36 |           12 |
+| Yes          | No                    | No                     |            5549 |         2438 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             996 |          596 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+-----------------------+------------------------------------------+-----------------------+------------------+----------------+--------------+
-|      Clock Signal     |               Enable Signal              |    Set/Reset Signal   | Slice Load Count | Bel Load Count | Bels / Slice |
-+-----------------------+------------------------------------------+-----------------------+------------------+----------------+--------------+
-|  bcd1/p_0_in          |                                          |                       |                1 |              2 |         2.00 |
-|  cacheController/E[0] |                                          |                       |                2 |              7 |         3.50 |
-|  clk_BUFG             | cacheController/miss_count[7]_i_1_n_0    | cacheController/reset |                2 |              8 |         4.00 |
-|  clk_BUFG             |                                          |                       |                5 |              9 |         1.80 |
-|  clk_BUFG             | cacheController/fetch_reg_0              | cacheController/reset |                4 |             13 |         3.25 |
-|  clk_BUFG             |                                          | cacheController/reset |               11 |             15 |         1.36 |
-|  clk_in_IBUF_BUFG     |                                          |                       |                6 |             19 |         3.17 |
-|  clk_BUFG             | cacheController/tag_dir[254][21]_i_1_n_0 | cacheController/reset |               12 |             22 |         1.83 |
-|  clk_BUFG             | cacheController/tag_dir[30][21]_i_1_n_0  | cacheController/reset |               12 |             22 |         1.83 |
-|  clk_BUFG             | cacheController/tag_dir[2][21]_i_1_n_0   | cacheController/reset |                6 |             22 |         3.67 |
-|  clk_BUFG             | cacheController/tag_dir[29][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[28][21]_i_1_n_0  | cacheController/reset |                5 |             22 |         4.40 |
-|  clk_BUFG             | cacheController/tag_dir[27][21]_i_1_n_0  | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[26][21]_i_1_n_0  | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[25][21]_i_1_n_0  | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[255][21]_i_1_n_0 | cacheController/reset |               15 |             22 |         1.47 |
-|  clk_BUFG             | cacheController/tag_dir[32][21]_i_1_n_0  | cacheController/reset |                4 |             22 |         5.50 |
-|  clk_BUFG             | cacheController/tag_dir[253][21]_i_1_n_0 | cacheController/reset |               12 |             22 |         1.83 |
-|  clk_BUFG             | cacheController/tag_dir[252][21]_i_1_n_0 | cacheController/reset |               19 |             22 |         1.16 |
-|  clk_BUFG             | cacheController/tag_dir[251][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[250][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
-|  clk_BUFG             | cacheController/tag_dir[24][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[249][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[31][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[247][21]_i_1_n_0 | cacheController/reset |               13 |             22 |         1.69 |
-|  clk_BUFG             | cacheController/tag_dir[33][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[34][21]_i_1_n_0  | cacheController/reset |                9 |             22 |         2.44 |
-|  clk_BUFG             | cacheController/tag_dir[35][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[36][21]_i_1_n_0  | cacheController/reset |                5 |             22 |         4.40 |
-|  clk_BUFG             | cacheController/tag_dir[37][21]_i_1_n_0  | cacheController/reset |               13 |             22 |         1.69 |
-|  clk_BUFG             | cacheController/tag_dir[38][21]_i_1_n_0  | cacheController/reset |               14 |             22 |         1.57 |
-|  clk_BUFG             | cacheController/tag_dir[39][21]_i_1_n_0  | cacheController/reset |               13 |             22 |         1.69 |
-|  clk_BUFG             | cacheController/tag_dir[3][21]_i_1_n_0   | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[40][21]_i_1_n_0  | cacheController/reset |                6 |             22 |         3.67 |
-|  clk_BUFG             | cacheController/tag_dir[41][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[42][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[43][21]_i_1_n_0  | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[44][21]_i_1_n_0  | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[45][21]_i_1_n_0  | cacheController/reset |                5 |             22 |         4.40 |
-|  clk_BUFG             | cacheController/tag_dir[233][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
-|  clk_BUFG             | cacheController/tag_dir[219][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
-|  clk_BUFG             | cacheController/tag_dir[21][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[220][21]_i_1_n_0 | cacheController/reset |               13 |             22 |         1.69 |
-|  clk_BUFG             | cacheController/tag_dir[221][21]_i_1_n_0 | cacheController/reset |               12 |             22 |         1.83 |
-|  clk_BUFG             | cacheController/tag_dir[223][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
-|  clk_BUFG             | cacheController/tag_dir[224][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[225][21]_i_1_n_0 | cacheController/reset |               12 |             22 |         1.83 |
-|  clk_BUFG             | cacheController/tag_dir[226][21]_i_1_n_0 | cacheController/reset |                4 |             22 |         5.50 |
-|  clk_BUFG             | cacheController/tag_dir[227][21]_i_1_n_0 | cacheController/reset |                6 |             22 |         3.67 |
-|  clk_BUFG             | cacheController/tag_dir[228][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[229][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
-|  clk_BUFG             | cacheController/tag_dir[22][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[230][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[231][21]_i_1_n_0 | cacheController/reset |               15 |             22 |         1.47 |
-|  clk_BUFG             | cacheController/tag_dir[232][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[248][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
-|  clk_BUFG             | cacheController/tag_dir[234][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[235][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[236][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[237][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[238][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
-|  clk_BUFG             | cacheController/tag_dir[239][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[23][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[240][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
-|  clk_BUFG             | cacheController/tag_dir[241][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
-|  clk_BUFG             | cacheController/tag_dir[242][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[243][21]_i_1_n_0 | cacheController/reset |               12 |             22 |         1.83 |
-|  clk_BUFG             | cacheController/tag_dir[244][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
-|  clk_BUFG             | cacheController/tag_dir[245][21]_i_1_n_0 | cacheController/reset |               12 |             22 |         1.83 |
-|  clk_BUFG             | cacheController/tag_dir[246][21]_i_1_n_0 | cacheController/reset |                6 |             22 |         3.67 |
-|  clk_BUFG             | cacheController/tag_dir[47][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[90][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[76][21]_i_1_n_0  | cacheController/reset |                9 |             22 |         2.44 |
-|  clk_BUFG             | cacheController/tag_dir[77][21]_i_1_n_0  | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[78][21]_i_1_n_0  | cacheController/reset |               15 |             22 |         1.47 |
-|  clk_BUFG             | cacheController/tag_dir[7][21]_i_1_n_0   | cacheController/reset |               17 |             22 |         1.29 |
-|  clk_BUFG             | cacheController/tag_dir[80][21]_i_1_n_0  | cacheController/reset |               12 |             22 |         1.83 |
-|  clk_BUFG             | cacheController/tag_dir[81][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[82][21]_i_1_n_0  | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[83][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[84][21]_i_1_n_0  | cacheController/reset |               15 |             22 |         1.47 |
-|  clk_BUFG             | cacheController/tag_dir[85][21]_i_1_n_0  | cacheController/reset |                4 |             22 |         5.50 |
-|  clk_BUFG             | cacheController/tag_dir[86][21]_i_1_n_0  | cacheController/reset |               12 |             22 |         1.83 |
-|  clk_BUFG             | cacheController/tag_dir[87][21]_i_1_n_0  | cacheController/reset |               13 |             22 |         1.69 |
-|  clk_BUFG             | cacheController/tag_dir[88][21]_i_1_n_0  | cacheController/reset |                5 |             22 |         4.40 |
-|  clk_BUFG             | cacheController/tag_dir[89][21]_i_1_n_0  | cacheController/reset |               14 |             22 |         1.57 |
-|  clk_BUFG             | cacheController/tag_dir[8][21]_i_1_n_0   | cacheController/reset |               16 |             22 |         1.38 |
-|  clk_BUFG             | cacheController/tag_dir[75][21]_i_1_n_0  | cacheController/reset |                5 |             22 |         4.40 |
-|  clk_BUFG             | cacheController/tag_dir[91][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[92][21]_i_1_n_0  | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[93][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[94][21]_i_1_n_0  | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[95][21]_i_1_n_0  | cacheController/reset |               17 |             22 |         1.29 |
-|  clk_BUFG             | cacheController/tag_dir[96][21]_i_1_n_0  | cacheController/reset |               14 |             22 |         1.57 |
-|  clk_BUFG             | cacheController/tag_dir[97][21]_i_1_n_0  | cacheController/reset |               16 |             22 |         1.38 |
-|  clk_BUFG             | cacheController/tag_dir[98][21]_i_1_n_0  | cacheController/reset |               14 |             22 |         1.57 |
-|  clk_BUFG             | cacheController/tag_dir[99][21]_i_1_n_0  | cacheController/reset |               16 |             22 |         1.38 |
-|  clk_BUFG             | cacheController/tag_dir[9][21]_i_1_n_0   | cacheController/reset |               19 |             22 |         1.16 |
-|  clk_BUFG             | cacheController/p_2_in__0[21]            | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/p_2_in__1[21]            | cacheController/reset |               14 |             22 |         1.57 |
-|  clk_BUFG             | cacheController/tag_dir0_out[21]         | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir0_out__0[21]      | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[0][21]_i_1_n_0   | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[60][21]_i_1_n_0  | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[101][21]_i_1_n_0 | cacheController/reset |                6 |             22 |         3.67 |
-|  clk_BUFG             | cacheController/tag_dir[48][21]_i_1_n_0  | cacheController/reset |                9 |             22 |         2.44 |
-|  clk_BUFG             | cacheController/tag_dir[49][21]_i_1_n_0  | cacheController/reset |                5 |             22 |         4.40 |
-|  clk_BUFG             | cacheController/tag_dir[4][21]_i_1_n_0   | cacheController/reset |                6 |             22 |         3.67 |
-|  clk_BUFG             | cacheController/tag_dir[50][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[51][21]_i_1_n_0  | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[52][21]_i_1_n_0  | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[53][21]_i_1_n_0  | cacheController/reset |                9 |             22 |         2.44 |
-|  clk_BUFG             | cacheController/tag_dir[54][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[55][21]_i_1_n_0  | cacheController/reset |               12 |             22 |         1.83 |
-|  clk_BUFG             | cacheController/tag_dir[56][21]_i_1_n_0  | cacheController/reset |               13 |             22 |         1.69 |
-|  clk_BUFG             | cacheController/tag_dir[57][21]_i_1_n_0  | cacheController/reset |               13 |             22 |         1.69 |
-|  clk_BUFG             | cacheController/tag_dir[58][21]_i_1_n_0  | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[59][21]_i_1_n_0  | cacheController/reset |               16 |             22 |         1.38 |
-|  clk_BUFG             | cacheController/tag_dir[5][21]_i_1_n_0   | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[46][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[61][21]_i_1_n_0  | cacheController/reset |               15 |             22 |         1.47 |
-|  clk_BUFG             | cacheController/tag_dir[62][21]_i_1_n_0  | cacheController/reset |               15 |             22 |         1.47 |
-|  clk_BUFG             | cacheController/tag_dir[63][21]_i_1_n_0  | cacheController/reset |               18 |             22 |         1.22 |
-|  clk_BUFG             | cacheController/tag_dir[64][21]_i_1_n_0  | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[65][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[66][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[67][21]_i_1_n_0  | cacheController/reset |                6 |             22 |         3.67 |
-|  clk_BUFG             | cacheController/tag_dir[68][21]_i_1_n_0  | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[69][21]_i_1_n_0  | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[6][21]_i_1_n_0   | cacheController/reset |               12 |             22 |         1.83 |
-|  clk_BUFG             | cacheController/tag_dir[70][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[71][21]_i_1_n_0  | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[72][21]_i_1_n_0  | cacheController/reset |                6 |             22 |         3.67 |
-|  clk_BUFG             | cacheController/tag_dir[73][21]_i_1_n_0  | cacheController/reset |                6 |             22 |         3.67 |
-|  clk_BUFG             | cacheController/tag_dir[74][21]_i_1_n_0  | cacheController/reset |                5 |             22 |         4.40 |
-|  clk_BUFG             | cacheController/tag_dir[137][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[145][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
-|  clk_BUFG             | cacheController/tag_dir[143][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
-|  clk_BUFG             | cacheController/tag_dir[142][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[141][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[140][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[13][21]_i_1_n_0  | cacheController/reset |                5 |             22 |         4.40 |
-|  clk_BUFG             | cacheController/tag_dir[139][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
-|  clk_BUFG             | cacheController/tag_dir[138][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[146][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
-|  clk_BUFG             | cacheController/tag_dir[136][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[135][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[134][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[133][21]_i_1_n_0 | cacheController/reset |               14 |             22 |         1.57 |
-|  clk_BUFG             | cacheController/tag_dir[132][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[131][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[130][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[12][21]_i_1_n_0  | cacheController/reset |                6 |             22 |         3.67 |
-|  clk_BUFG             | cacheController/tag_dir[147][21]_i_1_n_0 | cacheController/reset |               15 |             22 |         1.47 |
-|  clk_BUFG             | cacheController/tag_dir[148][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[149][21]_i_1_n_0 | cacheController/reset |               13 |             22 |         1.69 |
-|  clk_BUFG             | cacheController/tag_dir[14][21]_i_1_n_0  | cacheController/reset |               16 |             22 |         1.38 |
-|  clk_BUFG             | cacheController/tag_dir[150][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
-|  clk_BUFG             | cacheController/tag_dir[151][21]_i_1_n_0 | cacheController/reset |               13 |             22 |         1.69 |
-|  clk_BUFG             | cacheController/tag_dir[152][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[153][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[154][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[155][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[156][21]_i_1_n_0 | cacheController/reset |               12 |             22 |         1.83 |
-|  clk_BUFG             | cacheController/tag_dir[157][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[158][21]_i_1_n_0 | cacheController/reset |               13 |             22 |         1.69 |
-|  clk_BUFG             | cacheController/tag_dir[159][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[15][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[115][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[100][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
-|  clk_BUFG             | cacheController/tag_dir[102][21]_i_1_n_0 | cacheController/reset |                6 |             22 |         3.67 |
-|  clk_BUFG             | cacheController/tag_dir[103][21]_i_1_n_0 | cacheController/reset |                4 |             22 |         5.50 |
-|  clk_BUFG             | cacheController/tag_dir[104][21]_i_1_n_0 | cacheController/reset |                6 |             22 |         3.67 |
-|  clk_BUFG             | cacheController/tag_dir[105][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
-|  clk_BUFG             | cacheController/tag_dir[106][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[107][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[108][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[109][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[10][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[110][21]_i_1_n_0 | cacheController/reset |               12 |             22 |         1.83 |
-|  clk_BUFG             | cacheController/tag_dir[111][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
-|  clk_BUFG             | cacheController/tag_dir[112][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[113][21]_i_1_n_0 | cacheController/reset |                6 |             22 |         3.67 |
-|  clk_BUFG             | cacheController/tag_dir[114][21]_i_1_n_0 | cacheController/reset |                6 |             22 |         3.67 |
-|  clk_BUFG             | cacheController/tag_dir[216][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[116][21]_i_1_n_0 | cacheController/reset |                6 |             22 |         3.67 |
-|  clk_BUFG             | cacheController/tag_dir[117][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[118][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[119][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
-|  clk_BUFG             | cacheController/tag_dir[11][21]_i_1_n_0  | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[120][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[121][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[122][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[123][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[124][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[125][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[126][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
-|  clk_BUFG             | cacheController/tag_dir[127][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[128][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[129][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[202][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[18][21]_i_1_n_0  | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[190][21]_i_1_n_0 | cacheController/reset |               14 |             22 |         1.57 |
-|  clk_BUFG             | cacheController/tag_dir[191][21]_i_1_n_0 | cacheController/reset |               19 |             22 |         1.16 |
-|  clk_BUFG             | cacheController/tag_dir[192][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[193][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
-|  clk_BUFG             | cacheController/tag_dir[194][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[195][21]_i_1_n_0 | cacheController/reset |                4 |             22 |         5.50 |
-|  clk_BUFG             | cacheController/tag_dir[196][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[197][21]_i_1_n_0 | cacheController/reset |                4 |             22 |         5.50 |
-|  clk_BUFG             | cacheController/tag_dir[198][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[199][21]_i_1_n_0 | cacheController/reset |                6 |             22 |         3.67 |
-|  clk_BUFG             | cacheController/tag_dir[19][21]_i_1_n_0  | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[1][21]_i_1_n_0   | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[200][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[201][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[161][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[203][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[204][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
-|  clk_BUFG             | cacheController/tag_dir[205][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[206][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[207][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[208][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[209][21]_i_1_n_0 | cacheController/reset |                6 |             22 |         3.67 |
-|  clk_BUFG             | cacheController/tag_dir[20][21]_i_1_n_0  | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[210][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[211][21]_i_1_n_0 | cacheController/reset |               10 |             22 |         2.20 |
-|  clk_BUFG             | cacheController/tag_dir[212][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[213][21]_i_1_n_0 | cacheController/reset |                5 |             22 |         4.40 |
-|  clk_BUFG             | cacheController/tag_dir[214][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[215][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[217][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[188][21]_i_1_n_0 | cacheController/reset |               15 |             22 |         1.47 |
-|  clk_BUFG             | cacheController/tag_dir[160][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
-|  clk_BUFG             | cacheController/tag_dir[162][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[163][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[164][21]_i_1_n_0 | cacheController/reset |               12 |             22 |         1.83 |
-|  clk_BUFG             | cacheController/tag_dir[165][21]_i_1_n_0 | cacheController/reset |               14 |             22 |         1.57 |
-|  clk_BUFG             | cacheController/tag_dir[166][21]_i_1_n_0 | cacheController/reset |                7 |             22 |         3.14 |
-|  clk_BUFG             | cacheController/tag_dir[167][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
-|  clk_BUFG             | cacheController/tag_dir[168][21]_i_1_n_0 | cacheController/reset |                6 |             22 |         3.67 |
-|  clk_BUFG             | cacheController/tag_dir[169][21]_i_1_n_0 | cacheController/reset |               14 |             22 |         1.57 |
-|  clk_BUFG             | cacheController/tag_dir[16][21]_i_1_n_0  | cacheController/reset |                5 |             22 |         4.40 |
-|  clk_BUFG             | cacheController/tag_dir[170][21]_i_1_n_0 | cacheController/reset |               14 |             22 |         1.57 |
-|  clk_BUFG             | cacheController/tag_dir[171][21]_i_1_n_0 | cacheController/reset |               13 |             22 |         1.69 |
-|  clk_BUFG             | cacheController/tag_dir[172][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[173][21]_i_1_n_0 | cacheController/reset |               13 |             22 |         1.69 |
-|  clk_BUFG             | cacheController/tag_dir[174][21]_i_1_n_0 | cacheController/reset |                8 |             22 |         2.75 |
-|  clk_BUFG             | cacheController/tag_dir[176][21]_i_1_n_0 | cacheController/reset |                9 |             22 |         2.44 |
-|  clk_BUFG             | cacheController/tag_dir[189][21]_i_1_n_0 | cacheController/reset |               13 |             22 |         1.69 |
-|  clk_BUFG             | cacheController/tag_dir[187][21]_i_1_n_0 | cacheController/reset |               15 |             22 |         1.47 |
-|  clk_BUFG             | cacheController/tag_dir[186][21]_i_1_n_0 | cacheController/reset |               16 |             22 |         1.38 |
-|  clk_BUFG             | cacheController/tag_dir[185][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[184][21]_i_1_n_0 | cacheController/reset |               17 |             22 |         1.29 |
-|  clk_BUFG             | cacheController/tag_dir[183][21]_i_1_n_0 | cacheController/reset |               17 |             22 |         1.29 |
-|  clk_BUFG             | cacheController/tag_dir[182][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[181][21]_i_1_n_0 | cacheController/reset |               12 |             22 |         1.83 |
-|  clk_BUFG             | cacheController/tag_dir[180][21]_i_1_n_0 | cacheController/reset |               15 |             22 |         1.47 |
-|  clk_BUFG             | cacheController/tag_dir[17][21]_i_1_n_0  | cacheController/reset |                6 |             22 |         3.67 |
-|  clk_BUFG             | cacheController/tag_dir[179][21]_i_1_n_0 | cacheController/reset |               11 |             22 |         2.00 |
-|  clk_BUFG             | cacheController/tag_dir[178][21]_i_1_n_0 | cacheController/reset |               15 |             22 |         1.47 |
-|  clk_BUFG             | cacheController/tag_dir[177][21]_i_1_n_0 | cacheController/reset |               14 |             22 |         1.57 |
-|  clk_BUFG             | cacheController/tag_dir[175][21]_i_1_n_0 | cacheController/reset |               16 |             22 |         1.38 |
-|  clk_in_IBUF_BUFG     |                                          | clockDivider/clk_out  |                7 |             26 |         3.71 |
-|  clk_BUFG             | cacheController/tag_dir[222][25]_i_1_n_0 | cacheController/reset |               19 |             39 |         2.05 |
-|  clk_BUFG             | cacheController/p_2_in__0[23]            | cacheController/reset |               72 |             78 |         1.08 |
-|  clk_BUFG             | cacheController/tag_bits__0              |                       |               43 |            110 |         2.56 |
-|  clk_BUFG             | cacheController/tag_dir0_out__0[25]      | cacheController/reset |               82 |            212 |         2.59 |
-|  clk_BUFG             | cacheController/tag_dir[79][23]_i_1_n_0  | cacheController/reset |              378 |            430 |         1.14 |
-+-----------------------+------------------------------------------+-----------------------+------------------+----------------+--------------+
++----------------------------------+------------------------------------------+------------------------------------------+------------------+----------------+--------------+
+|           Clock Signal           |               Enable Signal              |             Set/Reset Signal             | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------------------------+------------------------------------------+------------------------------------------+------------------+----------------+--------------+
+|  bcd1/count_reg_n_0_[10]         |                                          |                                          |                1 |              2 |         2.00 |
+|  clk_in_IBUF_BUFG                | bcd1/A2/r_BCD[15]                        | bcd1/A2/r_BCD[15]_i_1_n_0                |                2 |              4 |         2.00 |
+|  clk_in_IBUF_BUFG                | bcd1/A2/r_BCD[3]_i_2_n_0                 | bcd1/A2/r_BCD[3]_i_1_n_0                 |                2 |              4 |         2.00 |
+|  clk_in_IBUF_BUFG                | bcd1/A2/r_Digit_Index[3]_i_1_n_0         |                                          |                2 |              4 |         2.00 |
+|  clk_in_IBUF_BUFG                | bcd1/A2/r_BCD[11]_i_2_n_0                | bcd1/A2/r_BCD[11]_i_1_n_0                |                2 |              4 |         2.00 |
+|  clk_in_IBUF_BUFG                | bcd1/A2/r_BCD[7]_i_2_n_0                 | bcd1/A2/r_BCD[7]_i_1_n_0                 |                3 |              4 |         1.33 |
+|  bcd1/A4/Segments_reg[6]_i_2_n_0 |                                          |                                          |                2 |              7 |         3.50 |
+|  clk_in_IBUF_BUFG                | bcd1/A2/r_Loop_Count[7]_i_1_n_0          |                                          |                2 |              8 |         4.00 |
+|  clk_BUFG                        |                                          | cacheController/clear                    |                5 |              9 |         1.80 |
+|  clk_BUFG                        |                                          |                                          |                8 |             11 |         1.38 |
+|  clk_BUFG                        | cacheController/fetch_reg_0              | cacheController/clear                    |                4 |             13 |         3.25 |
+|  clk_BUFG                        | cacheController/hit_count[0]_i_1_n_0     | cacheController/clear                    |                4 |             13 |         3.25 |
+|  clk_BUFG                        | cacheController/miss_count[0]_i_1_n_0    | cacheController/clear                    |                4 |             13 |         3.25 |
+|  clk_in_IBUF_BUFG                | bcd1/A2/r_Binary_0                       |                                          |                4 |             13 |         3.25 |
+|  bcd1/A2/E[0]                    |                                          |                                          |                5 |             16 |         3.20 |
+|  clk_BUFG                        | cacheController/tag_dir[191][25]_i_1_n_0 | cacheController/clear                    |                8 |             19 |         2.38 |
+|  clk_BUFG                        | cacheController/p_423_in[21]             |                                          |               13 |             22 |         1.69 |
+|  clk_BUFG                        | cacheController/p_399_in[21]             |                                          |               13 |             22 |         1.69 |
+|  clk_BUFG                        | cacheController/p_421_in[21]             |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_41_in[21]              |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_419_in[21]             |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_417_in[21]             |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_415_in[21]             |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_413_in[21]             |                                          |               14 |             22 |         1.57 |
+|  clk_BUFG                        | cacheController/p_411_in[21]             |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_409_in[21]             |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_407_in[21]             |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_405_in[21]             |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_403_in[21]             |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_401_in[21]             |                                          |               13 |             22 |         1.69 |
+|  clk_BUFG                        | cacheController/p_3_in[21]               |                                          |               13 |             22 |         1.69 |
+|  clk_BUFG                        | cacheController/p_39_in[21]              |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_453_in[21]             |                                          |                5 |             22 |         4.40 |
+|  clk_BUFG                        | cacheController/p_425_in[21]             |                                          |               13 |             22 |         1.69 |
+|  clk_BUFG                        | cacheController/p_427_in[21]             |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_429_in[21]             |                                          |               14 |             22 |         1.57 |
+|  clk_BUFG                        | cacheController/p_431_in[21]             |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_433_in[21]             |                                          |               11 |             22 |         2.00 |
+|  clk_BUFG                        | cacheController/p_435_in[21]             |                                          |               13 |             22 |         1.69 |
+|  clk_BUFG                        | cacheController/p_437_in[21]             |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_439_in[21]             |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_43_in[21]              |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_441_in[21]             |                                          |               12 |             22 |         1.83 |
+|  clk_BUFG                        | cacheController/p_443_in[21]             |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_445_in[21]             |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_447_in[21]             |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_449_in[21]             |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_451_in[21]             |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_33_in[21]              |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_367_in[21]             |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_109_in[21]             |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_341_in[21]             |                                          |               15 |             22 |         1.47 |
+|  clk_BUFG                        | cacheController/p_343_in[21]             |                                          |               11 |             22 |         2.00 |
+|  clk_BUFG                        | cacheController/p_345_in[21]             |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_347_in[21]             |                                          |               11 |             22 |         2.00 |
+|  clk_BUFG                        | cacheController/p_349_in[21]             |                                          |               16 |             22 |         1.38 |
+|  clk_BUFG                        | cacheController/p_351_in[21]             |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_353_in[21]             |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_355_in[21]             |                                          |               11 |             22 |         2.00 |
+|  clk_BUFG                        | cacheController/p_357_in[21]             |                                          |               15 |             22 |         1.47 |
+|  clk_BUFG                        | cacheController/p_359_in[21]             |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_35_in[21]              |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_361_in[21]             |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_363_in[21]             |                                          |               19 |             22 |         1.16 |
+|  clk_BUFG                        | cacheController/p_365_in[21]             |                                          |               12 |             22 |         1.83 |
+|  clk_BUFG                        | cacheController/p_397_in[21]             |                                          |               15 |             22 |         1.47 |
+|  clk_BUFG                        | cacheController/p_369_in[21]             |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_371_in[21]             |                                          |               11 |             22 |         2.00 |
+|  clk_BUFG                        | cacheController/p_373_in[21]             |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_375_in[21]             |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_377_in[21]             |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_379_in[21]             |                                          |               15 |             22 |         1.47 |
+|  clk_BUFG                        | cacheController/p_37_in[21]              |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_381_in[21]             |                                          |               14 |             22 |         1.57 |
+|  clk_BUFG                        | cacheController/p_383_in[21]             |                                          |               11 |             22 |         2.00 |
+|  clk_BUFG                        | cacheController/p_385_in[21]             |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_387_in[21]             |                                          |               13 |             22 |         1.69 |
+|  clk_BUFG                        | cacheController/p_389_in[21]             |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_391_in[21]             |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_393_in[21]             |                                          |               13 |             22 |         1.69 |
+|  clk_BUFG                        | cacheController/p_395_in[21]             |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_67_in[21]              |                                          |               13 |             22 |         1.69 |
+|  clk_BUFG                        | cacheController/p_81_in[21]              |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_7_in[21]               |                                          |               12 |             22 |         1.83 |
+|  clk_BUFG                        | cacheController/p_79_in[21]              |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_77_in[21]              |                                          |                4 |             22 |         5.50 |
+|  clk_BUFG                        | cacheController/p_75_in[21]              |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_73_in[21]              |                                          |                5 |             22 |         4.40 |
+|  clk_BUFG                        | cacheController/p_71_in[21]              |                                          |               11 |             22 |         2.00 |
+|  clk_BUFG                        | cacheController/p_69_in[21]              |                                          |                4 |             22 |         5.50 |
+|  clk_BUFG                        | cacheController/p_83_in[21]              |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_65_in[21]              |                                          |                5 |             22 |         4.40 |
+|  clk_BUFG                        | cacheController/p_63_in[21]              |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_61_in[21]              |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_5_in[21]               |                                          |               14 |             22 |         1.57 |
+|  clk_BUFG                        | cacheController/p_59_in[21]              |                                          |                5 |             22 |         4.40 |
+|  clk_BUFG                        | cacheController/p_57_in[21]              |                                          |                5 |             22 |         4.40 |
+|  clk_BUFG                        | cacheController/p_55_in[21]              |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_53_in[21]              |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_85_in[21]              |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_87_in[21]              |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_89_in[21]              |                                          |                5 |             22 |         4.40 |
+|  clk_BUFG                        | cacheController/p_91_in[21]              |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_93_in[21]              |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_95_in[21]              |                                          |               11 |             22 |         2.00 |
+|  clk_BUFG                        | cacheController/p_97_in[21]              |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_99_in[21]              | cacheController/tag_dir[205][21]_i_1_n_0 |                5 |             22 |         4.40 |
+|  clk_BUFG                        | cacheController/p_9_in[21]               |                                          |               14 |             22 |         1.57 |
+|  clk_in_IBUF_BUFG                |                                          |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_105_in[21]             |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_103_in[21]             |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_101_in[21]             |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/tag_dir[255][21]_i_1_n_0 |                                          |               14 |             22 |         1.57 |
+|  clk_BUFG                        | cacheController/tag_dir[254][21]_i_1_n_0 |                                          |               15 |             22 |         1.47 |
+|  clk_BUFG                        | cacheController/p_483_in[21]             |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_457_in[21]             |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_459_in[21]             |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_45_in[21]              |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_461_in[21]             |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_463_in[21]             |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_465_in[21]             |                                          |               12 |             22 |         1.83 |
+|  clk_BUFG                        | cacheController/p_467_in[21]             |                                          |               12 |             22 |         1.83 |
+|  clk_BUFG                        | cacheController/p_469_in[21]             |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_471_in[21]             |                                          |               12 |             22 |         1.83 |
+|  clk_BUFG                        | cacheController/p_473_in[21]             |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_475_in[21]             |                                          |               11 |             22 |         2.00 |
+|  clk_BUFG                        | cacheController/p_477_in[21]             |                                          |               14 |             22 |         1.57 |
+|  clk_BUFG                        | cacheController/p_479_in[21]             |                                          |                5 |             22 |         4.40 |
+|  clk_BUFG                        | cacheController/p_47_in[21]              |                                          |                5 |             22 |         4.40 |
+|  clk_BUFG                        | cacheController/p_481_in[21]             |                                          |               12 |             22 |         1.83 |
+|  clk_BUFG                        | cacheController/p_455_in[21]             |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_485_in[21]             |                                          |                4 |             22 |         5.50 |
+|  clk_BUFG                        | cacheController/p_487_in[21]             |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_489_in[21]             |                                          |               15 |             22 |         1.47 |
+|  clk_BUFG                        | cacheController/p_491_in[21]             |                                          |               17 |             22 |         1.29 |
+|  clk_BUFG                        | cacheController/p_493_in[21]             |                                          |               15 |             22 |         1.47 |
+|  clk_BUFG                        | cacheController/p_495_in[21]             |                                          |               16 |             22 |         1.38 |
+|  clk_BUFG                        | cacheController/p_497_in[21]             |                                          |               16 |             22 |         1.38 |
+|  clk_BUFG                        | cacheController/p_499_in[21]             |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_49_in[21]              |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_501_in[21]             |                                          |               12 |             22 |         1.83 |
+|  clk_BUFG                        | cacheController/p_503_in[21]             |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_505_in[21]             |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_507_in[21]             |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_509_in[21]             |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_51_in[21]              |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_195_in[21]             |                                          |               11 |             22 |         2.00 |
+|  clk_BUFG                        | cacheController/p_167_in[21]             |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_169_in[21]             |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_171_in[21]             |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_173_in[21]             |                                          |               16 |             22 |         1.38 |
+|  clk_BUFG                        | cacheController/p_175_in[21]             |                                          |               12 |             22 |         1.83 |
+|  clk_BUFG                        | cacheController/p_177_in[21]             |                                          |                5 |             22 |         4.40 |
+|  clk_BUFG                        | cacheController/p_179_in[21]             |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_17_in[21]              |                                          |               16 |             22 |         1.38 |
+|  clk_BUFG                        | cacheController/p_181_in[21]             |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_183_in[21]             |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_185_in[21]             |                                          |                4 |             22 |         5.50 |
+|  clk_BUFG                        | cacheController/p_187_in[21]             |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_189_in[21]             |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_191_in[21]             |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_193_in[21]             |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_165_in[21]             |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_197_in[21]             |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_199_in[21]             |                                          |                5 |             22 |         4.40 |
+|  clk_BUFG                        | cacheController/p_19_in[21]              |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_201_in[21]             |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_203_in[21]             |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_205_in[21]             |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_207_in[21]             |                                          |                4 |             22 |         5.50 |
+|  clk_BUFG                        | cacheController/p_209_in[21]             |                                          |                3 |             22 |         7.33 |
+|  clk_BUFG                        | cacheController/p_211_in[21]             |                                          |               11 |             22 |         2.00 |
+|  clk_BUFG                        | cacheController/p_213_in[21]             |                                          |               12 |             22 |         1.83 |
+|  clk_BUFG                        | cacheController/p_215_in[21]             |                                          |                4 |             22 |         5.50 |
+|  clk_BUFG                        | cacheController/p_217_in[21]             |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_219_in[21]             |                                          |                5 |             22 |         4.40 |
+|  clk_BUFG                        | cacheController/p_21_in[21]              |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_221_in[21]             |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_137_in[21]             |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_107_in[21]             |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_111_in[21]             | cacheController/tag_dir[199][21]_i_1_n_0 |                4 |             22 |         5.50 |
+|  clk_BUFG                        | cacheController/p_113_in[21]             |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_115_in[21]             |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_117_in[21]             |                                          |                4 |             22 |         5.50 |
+|  clk_BUFG                        | cacheController/p_119_in[21]             |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_11_in[21]              |                                          |               16 |             22 |         1.38 |
+|  clk_BUFG                        | cacheController/p_121_in[21]             | cacheController/tag_dir[194][21]_i_1_n_0 |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_123_in[21]             |                                          |                5 |             22 |         4.40 |
+|  clk_BUFG                        | cacheController/p_125_in[21]             |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_127_in[21]             |                                          |               11 |             22 |         2.00 |
+|  clk_BUFG                        | cacheController/p_129_in[21]             |                                          |               13 |             22 |         1.69 |
+|  clk_BUFG                        | cacheController/p_131_in[21]             |                                          |               13 |             22 |         1.69 |
+|  clk_BUFG                        | cacheController/p_133_in[21]             |                                          |               17 |             22 |         1.29 |
+|  clk_BUFG                        | cacheController/p_135_in[21]             |                                          |               13 |             22 |         1.69 |
+|  clk_BUFG                        | cacheController/p_337_in[21]             |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_139_in[21]             |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_13_in[21]              |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_141_in[21]             |                                          |               13 |             22 |         1.69 |
+|  clk_BUFG                        | cacheController/p_143_in[21]             |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_145_in[21]             | cacheController/tag_dir[182][21]_i_1_n_0 |               11 |             22 |         2.00 |
+|  clk_BUFG                        | cacheController/p_147_in[21]             |                                          |               11 |             22 |         2.00 |
+|  clk_BUFG                        | cacheController/p_149_in[21]             |                                          |               13 |             22 |         1.69 |
+|  clk_BUFG                        | cacheController/p_151_in[21]             | cacheController/tag_dir[179][21]_i_1_n_0 |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_153_in[21]             | cacheController/tag_dir[178][21]_i_1_n_0 |                5 |             22 |         4.40 |
+|  clk_BUFG                        | cacheController/p_155_in[21]             |                                          |               12 |             22 |         1.83 |
+|  clk_BUFG                        | cacheController/p_157_in[21]             |                                          |               12 |             22 |         1.83 |
+|  clk_BUFG                        | cacheController/p_159_in[21]             |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_15_in[21]              |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_161_in[21]             |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_163_in[21]             |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_309_in[21]             |                                          |               11 |             22 |         2.00 |
+|  clk_BUFG                        | cacheController/p_281_in[21]             |                                          |               11 |             22 |         2.00 |
+|  clk_BUFG                        | cacheController/p_283_in[21]             |                                          |               12 |             22 |         1.83 |
+|  clk_BUFG                        | cacheController/p_285_in[21]             |                                          |               16 |             22 |         1.38 |
+|  clk_BUFG                        | cacheController/p_287_in[21]             |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_289_in[21]             |                                          |               11 |             22 |         2.00 |
+|  clk_BUFG                        | cacheController/p_291_in[21]             |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_293_in[21]             |                                          |               18 |             22 |         1.22 |
+|  clk_BUFG                        | cacheController/p_295_in[21]             |                                          |               13 |             22 |         1.69 |
+|  clk_BUFG                        | cacheController/p_297_in[21]             |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_299_in[21]             |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_29_in[21]              |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_301_in[21]             |                                          |               15 |             22 |         1.47 |
+|  clk_BUFG                        | cacheController/p_303_in[21]             |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_305_in[21]             |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_307_in[21]             |                                          |                4 |             22 |         5.50 |
+|  clk_BUFG                        | cacheController/p_225_in[21]             |                                          |                4 |             22 |         5.50 |
+|  clk_BUFG                        | cacheController/p_311_in[21]             |                                          |               18 |             22 |         1.22 |
+|  clk_BUFG                        | cacheController/p_313_in[21]             |                                          |               13 |             22 |         1.69 |
+|  clk_BUFG                        | cacheController/p_315_in[21]             |                                          |               15 |             22 |         1.47 |
+|  clk_BUFG                        | cacheController/p_317_in[21]             |                                          |               20 |             22 |         1.10 |
+|  clk_BUFG                        | cacheController/p_319_in[21]             |                                          |               18 |             22 |         1.22 |
+|  clk_BUFG                        | cacheController/p_31_in[21]              |                                          |               12 |             22 |         1.83 |
+|  clk_BUFG                        | cacheController/p_321_in[21]             |                                          |               12 |             22 |         1.83 |
+|  clk_BUFG                        | cacheController/p_323_in[21]             |                                          |               14 |             22 |         1.57 |
+|  clk_BUFG                        | cacheController/p_325_in[21]             |                                          |               20 |             22 |         1.10 |
+|  clk_BUFG                        | cacheController/p_327_in[21]             |                                          |               12 |             22 |         1.83 |
+|  clk_BUFG                        | cacheController/p_329_in[21]             |                                          |               11 |             22 |         2.00 |
+|  clk_BUFG                        | cacheController/p_331_in[21]             |                                          |               11 |             22 |         2.00 |
+|  clk_BUFG                        | cacheController/p_333_in[21]             |                                          |               16 |             22 |         1.38 |
+|  clk_BUFG                        | cacheController/p_335_in[21]             |                                          |               14 |             22 |         1.57 |
+|  clk_BUFG                        | cacheController/p_339_in[21]             |                                          |               13 |             22 |         1.69 |
+|  clk_BUFG                        | cacheController/p_279_in[21]             |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_223_in[21]             |                                          |                4 |             22 |         5.50 |
+|  clk_BUFG                        | cacheController/p_227_in[21]             |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_229_in[21]             |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_231_in[21]             |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_233_in[21]             |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_235_in[21]             | cacheController/tag_dir[137][21]_i_1_n_0 |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_237_in[21]             |                                          |               11 |             22 |         2.00 |
+|  clk_BUFG                        | cacheController/p_239_in[21]             |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_23_in[21]              |                                          |               14 |             22 |         1.57 |
+|  clk_BUFG                        | cacheController/p_241_in[21]             |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_243_in[21]             |                                          |                5 |             22 |         4.40 |
+|  clk_BUFG                        | cacheController/p_245_in[21]             |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_247_in[21]             |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_249_in[21]             |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_251_in[21]             |                                          |                7 |             22 |         3.14 |
+|  clk_BUFG                        | cacheController/p_255_in[21]             |                                          |                5 |             22 |         4.40 |
+|  clk_BUFG                        | cacheController/p_27_in[21]              |                                          |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_277_in[21]             |                                          |               13 |             22 |         1.69 |
+|  clk_BUFG                        | cacheController/p_275_in[21]             |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_273_in[21]             |                                          |                4 |             22 |         5.50 |
+|  clk_BUFG                        | cacheController/p_271_in[21]             | cacheController/tag_dir[119][21]_i_1_n_0 |                8 |             22 |         2.75 |
+|  clk_BUFG                        | cacheController/p_269_in[21]             |                                          |               16 |             22 |         1.38 |
+|  clk_BUFG                        | cacheController/p_267_in[21]             |                                          |               16 |             22 |         1.38 |
+|  clk_BUFG                        | cacheController/p_265_in[21]             |                                          |                6 |             22 |         3.67 |
+|  clk_BUFG                        | cacheController/p_263_in[21]             |                                          |               11 |             22 |         2.00 |
+|  clk_BUFG                        | cacheController/p_261_in[21]             |                                          |               10 |             22 |         2.20 |
+|  clk_BUFG                        | cacheController/p_25_in[21]              |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_259_in[21]             |                                          |                9 |             22 |         2.44 |
+|  clk_BUFG                        | cacheController/p_257_in[21]             |                                          |               11 |             22 |         2.00 |
+|  clk_BUFG                        | cacheController/p_253_in[21]             |                                          |                8 |             22 |         2.75 |
+|  clk_in_IBUF_BUFG                |                                          | clockDivider/counter0_carry__1_n_3       |                7 |             27 |         3.86 |
+|  clk_BUFG                        | cacheController/p_127_in[23]             | cacheController/clear                    |               29 |             38 |         1.31 |
+|  clk_BUFG                        | cacheController/tag_bits__0              |                                          |               26 |             68 |         2.62 |
+|  clk_BUFG                        | cacheController/p_129_in[25]             | cacheController/clear                    |              113 |            236 |         2.09 |
+|  clk_BUFG                        | cacheController/p_129_in[23]             | cacheController/clear                    |              373 |            472 |         1.27 |
++----------------------------------+------------------------------------------+------------------------------------------+------------------+----------------+--------------+
 
 

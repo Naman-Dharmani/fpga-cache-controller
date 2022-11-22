@@ -1,8 +1,8 @@
 `timescale 1ns / 1ps
 
 module Binary_to_BCD
-  #(parameter INPUT_WIDTH,
-    parameter DECIMAL_DIGITS)
+  #(parameter INPUT_WIDTH = 8,
+    parameter DECIMAL_DIGITS = 3)
   (
    input                         i_Clock,
    input [INPUT_WIDTH-1:0]       i_Binary,

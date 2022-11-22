@@ -4,8 +4,8 @@ module CacheController #(parameter n_pa_bits = 32)(
     input clk, reset, halt,
     input [n_pa_bits:0] instruction,
     output reg fetch,
-    output reg [7:0] hit_count,
-    output reg [7:0] miss_count
+    output reg [12:0] hit_count,
+    output reg [12:0] miss_count
 );
 
     parameter n_blk_bits = 4;
@@ -35,11 +35,10 @@ module CacheController #(parameter n_pa_bits = 32)(
 
     integer i;
 
-    always @(posedge clk or negedge reset) begin
+    always @(posedge clk) begin
         if (!reset) begin
             // Reset
             state <= 6;
-            state_ready <= 1;
             hit_count <= 0;
             miss_count <= 0;
             fetch <= 0;
@@ -54,7 +53,6 @@ module CacheController #(parameter n_pa_bits = 32)(
         else begin
             
             if (!halt) begin
-                state_ready <= 0;
                 case(state)
                     0: begin
                         // Read instruction and proceed to next state

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="bram2_blk_mem_gen_0_0_synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1669073000">
+  <File Type="RDS-DCP" Name="bram2_blk_mem_gen_0_0.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="bram2_blk_mem_gen_0_0_utilization_synth.pb"/>
+  <File Type="PA-TCL" Name="bram2_blk_mem_gen_0_0.tcl"/>
+  <File Type="RDS-UTIL" Name="bram2_blk_mem_gen_0_0_utilization_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="bram2_blk_mem_gen_0_0_reports.tcl"/>
+  <File Type="RDS-RDS" Name="bram2_blk_mem_gen_0_0.vds"/>
+  <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/bram2_blk_mem_gen_0_0">
+    <File Path="$PSRCDIR/sources_1/bd/bram2/ip/bram2_blk_mem_gen_0_0/bram2_blk_mem_gen_0_0.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="bram2_blk_mem_gen_0_0"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/bram2_blk_mem_gen_0_0">
+    <File Path="$PSRCDIR/sources_1/bd/bram2/ip/bram2_blk_mem_gen_0_0/bram2_blk_mem_gen_0_0.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="bram2_blk_mem_gen_0_0"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <File Path="$PSRCDIR/utils_1/imports/synth_1/TopModule.dcp">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedInSteps" Val="synth_1"/>
+        <Attr Name="AutoDcp" Val="1"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.1 (lin64) Build 3526262 Mon Apr 18 15:47:01 MDT 2022
-| Date             : Sun Nov 20 21:59:46 2022
+| Date             : Tue Nov 22 16:03:48 2022
 | Host             : kite running 64-bit CachyOS
 | Command          : report_power -file TopModule_power_routed.rpt -pb TopModule_power_summary_routed.pb -rpx TopModule_power_routed.rpx
 | Design           : TopModule
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.117        |
+| Total On-Chip Power (W)  | 0.113        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.020        |
+| Dynamic (W)              | 0.016        |
 | Device Static (W)        | 0.097        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 84.5         |
@@ -53,18 +53,18 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.001 |        3 |       --- |             --- |
-| Slice Logic    |     0.003 |    13330 |       --- |             --- |
-|   LUT as Logic |     0.003 |     4982 |     63400 |            7.86 |
-|   CARRY4       |    <0.001 |       24 |     15850 |            0.15 |
-|   Register     |    <0.001 |     6600 |    126800 |            5.21 |
-|   F7/F8 Muxes  |    <0.001 |     1384 |     63400 |            2.18 |
-|   Others       |     0.000 |       29 |       --- |             --- |
+| Slice Logic    |     0.001 |    13352 |       --- |             --- |
+|   LUT as Logic |     0.001 |     4820 |     63400 |            7.60 |
+|   Register     |    <0.001 |     6639 |    126800 |            5.24 |
+|   CARRY4       |    <0.001 |       35 |     15850 |            0.22 |
+|   F7/F8 Muxes  |    <0.001 |     1460 |     63400 |            2.30 |
+|   Others       |     0.000 |       36 |       --- |             --- |
 |   BUFG         |     0.000 |        1 |        32 |            3.13 |
-| Signals        |     0.004 |     9807 |       --- |             --- |
+| Signals        |     0.001 |     9598 |       --- |             --- |
 | Block RAM      |     0.000 |      7.5 |       135 |            5.56 |
-| I/O            |     0.012 |       31 |       210 |           14.76 |
+| I/O            |     0.012 |       36 |       210 |           17.14 |
 | Static Power   |     0.097 |          |           |                 |
-| Total          |     0.117 |          |           |                 |
+| Total          |     0.113 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,7 +74,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.023 |       0.008 |      0.015 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.019 |       0.004 |      0.015 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.019 |       0.000 |      0.018 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.007 |       0.003 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -143,8 +143,10 @@ Table of Contents
 +-------------------+-----------+
 | Name              | Power (W) |
 +-------------------+-----------+
-| TopModule         |     0.020 |
-|   cacheController |     0.006 |
+| TopModule         |     0.016 |
+|   bcd1            |     0.002 |
+|     A2            |     0.001 |
+|   cacheController |     0.001 |
 +-------------------+-----------+
 
 

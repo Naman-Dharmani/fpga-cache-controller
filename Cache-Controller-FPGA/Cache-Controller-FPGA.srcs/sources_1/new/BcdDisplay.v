@@ -24,9 +24,9 @@ module BcdDisplay(
     reg [15:0] r_BCD;
     wire i_Start = count[6];
     
-    Decoder A1({count[12], Sel}, Digit_En);
+    Decoder A1({count[16], Sel}, Digit_En);
     
-    Binary_to_BCD #(.INPUT_WIDTH(13), .DECIMAL_DIGITS(4)) A2(clk, (count[12] ? Number1 : Number2), i_Start, o_BCD, o_DV);
+    Binary_to_BCD #(.INPUT_WIDTH(13), .DECIMAL_DIGITS(4)) A2(clk, (count[16] ? Number1 : Number2), i_Start, o_BCD, o_DV);
     
     Mux_4to1 A3(Sel, r_BCD, BCD_Digit);
     

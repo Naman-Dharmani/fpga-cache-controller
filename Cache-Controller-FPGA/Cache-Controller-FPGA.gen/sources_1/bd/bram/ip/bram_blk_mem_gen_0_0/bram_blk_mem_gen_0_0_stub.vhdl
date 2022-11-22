@@ -1,7 +1,7 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.1 (lin64) Build 3526262 Mon Apr 18 15:47:01 MDT 2022
--- Date        : Sun Nov 20 00:35:14 2022
+-- Date        : Mon Nov 21 06:09:11 2022
 -- Host        : kite running 64-bit CachyOS
 -- Command     : write_vhdl -force -mode synth_stub -rename_top bram_blk_mem_gen_0_0 -prefix
 --               bram_blk_mem_gen_0_0_ bram_blk_mem_gen_0_0_stub.vhdl

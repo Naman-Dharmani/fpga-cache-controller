@@ -3,10 +3,10 @@
 
 # XDC: new/constraints.xdc
 
-# Block Designs: bd/bram/bram.bd
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bram || ORIG_REF_NAME==bram} -quiet] -quiet
+# Block Designs: bd/bram3/bram3.bd
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bram3 || ORIG_REF_NAME==bram3} -quiet] -quiet
 
-# IP: bd/bram/ip/bram_blk_mem_gen_0_0/bram_blk_mem_gen_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bram_blk_mem_gen_0_0 || ORIG_REF_NAME==bram_blk_mem_gen_0_0} -quiet] -quiet
+# IP: bd/bram3/ip/bram3_blk_mem_gen_0_0/bram3_blk_mem_gen_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==bram3_blk_mem_gen_0_0 || ORIG_REF_NAME==bram3_blk_mem_gen_0_0} -quiet] -quiet
 
-# XDC: /home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.gen/sources_1/bd/bram/bram_ooc.xdc
+# XDC: /home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.gen/sources_1/bd/bram3/bram3_ooc.xdc

@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -88,17 +89,18 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 add_files /home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/BRAM_blk_mem_gen_0_0.coe
+add_files /home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/BRAM_3_blk_mem_gen_0_0.coe
 read_verilog -library xil_defaultlib {
   /home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.srcs/sources_1/new/BcdDisplay.v
   /home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.srcs/sources_1/new/BinBcdConverter.v
   /home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.srcs/sources_1/new/CacheController.v
   /home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.srcs/sources_1/new/ClockDivider.v
-  /home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.gen/sources_1/bd/bram/hdl/bram_wrapper.v
+  /home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.srcs/sources_1/imports/hdl/bram3_wrapper.v
   /home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.srcs/sources_1/new/TopModule.v
 }
-add_files /home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.srcs/sources_1/bd/bram/bram.bd
-set_property used_in_implementation false [get_files -all /home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.gen/sources_1/bd/bram/ip/bram_blk_mem_gen_0_0/bram_blk_mem_gen_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.gen/sources_1/bd/bram/bram_ooc.xdc]
+add_files /home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.srcs/sources_1/bd/bram3/bram3.bd
+set_property used_in_implementation false [get_files -all /home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.gen/sources_1/bd/bram3/ip/bram3_blk_mem_gen_0_0/bram3_blk_mem_gen_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/eelfire/iitgn/2_i/ES203/project/id-8/Cache-Controller-FPGA/Cache-Controller-FPGA.gen/sources_1/bd/bram3/bram3_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
